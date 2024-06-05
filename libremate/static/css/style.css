@@ -1,0 +1,17 @@
+body {
+    background-color: #DAF7A6;
+}
+
+main {
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 90vw;
+    background-color: #A6DAF7;
+    box-shadow: 0 0 10px 0px #A6DAF7;
+}
+
+.accent {
+    background-color: #F7A6DA;
+}

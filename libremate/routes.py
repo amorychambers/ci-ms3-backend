@@ -45,7 +45,7 @@ def signin():
             # Check password is correct
             if check_password_hash(q.first().password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Hello, {}!".format(request.form.get("username")))
+                flash(f"Hello, {session.user}!")
                 return redirect(url_for("home"))
             else:
                 # Password is not correct
@@ -59,3 +59,8 @@ def signout():
     session.clear()
     flash("You have been logged out")
     return render_template("base.html")
+
+
+@app.route("/my_library")
+def my_library():
+    return render_template("my_library.html")

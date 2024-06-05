@@ -3,4 +3,30 @@
 
 <h1>Sign In</h1>
 
+<div class="container">
+    <form action="{{ url_for('signin') }}" method="POST" class="needs-validation">
+        <div class="row">
+            <div class="col">
+                <label for="username" class="form-label">Username</label>
+                <input id="username" name="username" class="form-control" type="text" minlength="3" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{3,15}$" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" class="form-control" type="password" minlength="8"
+                    maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
+            </div>
+        </div>
+        <div class="row">
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-large btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/validate.js')}}"></script>
 {% endblock %}

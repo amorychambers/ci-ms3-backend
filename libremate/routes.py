@@ -23,10 +23,12 @@ def register():
                 password=generate_password_hash(request.form.get("new-password")),
                 private=True if hasattr(request.form.get("private"), "checked") else False
             )
-            db.sesion.add(reader)
+            db.session.add(reader)
             db.session.commit()
             session["user"] = request.form.get("username").lower()
             flash("Registration successful!")
-            redirect(url_for("base.html"))
+            redirect(url_for("home"))
     
     return render_template("register.html")
+
+

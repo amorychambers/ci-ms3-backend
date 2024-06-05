@@ -13,22 +13,42 @@ def home():
 def register():
     if request.method == "POST":
         # Check if username already exists
-        q = db.session.query(Reader.id).filter(Reader.username==request.form.get("username").lower())
+        q = db.session.query(Reader.id).filter(
+            Reader.username == request.form.get("username").lower())
         if db.session.query(q.exists()).scalar():
             flash("Username already taken")
             redirect(url_for("register"))
         else:
             reader = Reader(
                 username=request.form.get("username").lower(),
-                password=generate_password_hash(request.form.get("new-password")),
-                private=True if hasattr(request.form.get("private"), "checked") else False
+                password=generate_password_hash(
+                    request.form.get("new-password")),
+                private=True if hasattr(request.form.get(
+                    "private"), "checked") else False
             )
             db.session.add(reader)
             db.session.commit()
             session["user"] = request.form.get("username").lower()
             flash("Registration successful!")
             redirect(url_for("home"))
-    
+
     return render_template("register.html")
 
 
+@app.route("/signin", methods=["GET", "POST"])
+def signin():
+    if request.method == "POST":
+        # Check that username exists
+        q = db.session.query(Reader).filter(
+            Reader.username == request.form.get("username").lower())
+        if db.session.query(q.exists()).scalar():
+            # Check password is correct
+            if check_password_hash(q.first().password, request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Hello, {}!".format(request.form.get("username")))
+                return redirect(url_for("home"))
+            else:
+                # Password is not correct
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("signin"))
+    return render_template("signin.html")

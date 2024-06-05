@@ -1,5 +1,6 @@
 body {
     background-color: #DAF7A6;
+    font-family: 'Cactus Classical Serif', serif;
 }
 
 main {
@@ -14,4 +15,13 @@ main {
 
 .accent {
     background-color: #F7A6DA;
+}
+
+.navbar-brand {
+    font-family: 'Whisper';
+    font-size: 3em;
+}
+
+header {
+    border-bottom: solid 1px #F7A6DA;
 }

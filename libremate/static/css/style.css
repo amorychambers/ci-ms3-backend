@@ -1,3 +1,5 @@
+/* ------------ General Styles ------------ */
+
 body {
     background-color: #DAF7A6;
     font-family: 'Cactus Classical Serif', serif;
@@ -17,6 +19,13 @@ main {
     background-color: #F7A6DA;
 }
 
+.center {
+    text-align: center;
+}
+
+.navbar {
+    padding: 0;
+}
 .navbar-brand {
     font-family: 'Whisper';
     font-size: 3em;
@@ -24,4 +33,18 @@ main {
 
 header {
     border-bottom: solid 1px #F7A6DA;
+}
+
+h1, input {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 1.5rem;
+}
+
+#private {
+    padding-top: 0;;
 }

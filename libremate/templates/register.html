@@ -4,23 +4,29 @@
 <h1>Register</h1>
 
 <div class="container">
-    <form action="" method="POST">
+    <form action="" method="POST" class="needs-validation" novalidate>
         <div class="row">
             <div class="col">
-                <input id="username" name="username" type="text" minlength="3" maxlength="15" pattern="^[a-zA-Z0-9]{3,15}$" required>
-                <label for="username">Username</label>
+                <label for="username" class="form-label">Username</label>
+                <input id="username" name="username" class="form-control" type="text" minlength="3" maxlength="15" pattern="^[a-zA-Z0-9]{3,15}$" required>
+                <div class="valid-feedback">Valid!</div>
+                <div class="invalid-feedback">Please enter a username between 3 and 15 characters using no special characters.</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <input id="password" name="password" type="password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
-                <label for="password">Password</label>
+                <label for="new-password" class="form-label">Password</label>
+                <input id="new-password" name="new-password" class="form-control" type="password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
+                <div class="valid-feedback">Valid!</div>
+                <div class="invalid-feedback">Please enter a password between 8 and 20 characters using only letters and numbers.</div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <input id="confirm-password" name="confirm-password" type="password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
-                <label for="password">Confirm Password</label>
+                <label for="confirm" class="form-label">Confirm Password</label>
+                <input id="confirm" name="confirm" class="form-control" type="password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
+                <div class="valid-feedback">Valid!</div>
+                <div class="invalid-feedback">Please enter the same password again.</div>
             </div>
         </div>
         <div class="row">
@@ -31,4 +37,5 @@
     </form>
 </div>
 
+<script src="{{ url_for('static', filename='js/validate.js')}}"></script>
 {% endblock %}

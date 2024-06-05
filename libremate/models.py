@@ -1,5 +1,6 @@
 from libremate import db
 
+
 class Reader(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(15), unique=True, nullable=False)
@@ -13,13 +14,14 @@ class Reader(db.Model):
 class Genre(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     genre_name = db.Column(db.String(20), nullable=False)
-    genre_owner = db.Column(db.String(15), db.ForeignKey("reader.username"), nullable=False)
+    genre_owner = db.Column(db.String(15), db.ForeignKey(
+        "reader.username"), nullable=False)
     books = db.relationship("Book", backref="genre", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return self.genre_name
-    
+
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -31,7 +33,8 @@ class Book(db.Model):
     isbn = db.Column(db.Integer)
     created_on = db.Column(db.Date, nullable=False)
     book_genre = db.Column(db.Integer, db.ForeignKey("genre.id"))
-    book_owner = db.Column(db.String(15), db.ForeignKey("reader.username"), nullable=False)
+    book_owner = db.Column(db.String(15), db.ForeignKey(
+        "reader.username"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string

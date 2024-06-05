@@ -52,3 +52,10 @@ def signin():
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("signin"))
     return render_template("signin.html")
+
+
+@app.route("/signout")
+def signout():
+    session.clear()
+    flash("You have been logged out")
+    return render_template("base.html")

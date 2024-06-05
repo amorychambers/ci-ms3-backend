@@ -26,9 +26,19 @@
         <div class="row">
             <div class="col">
                 <label for="confirm" class="form-label">Confirm Password</label>
+                <i class="fa-regular fa-circle-question" data-bs-toggle="popover" data-bs-content="Please enter the same password again"></i>
                 <input id="confirm" name="confirm" class="form-control" type="password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
                 <div class="valid-feedback">Valid!</div>
                 <div class="invalid-feedback">Please enter the same password again.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="private" class="form-check-label" >Private</label>
+                <i class="fa-regular fa-circle-question" data-bs-toggle="popover" data-bs-content="If you select a private account, your reviews will not appear in the Community tab"></i>
+                <div class="form-check form-switch">
+                    <input id="private" name="private" class="form-check-input" type="checkbox" role="switch">
+                  </div>
             </div>
         </div>
         <div class="row">

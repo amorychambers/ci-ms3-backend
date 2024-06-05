@@ -1,1 +1,35 @@
-# ci-ms3-backend
+# libre-mate: an online book club
+
+![Website homepage on different devices](docs/am-i-responsive.png)
+
+Developed by Benedict Amory Chambers
+## Table of Contents
+
+1. [Project Goals](#project-goals)
+    1. [User Goals](#user-goals)
+    2. [Site Goals](#site-goals)
+2. [User Experience](#user-experience)
+    1. [Target Audience](#target-audience)
+    2. [User Stories](#user-stories)
+3. [Design](#design)
+    1. [Design Choices](#design-choices)
+    2. [Colours](#colours)
+    3. [Fonts](#fonts)
+    4. [Structure](#structure)
+    5. [Wireframes](#wireframes)
+4. [Technologies](#technologies)
+    1. [Languages](#languages)
+    2. [Frameworks and Tools](#frameworks-and-tools)
+5. [Features](#features)
+6. [Testing](#testing)
+    1. [HTML Validation](#HTML-validation)
+    2. [CSS Validation](#CSS-validation)
+    3. [JavaScript Validation](#javascript-validation)
+    4. [Accessibility](#accessibility)
+    5. [Performance](#performance)
+    6. [Compatibility](#compatibility)
+    7. [Testing user stories](#testing-user-stories)
+7. [Bugs](#bugs)
+8. [Credits](#credits)
+9. [Deployment](#deployment)
+10. [Acknowledgements](#acknowledgements)

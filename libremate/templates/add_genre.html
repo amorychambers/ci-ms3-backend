@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col">
                 <label for="genre_name" class="form-label">Genre Name</label>
-                <input id="genre_name" name="genre_name" class="form-control" type="text" minlength="2" maxlength="20"
-                    pattern="^[a-zA-Z0-9]{3,15}$" required>
+                <input id="genre_name" name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
+                    pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required>
             </div>
         </div>
         <div class="row">

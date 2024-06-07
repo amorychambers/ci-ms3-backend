@@ -26,8 +26,8 @@ class Genre(db.Model):
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_name = db.Column(db.String, nullable=False)
-    author_name = db.Column(db.String, nullable=False)
+    book_title = db.Column(db.String(100), nullable=False)
+    author_name = db.Column(db.String(100), nullable=False)
     status = db.Column(db.String, nullable=False)
     favourite = db.Column(db.Boolean, nullable=False)
     review = db.Column(db.Text)

@@ -3,4 +3,30 @@
 
 <h1 class="center">Add Book</h1>
 
+<div class="container">
+    <form action="{{ url_for('add_book') }}" method="POST" class="needs-validation">
+        <div class="row">
+            <div class="col">
+                <label for="book_title" class="form-label">Book Title</label>
+                <input id="book_title" name="book_title" class="form-control" type="text" minlength="1" maxlength="100"
+                    pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,100}$" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="author_name" class="form-label">Author Name</label>
+                <input id="author_name" name="author_name" class="form-control" type="text" minlength="1" maxlength="100"
+                    pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,100}$" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col center">
+                    <button type="submit" class="btn btn-large accent">Submit</button>
+                </div>
+            </div>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/validate.js')}}"></script>
+
 {% endblock %}

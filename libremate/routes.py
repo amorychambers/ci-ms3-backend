@@ -27,11 +27,11 @@ def register():
                 private=True if hasattr(request.form.get(
                     "private"), "checked") else False
             )
+            db.session.add(reader)
+            db.session.commit()
             default_genre = Genre(
                 genre_name="misc",
                 genre_owner=request.form.get("username").lower())
-            db.session.add(reader)
-            db.session.commit()
             db.session.add(default_genre)
             db.session.commit()
             flash("Registration successful!")

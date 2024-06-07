@@ -19,6 +19,7 @@ def register():
             flash("Username already taken")
             redirect(url_for("register"))
         else:
+            session["user"] = request.form.get("username").lower()
             reader = Reader(
                 username=request.form.get("username").lower(),
                 password=generate_password_hash(
@@ -26,11 +27,15 @@ def register():
                 private=True if hasattr(request.form.get(
                     "private"), "checked") else False
             )
+            default_genre = Genre(
+                genre_name="misc",
+                genre_owner=request.form.get("username").lower())
             db.session.add(reader)
             db.session.commit()
-            session["user"] = request.form.get("username").lower()
+            db.session.add(default_genre)
+            db.session.commit()
             flash("Registration successful!")
-            redirect(url_for("my_library"))
+            return redirect(url_for("my_library"))
 
     return render_template("register.html")
 

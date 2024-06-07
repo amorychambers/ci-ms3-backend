@@ -45,12 +45,15 @@ def signin():
             # Check password is correct
             if check_password_hash(q.first().password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash(f"Hello, {session.user}!")
+                flash(f"Hello, {session["user"]}!")
                 return redirect(url_for("home"))
             else:
                 # Password is not correct
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("signin"))
+        else:
+            flash("Username does not exist")
+            return redirect(url_for("signin"))
     return render_template("signin.html")
 
 
@@ -64,3 +67,23 @@ def signout():
 @app.route("/my_library")
 def my_library():
     return render_template("my_library.html")
+
+
+@app.route("/add_genre", methods=["GET", "POST"])
+def add_genre():
+    if request.method == "POST":
+         # Check if genre already exists
+        q = db.session.query(Genre.id).filter(
+            Genre.genre_name == request.form.get("genre_name").lower())
+        if db.session.query(q.exists()).scalar():
+            flash("That genre already exists in your library!")
+            redirect(url_for("add_genre"))
+        else:
+            genre = Genre(
+                genre_name=request.form.get("genre_name").lower(),
+                genre_owner= session["user"]
+            )
+            db.session.add(genre)
+            db.session.commit()
+            redirect(url_for("my_library"))
+    return render_template("add_genre.html")

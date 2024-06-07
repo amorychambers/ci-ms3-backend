@@ -14,7 +14,7 @@ class Reader(db.Model):
 
 class Genre(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    genre_name = db.Column(db.String(20), unique=True, nullable=False)
+    genre_name = db.Column(db.String(20), nullable=False)
     genre_owner = db.Column(db.String(15), db.ForeignKey(
         "reader.username"), nullable=False)
     books = db.relationship("Book", backref="genre", lazy=True)
@@ -33,7 +33,7 @@ class Book(db.Model):
     review = db.Column(db.Text)
     isbn = db.Column(db.Integer)
     created_on = db.Column(db.Date, nullable=False)
-    book_genre = db.Column(db.String(20), db.ForeignKey("genre.genre_name"))
+    book_genre = db.Column(db.Integer, db.ForeignKey("genre.id"))
     book_owner = db.Column(db.String(15), db.ForeignKey(
         "reader.username"), nullable=False)
 

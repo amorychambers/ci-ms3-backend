@@ -30,7 +30,7 @@ def register():
             db.session.commit()
             session["user"] = request.form.get("username").lower()
             flash("Registration successful!")
-            redirect(url_for("home"))
+            redirect(url_for("my_library"))
 
     return render_template("register.html")
 

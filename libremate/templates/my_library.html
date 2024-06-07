@@ -7,4 +7,10 @@
 <a href="" class="btn btn-info" role="button">Add Book</a>
 <a href="{{ url_for('add_genre') }}" class="btn btn-info" role="button">Add Genre</a>
 
+<ul>
+    {% for genre in genres %}
+    <li>{{ genre.genre_name.capitalize() }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

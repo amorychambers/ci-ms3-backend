@@ -66,24 +66,25 @@ def signout():
 
 @app.route("/my_library")
 def my_library():
-    return render_template("my_library.html")
+    genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
+    return render_template("my_library.html", genres=genres)
 
 
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
     if request.method == "POST":
-         # Check if genre already exists
-        q = db.session.query(Genre.id).filter(
-            Genre.genre_name == request.form.get("genre_name").lower())
+        # Check if genre already exists
+        q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
+                                              Genre.genre_name == request.form.get("genre_name").lower())
         if db.session.query(q.exists()).scalar():
             flash("That genre already exists in your library!")
-            redirect(url_for("add_genre"))
+            return redirect(url_for("add_genre"))
         else:
             genre = Genre(
                 genre_name=request.form.get("genre_name").lower(),
-                genre_owner= session["user"]
+                genre_owner=session["user"]
             )
             db.session.add(genre)
             db.session.commit()
-            redirect(url_for("my_library"))
+            return redirect(url_for("my_library"))
     return render_template("add_genre.html")

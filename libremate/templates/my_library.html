@@ -4,7 +4,7 @@
 <h1 class="center">My Library</h1>
 <h2>{{ session["user"] }}'s Books</h2>
 
-<a href="" class="btn btn-info" role="button">Add Book</a>
+<a href="{{ url_for('add_book') }}" class="btn btn-info" role="button">Add Book</a>
 <a href="{{ url_for('add_genre') }}" class="btn btn-info" role="button">Add Genre</a>
 
 <ul>

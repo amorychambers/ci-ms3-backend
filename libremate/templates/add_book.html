@@ -30,25 +30,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <div class="form-check">
-                    <label for="favourite" class="form-check-label">Favourite</label>
-                    <input id="favourite" name="favourite" class="form-check-input" type="checkbox" value="">
+            <div class="col my-3">
+                <label for="favourite" class="form-check-label">Favourite</label>
+                <div class="form-check form-switch">
+                    <input id="favourite" name="favourite" class="form-check-input p-0" type="checkbox" role="switch"
+                        value="">
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="review" class="form-label">Review</label>
-                <p>This can be added later!</p>
-                <textarea id="review" name="review" class="form-control" type="text"
-                    pattern="^[a-zA-Z0-9\&\'\.\,\-]\s$">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="isbn" class="form-label">ISBN</label>
-                <input id="isbn" name="isbn" class="form-control" type="number">
             </div>
         </div>
         <!-- Created on will be added to entry using Python current Date -->
@@ -63,15 +50,27 @@
                 </select>
             </div>
         </div>
-         <!-- Book owner will be added using the session username -->
         <div class="row">
-            <div class="row">
-                <div class="col center">
-                    <button type="submit" class="btn btn-large accent">Submit</button>
-                </div>
+            <div class="col">
+                <label for="isbn" class="form-label">ISBN</label>
+                <input id="isbn" name="isbn" class="form-control" type="number">
             </div>
+        </div>
+        <div class="row">
+            <div class="col mt-4">
+                <label for="review" class="form-label">Review</label>
+                <textarea id="review" name="review" class="form-control" type="text" pattern="^[a-zA-Z0-9\&\'\.\,\-]\s$"
+                    placeholder="This can be added or edited later!"></textarea>
+            </div>
+        </div>
+        <!-- Book owner will be added using the session username -->
+        <div class="row">
+            <div class="col center my-3">
+                <button type="submit" class="btn btn-large accent">Submit</button>
+            </div>
+        </div>
     </form>
+</div>
+<script src="{{ url_for('static', filename='js/validate.js')}}"></script>
 
-    <script src="{{ url_for('static', filename='js/validate.js')}}"></script>
-
-    {% endblock %}
+{% endblock %}

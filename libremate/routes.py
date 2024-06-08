@@ -93,3 +93,9 @@ def add_genre():
             db.session.commit()
             return redirect(url_for("my_library"))
     return render_template("add_genre.html")
+
+
+@app.route("/add_book", methods=["GET", "POST"])
+def add_book():
+    genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
+    return render_template("add_book.html", genres=genres)

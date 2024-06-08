@@ -38,11 +38,10 @@
                 </div>
             </div>
         </div>
-        <!-- Created on will be added to entry using Python current Date -->
         <div class="row">
             <div class="col">
                 <label for="book_genre" class="form-label">Genre</label>
-                <select id="book_genre" name="status" class="form-select">
+                <select id="book_genre" name="book_genre" class="form-select">
                     <option selected>Select genre</option>
                     {% for genre in genres %}
                     <option value="{{genre.id}}">{{ genre.genre_name }}</option>
@@ -51,7 +50,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col mt-4">
                 <label for="isbn" class="form-label">ISBN</label>
                 <input id="isbn" name="isbn" class="form-control" type="number">
             </div>

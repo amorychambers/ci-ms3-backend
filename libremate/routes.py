@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for, flash, session
 from libremate import app, db
 from libremate.models import Reader, Genre, Book
 from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 
 
 @app.route("/")
@@ -51,7 +52,7 @@ def signin():
             if check_password_hash(q.first().password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash(f"Hello, {session["user"]}!")
-                return redirect(url_for("home"))
+                return redirect(url_for("my_library"))
             else:
                 # Password is not correct
                 flash("Incorrect Username and/or Password")
@@ -98,4 +99,19 @@ def add_genre():
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
+    if request.method == "POST":
+        book = Book(
+            book_title=request.form.get("book_title"),
+            author_name=request.form.get("author_name"),
+            status=request.form.get("status"),
+            favourite=bool(request.form.get("favourite")),
+            created_on=(datetime.datetime.now().strftime("%x %X")),
+            book_genre=request.form.get("book_genre"),
+            isbn=int(request.form.get("isbn") or 0),
+            review=request.form.get("review"),
+            book_owner=session["user"]
+        )
+        db.session.add(book)
+        db.session.commit()
+        return redirect(url_for("my_library"))
     return render_template("add_book.html", genres=genres)

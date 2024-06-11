@@ -40,10 +40,19 @@ h1, input {
     padding-bottom: 0.5rem;
 }
 
+/* ------------ Sign In/Register  ------------ */
+
 .form-control {
     margin-bottom: 1.5rem;
 }
 
 #private {
     padding-top: 0;;
+}
+
+/* ------------ My Library ------------ */
+
+.card {
+    width: 18rem;
+    padding: 0;
 }

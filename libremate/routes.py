@@ -73,7 +73,8 @@ def signout():
 @app.route("/my_library")
 def my_library():
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
-    return render_template("my_library.html", genres=genres)
+    books = Book.query.filter(Book.book_owner == session["user"]).all()
+    return render_template("my_library.html", genres=genres, books=books)
 
 
 @app.route("/add_genre", methods=["GET", "POST"])

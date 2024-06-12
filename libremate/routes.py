@@ -108,7 +108,7 @@ def add_book():
             favourite=bool(request.form.get("favourite")),
             created_on=(datetime.datetime.now().strftime("%x %X")),
             book_genre=request.form.get("book_genre"),
-            isbn=validate.check_cover(request.form.get("isbn")),
+            isbn=request.form.get("isbn"),
             review=request.form.get("review"),
             book_owner=session["user"]
         )

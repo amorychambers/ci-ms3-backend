@@ -31,7 +31,7 @@ class Book(db.Model):
     status = db.Column(db.String, nullable=False)
     favourite = db.Column(db.Boolean, nullable=False)
     review = db.Column(db.Text)
-    isbn = db.Column(db.Integer)
+    isbn = db.Column(db.String)
     created_on = db.Column(db.Date, nullable=False)
     book_genre = db.Column(db.Integer, db.ForeignKey("genre.id"))
     book_owner = db.Column(db.String(15), db.ForeignKey(

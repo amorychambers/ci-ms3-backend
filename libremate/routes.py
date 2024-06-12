@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash, session
-from libremate import app, db
+from libremate import app, db, validate
 from libremate.models import Reader, Genre, Book
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
@@ -108,7 +108,7 @@ def add_book():
             favourite=bool(request.form.get("favourite")),
             created_on=(datetime.datetime.now().strftime("%x %X")),
             book_genre=request.form.get("book_genre"),
-            isbn=int(request.form.get("isbn") or 0),
+            isbn=validate.check_cover(request.form.get("isbn")),
             review=request.form.get("review"),
             book_owner=session["user"]
         )

@@ -27,7 +27,7 @@ main {
     padding: 0;
 }
 .navbar-brand {
-    font-family: 'Whisper';
+    font-family: 'Whisper', serif;
     font-size: 3em;
 }
 
@@ -55,4 +55,15 @@ h1, input {
 .card {
     width: 18rem;
     padding: 0;
+}
+
+.cover-title {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Whisper", serif;
+    color: #FFF;
+    font-size: 2rem;
 }

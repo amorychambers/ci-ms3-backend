@@ -4,7 +4,7 @@
 <h1 class="center">Add Book</h1>
 
 <div class="container">
-    <form action="{{ url_for('add_book') }}" method="POST" class="needs-validation">
+    <form action="{{ url_for('add_book') }}" method="POST" class="needs-validation" novalidate>
         <div class="row">
             <div class="col">
                 <label for="book_title" class="form-label">Book Title</label>
@@ -51,7 +51,9 @@
         <div class="row">
             <div class="col mt-4">
                 <label for="isbn" class="form-label">ISBN</label>
-                <input id="isbn" name="isbn" class="form-control" type="text" pattern="^[0-9]*$">
+                <input id="isbn" name="isbn" class="form-control" type="text" pattern="^[0-9]*$" minlength="10" maxlength="13">
+                <div class="valid-feedback">Valid!</div>
+                <div class="invalid-feedback">Please enter the 10-13 digit ISBN number without spaces or hyphens.</div>
             </div>
         </div>
         <div class="row">

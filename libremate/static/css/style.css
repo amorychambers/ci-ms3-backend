@@ -72,3 +72,18 @@ label.required::after {
     content: " *";
     color: red;
 }
+
+.single-book {
+    max-height: 60vh;
+    text-align: right;
+}
+
+.single-book img {
+    max-width: inherit;
+    max-height: inherit;
+}
+
+.single-book > .cover-title {
+    top: 50%;
+    left: 35%;
+}

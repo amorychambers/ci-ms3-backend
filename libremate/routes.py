@@ -78,7 +78,7 @@ def my_library():
 
 @app.route("/view_book/<id>", methods=["GET", "POST"])
 def view_book(id):
-    book = Book.query.filter(Book.id == id)
+    book = Book.query.filter(Book.id == id).one()
     return render_template("view_book.html", book=book)
 
 

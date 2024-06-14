@@ -3,6 +3,21 @@
 
 <h1 class="center mb-3">My Library</h1>
 
-
+<div class="container">
+  <div class="row">
+    <div class="col col-md-6 single-book my-5">
+      {% if book.isbn %}
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
+      {% else %}
+      <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
+      <p class="cover-title center">{{book.book_title}}</p>
+      {% endif %}
+    </div>
+    <div class="col col-md-6 my-5">
+      <h2>{{ book.book_title }}</h2>
+      <h3>{{ book.author_name }}</h3>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

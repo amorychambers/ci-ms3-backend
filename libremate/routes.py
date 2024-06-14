@@ -72,9 +72,14 @@ def signout():
 
 @app.route("/my_library")
 def my_library():
-    genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
-    books = Book.query.filter(Book.book_owner == session["user"]).all()
+    genres = Genre.query.order_by(Genre.genre_name).filter(Genre.genre_owner == session["user"]).all()
+    books = Book.query.order_by(Book.book_title).filter(Book.book_owner == session["user"]).all()
     return render_template("my_library.html", genres=genres, books=books)
+
+@app.route("/view_book/<id>", methods=["GET", "POST"])
+def view_book(id):
+    book = Book.query.filter(Book.id == id)
+    return render_template("view_book.html", book=book)
 
 
 @app.route("/add_genre", methods=["GET", "POST"])

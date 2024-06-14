@@ -54,7 +54,13 @@
                 <input id="isbn" name="isbn" class="form-control" type="text" pattern="^[0-9]*$" minlength="10" maxlength="13">
                 <div class="valid-feedback">Valid!</div>
                 <div class="invalid-feedback">Please enter the 10-13 digit ISBN number without spaces or hyphens.</div>
-                <button id="cover-check" class="btn">Check Cover</button>
+                <button id="cover-check" class="btn btn-large accent">Check Cover</button>
+                <div id="user-confirmation" class="center d-none">
+                    <img id="cover" src="" alt="Cover page returned from ISBN search">
+                    <p>Is this the correct cover?</p>
+                    <button class='btn btn-danger' id='reject'>No</button>
+                    <button class='btn btn-success' id='confirm'>Yes</button>
+                </div>
             </div>
         </div>
         <div class="row">

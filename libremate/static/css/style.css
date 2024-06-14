@@ -65,7 +65,7 @@ h1, input {
     transform: translate(-50%, -50%);
     font-family: "Whisper", serif;
     color: #FFF;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 label.required::after {

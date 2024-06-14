@@ -6,28 +6,22 @@
 
 <div class="row">
   <div class="col center p-4">
-    <a href="{{ url_for('add_book') }}" class="btn btn-info" role="button">Add Book</a>
-    <a href="{{ url_for('add_genre') }}" class="btn btn-info" role="button">Add Genre</a>
+    <a href="{{ url_for('add_book') }}" class="btn btn-info m-2" role="button">Add Book</a>
+    <a href="{{ url_for('add_genre') }}" class="btn btn-info m-2" role="button">Add Genre</a>
   </div>
 </div>
 
-<ul>
-    {% for genre in genres %}
-    <li>{{ genre.genre_name.capitalize() }}</li>
-    {% endfor %}
-</ul>
-
-<h2 class="center">All Books</h2>
+<h2 class="center m-4">All Books</h2>
 
 <div class="container">
     <div class="row g-0">
         {% for book in books %}
         <div class="card col-12 col-md-6 col-lg-4 m-auto">
-            {% if book.isbn == "0" %}
-              <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
-              <p class="cover-title center">{{book.book_title}}</p>
-            {% else %}
+            {% if book.isbn %}
             <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
+            {% else %}
+            <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
+            <p class="cover-title center">{{book.book_title}}</p>
             {% endif %}
             <div class="card-body center">
               <h5 class="card-title">{{ book.book_title }}</h5>

@@ -7,7 +7,7 @@
     <form action="{{ url_for('register') }}" method="POST" class="needs-validation" novalidate>
         <div class="row">
             <div class="col">
-                <label for="username" class="form-label">Username</label>
+                <label for="username" class="form-label required">Username</label>
                 <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
                     data-bs-content="Please choose a username between 3 and 15 characters using only letters and numbers"></i>
                 <input id="username" name="username" class="form-control" type="text" minlength="3" maxlength="15"
@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="new-password" class="form-label">Password</label>
+                <label for="new-password" class="form-label required">Password</label>
                 <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
                     data-bs-content="Please choose a password between 8 and 20 characters using only letters and numbers"></i>
                 <input id="new-password" name="new-password" class="form-control" type="password" minlength="8"
@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="confirm" class="form-label">Confirm Password</label>
+                <label for="confirm" class="form-label required">Confirm Password</label>
                 <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
                     data-bs-content="Please enter the same password again"></i>
                 <input id="confirm" name="confirm" class="form-control" type="password" minlength="8" maxlength="20"

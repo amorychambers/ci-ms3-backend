@@ -67,3 +67,8 @@ h1, input {
     color: #FFF;
     font-size: 2rem;
 }
+
+label.required::after {
+    content: " *";
+    color: red;
+}

@@ -3,4 +3,10 @@
 
 <h1 class="center">Community Reviews</h1>
 
+<ul>
+    {% for book in books %}
+    <li>{{ book.book_title }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

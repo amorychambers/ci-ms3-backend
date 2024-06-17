@@ -7,7 +7,8 @@ import datetime
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    books = db.session.query(Book).join(Reader, Reader.username == Book.book_owner).filter(Reader.private == False).all()
+    return render_template("community.html", books=books)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -25,8 +26,7 @@ def register():
                 username=request.form.get("username").lower(),
                 password=generate_password_hash(
                     request.form.get("new-password")),
-                private=True if hasattr(request.form.get(
-                    "private"), "checked") else False
+                private=bool(request.form.get("private"))
             )
             db.session.add(reader)
             db.session.commit()

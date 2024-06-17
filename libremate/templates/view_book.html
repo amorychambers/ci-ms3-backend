@@ -14,8 +14,14 @@
       {% endif %}
     </div>
     <div class="col-sm-12 col-md-6 my-5">
-      <h2>{{ book.book_title }}</h2>
+      <h2>{{ book.book_title }}
+        {% if book.favourite == True %}
+        <i class="fa-solid fa-star fa-xl favourite"></i>
+        {% endif %}
+      </h2>
       <h3>{{ book.author_name }}</h3>
+      <br>
+      <h4>Bookshelf: {{ book.book_owner }}</h4>
       <br>
       <h4>Status: {{ book.status.capitalize() }}</h4>
       <br>

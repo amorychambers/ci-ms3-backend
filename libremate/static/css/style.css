@@ -73,6 +73,10 @@ h1, input {
     font-size: 2.5rem;
 }
 
+.favourite {
+    color: #FFD43B;
+}
+
 label.required::after {
     content: " *";
     color: red;
@@ -90,5 +94,5 @@ label.required::after {
 
 .single-book > .cover-title {
     top: 50%;
-    left: 35%;
+    left: 50%;
 }

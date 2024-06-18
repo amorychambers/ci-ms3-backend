@@ -7,7 +7,7 @@ import datetime
 
 @app.route("/")
 def home():
-    books = db.session.query(Book).join(Reader, Reader.username == Book.book_owner).filter(Reader.private == False).all()
+    books = db.session.query(Book).join(Reader).filter(Reader.private == False).all()
     return render_template("community.html", books=books)
 
 

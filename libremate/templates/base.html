@@ -37,7 +37,7 @@
                                 <a class="nav-link" href="{{ url_for('my_library') }}">My Library</a>
                             </li>
                             <li class="nav-item ms-auto">
-                                <a class="nav-link" href="{{ url_for('home') }}">Community</a>
+                                <a class="nav-link" href="{{ url_for('community', page=1) }}">Community</a>
                             </li>
                             <li class="nav-item ms-auto">
                                 <a class="nav-link" href="#">About</a>
@@ -50,7 +50,7 @@
                                 <a class="nav-link" href="{{ url_for('signin') }}">Sign In/Register</a>
                             </li>
                             <li class="nav-item ms-auto">
-                                <a class="nav-link" href="{{url_for('home') }}">Community</a>
+                                <a class="nav-link" href="{{url_for('community', page=1) }}">Community</a>
                             </li>
                             <li class="nav-item ms-auto">
                                 <a class="nav-link" href="#">About</a>

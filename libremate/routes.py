@@ -7,8 +7,7 @@ import datetime
 
 @app.route("/")
 def home():
-    books = db.session.query(Book).join(Reader).filter(Reader.private == False).all()
-    return render_template("community.html", books=books)
+    return render_template("base.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -121,3 +120,8 @@ def add_book():
         db.session.commit()
         return redirect(url_for("my_library"))
     return render_template("add_book.html", genres=genres)
+
+@app.route("/community/<page>")
+def community(page):
+    books = list(db.session.query(Book).join(Reader).filter(Reader.private == False).all())
+    return render_template("community.html", books=books)

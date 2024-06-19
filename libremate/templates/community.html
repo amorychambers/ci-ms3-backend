@@ -36,7 +36,7 @@
 <div class="container">
   <div class="row">
     <div class="col my-4 center">
-      <!-- Page navigation code snippet from Bootstrap 5 docs -->
+      <!-- Page navigation HTML code snippet from Bootstrap 5 docs -->
       <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
           {% if session['page'] == 1 %}
@@ -47,7 +47,12 @@
           {% for x in range(0, page_numbers) %}
           <li class="page-item"><a class="page-link" href="">{{ x + 1}}</a></li>
           {% endfor %}
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          {% if session['page'] == page_numbers %}
+          <li class="page-item"><a class="page-link disabled" href="#">Next</a></li>
+          {% else %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(session['page'] + 1)) }}">Next</a></li>
+          {% endif %}
+
         </ul>
       </nav>
     </div>

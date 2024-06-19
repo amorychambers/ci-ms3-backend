@@ -123,7 +123,7 @@ def add_book():
 
 @app.route("/community/<page>")
 def community(page):
-    books = list(db.session.query(Book).order_by(Book.created_on).join(Reader).filter(Reader.private == False).all())
+    books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(Reader).filter(Reader.private == False).all())
     page_numbers = (math.ceil(len(books)/3))
     groups = [books[i:i+3] for i in range(0, len(books), 3)]
     current_group = groups[(int(page)-1)]

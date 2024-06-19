@@ -40,4 +40,4 @@ class Book(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"{self.book_name} - {self.author_name}"
+        return f"{self.book_title} - {self.author_name}"

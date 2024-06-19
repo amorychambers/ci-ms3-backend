@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for, flash, session
 from libremate import app, db
 from libremate.models import Reader, Genre, Book
 from werkzeug.security import generate_password_hash, check_password_hash
-import datetime
+import datetime, math
 
 
 @app.route("/")
@@ -124,4 +124,5 @@ def add_book():
 @app.route("/community/<page>")
 def community(page):
     books = list(db.session.query(Book).join(Reader).filter(Reader.private == False).all())
-    return render_template("community.html", books=books)
+    page_numbers = (math.ceil(len(books)/3))
+    return render_template("community.html", books=books, page_numbers=page_numbers)

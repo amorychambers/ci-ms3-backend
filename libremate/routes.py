@@ -125,4 +125,5 @@ def add_book():
 def community(page):
     books = list(db.session.query(Book).join(Reader).filter(Reader.private == False).all())
     page_numbers = (math.ceil(len(books)/3))
+    session['page'] = int(page)
     return render_template("community.html", books=books, page_numbers=page_numbers)

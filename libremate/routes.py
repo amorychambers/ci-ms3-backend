@@ -121,6 +121,7 @@ def add_book():
         return redirect(url_for("my_library"))
     return render_template("add_book.html", genres=genres)
 
+
 @app.route("/community/<page>")
 def community(page):
     books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(Reader).filter(Reader.private == False).all())
@@ -129,3 +130,11 @@ def community(page):
     current_group = groups[(int(page)-1)]
     session['page'] = int(page)
     return render_template("community.html", books=current_group, page_numbers=page_numbers)
+
+
+@app.route("/delete_genre/<int:genre_id>")
+def delete_genre(genre_id):
+    genre = Genre.query.get_or_404(genre_id)
+    db.session.delete(genre)
+    db.session.commit()
+    return redirect(url_for("my_library"))

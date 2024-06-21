@@ -138,3 +138,11 @@ def delete_genre(genre_id):
     db.session.delete(genre)
     db.session.commit()
     return redirect(url_for("my_library"))
+
+
+@app.route("/delete_book/<int:book_id>")
+def delete_book(book_id):
+    book = Book.query.get_or_404(book_id)
+    db.session.delete(book)
+    db.session.commit()
+    return redirect(url_for("my_library"))

@@ -45,11 +45,11 @@
                     <label for="book_genre" class="form-label required">Genre</label>
                     <select id="book_genre" name="book_genre" class="form-select">
                         {% for genre in genres %}
-                        {% if book.genre_name == genre.genre_name %}
-                        <option selected value="{{genre.id}}">{{ genre.genre_name }}</option>
-                        {% else %}
-                        <option value="{{genre.id}}">{{ genre.genre_name }}</option>
-                        {% endif %}
+                            {% if book.book_genre == genre.id %}
+                            <option selected value="{{genre.id}}">{{ genre.genre_name }}</option>
+                            {% else %}
+                            <option value="{{genre.id}}">{{ genre.genre_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

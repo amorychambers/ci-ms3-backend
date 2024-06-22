@@ -45,3 +45,5 @@ function rejectCover(event){
     input.value = 0;
 
 }
+
+console.log("smello")

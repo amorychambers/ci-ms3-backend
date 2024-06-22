@@ -146,3 +146,8 @@ def delete_book(book_id):
     db.session.delete(book)
     db.session.commit()
     return redirect(url_for("my_library"))
+
+
+@app.route("/edit_book/<int:book_id>", methods=["GET", "POST"])
+def edit_book(book_id):
+    return render_template("edit_book.html")

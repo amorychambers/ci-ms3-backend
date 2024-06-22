@@ -22,9 +22,9 @@
                     <div class="form-check">
                         <label for="favourite" class="form-check-label">Favourite</label>
                         {% if book.favourite == True %}
-                        <input id="favourite" name="favourite" class="form-check-input p-0" type="checkbox" checked>
+                            <input id="favourite" name="favourite" class="form-check-input p-0" type="checkbox" checked>
                         {% else %}
-                        <input id="favourite" name="favourite" class="form-check-input p-0" type="checkbox">
+                            <input id="favourite" name="favourite" class="form-check-input p-0" type="checkbox">
                         {% endif %}
                     </div>
                 </div>
@@ -34,11 +34,11 @@
                     <label for="book_genre" class="form-label required">Genre</label>
                     <select id="book_genre" name="book_genre" class="form-select">
                         {% for genre in genres %}
-                        {% if book.genre_name == genre.genre_name %}
-                        <option selected value="{{genre.id}}">{{ genre.genre_name }}</option>
-                        {% else %}
-                        <option value="{{genre.id}}">{{ genre.genre_name }}</option>
-                        {% endif %}
+                            {% if book.genre_name == genre.genre_name %}
+                                <option selected value="{{genre.id}}">{{ genre.genre_name }}</option>
+                            {% else %}
+                                <option value="{{genre.id}}">{{ genre.genre_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -49,7 +49,7 @@
                     <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
                         data-bs-content="Enter the 10-13 digit ISBN number without hyphens to check if the cover image is available!"></i>
                     <input id="isbn" name="isbn" class="form-control" type="number" pattern="^[0-9^-]*$" minlength="10"
-                        maxlength="13">
+                        maxlength="13" value="{{ book.isbn }}">
                     <div class="valid-feedback">Valid!</div>
                     <div class="invalid-feedback">Please enter the 10-13 digit ISBN number without spaces or hyphens.
                     </div>
@@ -66,7 +66,7 @@
                 <div class="col mt-4">
                     <label for="review" class="form-label">Review</label>
                     <textarea id="review" name="review" class="form-control" type="text"
-                        pattern="^[a-zA-Z0-9\&\'\.\,\-]\s$" placeholder="This can be added or edited later!"></textarea>
+                        pattern="^[a-zA-Z0-9\&\'\.\,\-]\s$">{{ book.review }}</textarea>
                 </div>
             </div>
             <!-- Book owner will be added using the session username -->
@@ -77,6 +77,15 @@
             </div>
     </form>
     {% else %}
+    <div class="container">
+        <div class="row">
+          <div class="col center m-4">
+            <h2 class="p-2">Oops!</h2>
+            <p class="p-2">This book does not belong to your account. Check the inner cover; you will not find your name scribbled there. I admire the dashing spirit of a book thief though.</p>
+            <a href="{{ url_for('community', page=1) }}" class="btn accent">Home</a>
+          </div>
+        </div>
+      </div>
     {% endif %}
 </div>
 <script src="{{ url_for('static', filename='js/validate.js')}}"></script>

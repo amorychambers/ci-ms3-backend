@@ -150,4 +150,5 @@ def delete_book(book_id):
 
 @app.route("/edit_book/<int:book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    return render_template("edit_book.html")
+    book = Book.query.get_or_404(book.id)
+    return render_template("edit_book.html", book=book)

@@ -152,6 +152,9 @@ def delete_book(book_id):
 def edit_book(book_id):
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
     book = Book.query.get_or_404(book_id)
+    statuses = [{"value": "plan-to-read", "desc": "Plan-to-read"},
+                {"value": "complete", "desc": "Complete"},
+                {"value": "dropped", "desc": "Dropped"}]
     if request.method == "POST" and book.book_owner == session["user"]:
         book.status = request.form.get("status")
         book.favourite = bool(request.form.get("favourite"))
@@ -160,4 +163,4 @@ def edit_book(book_id):
         book.review = request.form.get("review")
         db.session.commit()
         return redirect(url_for("view_book", id=book.id))
-    return render_template("edit_book.html", book=book, genres=genres)
+    return render_template("edit_book.html", book=book, genres=genres, statuses=statuses)

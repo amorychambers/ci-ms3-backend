@@ -22,9 +22,13 @@
                 <div class="col">
                     <label for="status" class="form-label">Status</label>
                     <select id="status" name="status" class="form-select" required>
-                        <option value="plan-to-read">Plan to Read</option>
-                        <option value="complete">Completed</option>
-                        <option value="dropped">Dropped</option>
+                        {% for status in statuses %}
+                            {% if status.value == book.status %}
+                                <option selected value="{{status.value}}">{{ status.desc }}</option>
+                            {% else %}
+                                <option  value="{{status.value}}">{{ status.desc }}</option>
+                            {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
             </div>

@@ -167,7 +167,23 @@ def edit_book(book_id):
     return render_template("edit_book.html", book=book, genres=genres, statuses=statuses)
 
 
-
+@app.route("/edit_genre/<int:genre_id>", methods=["POST"])
+def edit_genre(genre_id):
+    genre = Genre.query.get_or_404(genre_id)
+    if genre.genre_name != "Misc" and request.method == "POST" and genre.genre_owner == session["user"]:
+         # Check if genre already exists
+        q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
+                                              Genre.genre_name == request.form.get("genre_name").lower())
+        if db.session.query(q.exists()).scalar():
+            flash("That genre already exists in your library!")
+            return redirect(url_for("account"))
+        else:
+            genre.genre_name = request.form.get("genre_name")
+            db.session.commit()
+            return redirect(url_for("account"))
+    else:
+        flash("I'm sorry, but you cannot edit this genre name")
+        return redirect(url_for("account"))
 
 
 @app.route("/account")

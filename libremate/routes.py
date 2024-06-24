@@ -92,7 +92,7 @@ def add_genre():
             return redirect(url_for("add_genre"))
         else:
             genre = Genre(
-                genre_name=request.form.get("genre_name"),
+                genre_name=request.form.get("genre_name").lower(),
                 genre_owner=session["user"]
             )
             db.session.add(genre)

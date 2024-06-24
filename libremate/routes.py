@@ -30,7 +30,7 @@ def register():
             db.session.add(reader)
             db.session.commit()
             default_genre = Genre(
-                genre_name="misc",
+                genre_name="Misc",
                 genre_owner=request.form.get("username").lower())
             db.session.add(default_genre)
             db.session.commit()
@@ -135,8 +135,9 @@ def community(page):
 @app.route("/delete_genre/<int:genre_id>")
 def delete_genre(genre_id):
     genre = Genre.query.get_or_404(genre_id)
-    db.session.delete(genre)
-    db.session.commit()
+    if genre.genre_name != "Misc":
+        db.session.delete(genre)
+        db.session.commit()
     return redirect(url_for("my_library"))
 
 

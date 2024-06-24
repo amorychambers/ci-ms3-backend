@@ -20,9 +20,13 @@
          {% for genre in genres %}
           <tr>
             <th>{{ genre.genre_name }}</th>
-            <th>{{ genre.books }}</th>
-            <th><a href="" class="btn btn-info m-2" role="button">Edit Genre</a><a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-info m-2" role="button">Delete Genre</a></th>
-          </tr>
+            <th>{{ genre.books|length }}</th>
+            {% if genre.genre_name == "Misc" %}
+              <th></th>
+            {% else %}
+              <th><a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Delete Genre</a><a href="" class="btn btn-success m-2" role="button">Edit Genre</a></th>
+            {% endif %}
+            </tr>
          {% endfor %}
         </tbody>
       </table>

@@ -164,3 +164,9 @@ def edit_book(book_id):
         db.session.commit()
         return redirect(url_for("view_book", id=book.id))
     return render_template("edit_book.html", book=book, genres=genres, statuses=statuses)
+
+
+@app.route("/account")
+def account():
+    genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
+    return render_template("account.html", genres=genres)

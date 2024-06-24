@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="center mb-3">Account Settings</h1>
+<h2 class="center">{{ session["user"] }}'s Account</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>My Genres</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Genre</th>
+            <th scope="col">Number of Books</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for genre in genres %}
+
+         {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col center p-4">
+    <a href="{{ url_for('add_book') }}" class="btn btn-info m-2" role="button">Add Book</a>
+    <a href="{{ url_for('add_genre') }}" class="btn btn-info m-2" role="button">Add Genre</a>
+  </div>
+</div>
+
+
+{% endblock %}

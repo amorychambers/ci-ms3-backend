@@ -18,7 +18,11 @@
         </thead>
         <tbody>
          {% for genre in genres %}
-
+          <tr>
+            <th>{{ genre.genre_name }}</th>
+            <th>{{ genre.books }}</th>
+            <th><a href="" class="btn btn-info m-2" role="button">Edit Genre</a><a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-info m-2" role="button">Delete Genre</a></th>
+          </tr>
          {% endfor %}
         </tbody>
       </table>
@@ -26,14 +30,6 @@
   </div>
 </div>
 
-
-
-<div class="row">
-  <div class="col center p-4">
-    <a href="{{ url_for('add_book') }}" class="btn btn-info m-2" role="button">Add Book</a>
-    <a href="{{ url_for('add_genre') }}" class="btn btn-info m-2" role="button">Add Genre</a>
-  </div>
-</div>
 
 
 {% endblock %}

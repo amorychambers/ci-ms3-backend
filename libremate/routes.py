@@ -214,4 +214,5 @@ def delete_account():
     reader = Reader.query.filter(Reader.username == session["user"]).one()
     db.session.delete(reader)
     db.session.commit()
+    session.clear()
     return redirect(url_for("community/1"))

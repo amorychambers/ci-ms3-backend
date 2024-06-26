@@ -17,17 +17,19 @@
           </tr>
         </thead>
         <tbody>
-         {% for genre in genres %}
+          {% for genre in genres %}
           <tr>
             <th>{{ genre.genre_name.title() }}</th>
             <th>{{ genre.books|length }}</th>
             {% if genre.genre_name == "misc" %}
-              <th></th>
+            <th></th>
             {% else %}
-              <th><button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-{{ genre.id }}">Delete Genre</button><button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#edit-{{ genre.id }}">Edit Genre</button></th>
+            <th><button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-{{ genre.id }}">Delete
+                Genre</button><button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
+                data-bs-target="#edit-{{ genre.id }}">Edit Genre</button></th>
             {% endif %}
-            </tr>
-         {% endfor %}
+          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
@@ -44,17 +46,46 @@
       {% endif %}
     </div>
   </div>
+  <div class="row">
+    <div class="col center">
+      <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-account">Delete Account</button>
+    </div>
+  </div>
 </div>
 
 
 
 <!-- Modals  -->
 
+<div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class=" container modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="delete-account-label">Delete Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p></p>
+        <div class="form-check">
+          <label class="form-check-label required" for="confirmDelete">Confirm Delete</label>
+          <input class="form-check-input" type="checkbox" value="" id="confirmDelete">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a id="deleteButton" href="{{ url_for('delete_account') }}" class="btn btn-danger m-2 disabled"
+          role="button">Delete My Account</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% for genre in genres %}
-  {% if genre.genre_name != "misc" %}
+{% if genre.genre_name != "misc" %}
 
 <!-- Edit Modal -->
-<div class="modal fade" id="edit-{{ genre.id }}" tabindex="-1" aria-labelledby="edit-{{ genre.id }}-label" aria-hidden="true">
+<div class="modal fade" id="edit-{{ genre.id }}" tabindex="-1" aria-labelledby="edit-{{ genre.id }}-label"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class=" container modal-content">
       <div class="modal-header">
@@ -67,14 +98,14 @@
             <div class="col">
               <label for="genre_name" class="form-label required">Genre Name</label>
               <input id="genre_name" name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
-                  pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required value="{{ genre.genre_name }}">
+                pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required value="{{ genre.genre_name }}">
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn accent">Submit Changes</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn accent">Submit Changes</button>
+      </div>
       </form>
     </div>
   </div>
@@ -82,7 +113,8 @@
 
 <!-- Delete Modal -->
 
-<div class="modal fade" id="delete-{{ genre.id }}" tabindex="-1" aria-labelledby="delete-{{ genre.id }}-label" aria-hidden="true">
+<div class="modal fade" id="delete-{{ genre.id }}" tabindex="-1" aria-labelledby="delete-{{ genre.id }}-label"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class=" container modal-content">
       <div class="modal-header">
@@ -90,17 +122,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Are you certain you wish to delete this genre? This action will also delete every book currently listed under this genre from your account.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Delete Genre</a>
-        </div>
+        <p>Are you certain you wish to delete this genre? This action will also delete every book currently listed under
+          this genre from your account.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Delete
+          Genre</a>
+      </div>
     </div>
   </div>
 </div>
 
-  {% endif %}
+{% endif %}
 {% endfor %}
 
 

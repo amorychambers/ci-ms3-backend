@@ -207,3 +207,11 @@ def privacy(status):
         reader.private = True
         db.session.commit()
     return redirect(url_for("account"))
+
+
+@app.route("/delete_account")
+def delete_account():
+    reader = Reader.query.filter(Reader.username == session["user"]).one()
+    db.session.delete(reader)
+    db.session.commit()
+    return redirect(url_for("community"))

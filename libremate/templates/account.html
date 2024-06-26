@@ -59,17 +59,19 @@
 
 <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account-label" aria-hidden="true">
   <div class="modal-dialog">
-    <div class=" container modal-content">
+    <div class="container modal-content">
       <div class="modal-header">
         <h5 class="modal-title fs-5" id="delete-account-label">Delete Account</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p></p>
-        <div class="form-check">
-          <label class="form-check-label required" for="confirmDelete">Confirm Delete</label>
-          <input class="form-check-input" type="checkbox" value="" id="confirmDelete">
-        </div>
+        <p><strong>Caution!</strong><br>If you delete your account, all of your library data - the books and genres you
+          have created - will be permanently deleted. This is irreversible. If you would like to delete your account,
+          please check the box confirming you accept this.</p>
+          <div class="form-inline">
+            <label class="form-check-label required" for="confirmDelete">Confirm Deletion</label>
+            <input class="form-check-input p-0" type="checkbox" value="" id="confirmDelete">
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -87,7 +89,7 @@
 <div class="modal fade" id="edit-{{ genre.id }}" tabindex="-1" aria-labelledby="edit-{{ genre.id }}-label"
   aria-hidden="true">
   <div class="modal-dialog">
-    <div class=" container modal-content">
+    <div class="container modal-content">
       <div class="modal-header">
         <h5 class="modal-title fs-5" id="edit-{{ genre.id }}-label">Edit {{ genre.genre_name }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -116,7 +118,7 @@
 <div class="modal fade" id="delete-{{ genre.id }}" tabindex="-1" aria-labelledby="delete-{{ genre.id }}-label"
   aria-hidden="true">
   <div class="modal-dialog">
-    <div class=" container modal-content">
+    <div class="container modal-content">
       <div class="modal-header">
         <h5 class="modal-title fs-5" id="delete-{{ genre.id }}-label">Delete {{ genre.genre_name }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

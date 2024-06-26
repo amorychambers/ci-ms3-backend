@@ -37,10 +37,10 @@
       <h3>Account Status</h3>
       {% if reader.private == True %}
       <h4>Private</h4>
-      <a href="" class="btn accent"></a>
+      <a href="{{ url_for('privacy', status='public') }}" class="btn accent">Switch to Public</a>
       {% else %}
       <h4>Public</h4>
-      <a href="" class="btn accent"></a>
+      <a href="{{ url_for('privacy', status='private') }}" class="btn accent">Switch to Private</a>
       {% endif %}
     </div>
   </div>

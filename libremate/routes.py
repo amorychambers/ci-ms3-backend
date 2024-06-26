@@ -191,3 +191,15 @@ def account():
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
     reader = Reader.query.filter(Reader.username == session["user"]).one()
     return render_template("account.html", genres=genres, reader=reader)
+
+
+@app.route("/account/privacy/<status>", methods=["GET", "POST"])
+def privacy(status):
+    reader = Reader.query.filter(Reader.username == session["user"]).one()
+    if status == 'public':
+        reader.private = False
+        db.session.commit()
+    else:
+        reader.private = True
+        db.session.commit()
+    return redirect(url_for("account"))

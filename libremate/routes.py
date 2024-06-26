@@ -189,4 +189,5 @@ def edit_genre(genre_id):
 @app.route("/account")
 def account():
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
-    return render_template("account.html", genres=genres)
+    reader = Reader.query.filter(Reader.username == session["user"]).one()
+    return render_template("account.html", genres=genres, reader=reader)

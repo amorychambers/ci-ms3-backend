@@ -32,7 +32,21 @@
       </table>
     </div>
   </div>
+  <div class="row">
+    <div class="col mt-4">
+      <h3>Account Status</h3>
+      {% if reader.private == True %}
+      <h4>Private</h4>
+      <a href="" class="btn accent"></a>
+      {% else %}
+      <h4>Public</h4>
+      <a href="" class="btn accent"></a>
+      {% endif %}
+    </div>
+  </div>
 </div>
+
+
 
 <!-- Modals  -->
 

@@ -139,10 +139,11 @@ def community(page):
 @app.route("/save_books/<genre_id>", methods=["GET","POST"])
 def save_books(genre_id):
     books = Book.query.filter(Book.book_genre == genre_id).all()
-    misc = Genre.query.filter(Genre.genre_name == "misc").one()
+    misc = Genre.query.filter(Genre.genre_name == "misc", Genre.genre_owner == session["user"]).one()
     for book in books:
-        book.book_genre == misc.id
-    return redirect("account")
+        book.book_genre = misc.id
+    db.session.commit()
+    return redirect(url_for("account"))
 
 
 @app.route("/delete_genre/<int:genre_id>")

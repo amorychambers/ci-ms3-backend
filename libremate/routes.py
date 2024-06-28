@@ -136,6 +136,15 @@ def community(page):
     return render_template("community.html", books=current_group, page_numbers=page_numbers)
 
 
+@app.route("/save_books/<genre_id>", methods=["GET","POST"])
+def save_books(genre_id):
+    books = Book.query.filter(Book.book_genre == genre_id).all()
+    misc = Genre.query.filter(Genre.genre_name == "misc").one()
+    for book in books:
+        book.book_genre == misc.id
+    return redirect("account")
+
+
 @app.route("/delete_genre/<int:genre_id>")
 def delete_genre(genre_id):
     genre = Genre.query.get_or_404(genre_id)
@@ -215,4 +224,4 @@ def delete_account():
     db.session.delete(reader)
     db.session.commit()
     session.clear()
-    return redirect(url_for("community/1"))
+    return redirect(url_for("community", page=1))

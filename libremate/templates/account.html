@@ -68,10 +68,10 @@
         <p><strong>Caution!</strong><br>If you delete your account, all of your library data - the books and genres you
           have created - will be permanently deleted. This is irreversible. If you would like to delete your account,
           please check the box confirming you accept this.</p>
-          <div class="form-inline">
-            <label class="form-check-label required" for="confirmDelete">Confirm Deletion</label>
-            <input class="form-check-input p-0" type="checkbox" value="" id="confirmDelete">
-          </div>
+        <div class="form-inline">
+          <label class="form-check-label required" for="confirmDelete">Confirm Deletion</label>
+          <input class="form-check-input p-0" type="checkbox" value="" id="confirmDelete">
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -113,7 +113,7 @@
   </div>
 </div>
 
-<!-- Delete Modal -->
+<!-- Delete Genre Modal -->
 
 <div class="modal fade" id="delete-{{ genre.id }}" tabindex="-1" aria-labelledby="delete-{{ genre.id }}-label"
   aria-hidden="true">
@@ -125,10 +125,12 @@
       </div>
       <div class="modal-body">
         <p>Are you certain you wish to delete this genre? This action will also delete every book currently listed under
-          this genre from your account.</p>
+          this genre from your account. If you wish to keep the books currently listed in this genre, select the 'Save
+          Books under Misc' option first and then return to this page.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="{{ url_for('save_books', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Save Books under Misc</a>
         <a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Delete
           Genre</a>
       </div>

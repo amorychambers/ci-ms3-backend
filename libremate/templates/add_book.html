@@ -43,7 +43,7 @@
                 <select id="book_genre" name="book_genre" class="form-select">
                     <option selected>Select genre</option>
                     {% for genre in genres %}
-                    <option value="{{genre.id}}">{{ genre.genre_name }}</option>
+                    <option value="{{genre.id}}">{{ genre.genre_name.title() }}</option>
                     {% endfor %}
                 </select>
             </div>

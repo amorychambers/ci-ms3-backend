@@ -105,9 +105,9 @@ label.required::after {
 }
 
 #search {
-    width: 80%;
+    width: 90%;
     height: 100%;
-    padding: 0;
+    padding: 5px;
     border: 1px solid #F7A6DA;
 }
 

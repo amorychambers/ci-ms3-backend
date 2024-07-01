@@ -79,23 +79,10 @@ def my_library():
 @app.route("/my_library/sort_by/<sort>")
 def my_library_sort(sort):
     genres = Genre.query.order_by(Genre.genre_name).filter(Genre.genre_owner == session["user"]).all()
-    match sort:
-        case "author":
-            books = Book.query.order_by(Book.author_name).filter(Book.book_owner == session["user"]).all()
-        case "status":
-            books = Book.query.order_by(Book.status).filter(Book.book_owner == session["user"]).all()
-        case "genre":
-            books = Book.query.order_by(Book.book_genre).filter(Book.book_owner == session["user"]).all()
-        case "date":
-            books = Book.query.order_by(Book.created_on).filter(Book.book_owner == session["user"]).all()
-        case _:
-            books = Book.query.order_by(Book.book_title).filter(Book.book_owner == session["user"]).all()
+    books = Book.query.order_by(sort).filter(Book.book_owner == session["user"]).all()
     return render_template("my_library.html", genres=genres, books=books, sort=sort)
 
             
-
-
-
 
 @app.route("/view_book/<id>", methods=["GET", "POST"])
 def view_book(id):

@@ -2,7 +2,8 @@ from flask import render_template, request, redirect, url_for, flash, session
 from libremate import app, db
 from libremate.models import Reader, Genre, Book
 from werkzeug.security import generate_password_hash, check_password_hash
-import datetime, math
+import datetime
+import math
 
 
 @app.route("/")
@@ -71,15 +72,19 @@ def signout():
 
 @app.route("/my_library")
 def my_library():
-    genres = Genre.query.order_by(Genre.genre_name).filter(Genre.genre_owner == session["user"]).all()
-    books = Book.query.order_by(Book.book_title).filter(Book.book_owner == session["user"]).all()
+    genres = Genre.query.order_by(Genre.genre_name).filter(
+        Genre.genre_owner == session["user"]).all()
+    books = Book.query.order_by(Book.book_title).filter(
+        Book.book_owner == session["user"]).all()
     return render_template("my_library.html", genres=genres, books=books)
 
 
 @app.route("/my_library/sort_by/<sort>")
 def my_library_sort(sort):
-    genres = Genre.query.order_by(Genre.genre_name).filter(Genre.genre_owner == session["user"]).all()
-    books = Book.query.order_by(sort).filter(Book.book_owner == session["user"]).all()
+    genres = Genre.query.order_by(Genre.genre_name).filter(
+        Genre.genre_owner == session["user"]).all()
+    books = Book.query.order_by(sort).filter(
+        Book.book_owner == session["user"]).all()
     status_options = ["complete", "plan-to-read", "dropped"]
     statuses = []
     for status in status_options:
@@ -87,7 +92,6 @@ def my_library_sort(sort):
             statuses.append(status)
     return render_template("my_library.html", genres=genres, books=books, sort=sort, statuses=statuses)
 
-            
 
 @app.route("/view_book/<id>", methods=["GET", "POST"])
 def view_book(id):
@@ -138,7 +142,8 @@ def add_book():
 
 @app.route("/community/<page>")
 def community(page):
-    books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(Reader).filter(Reader.private == False).all())
+    books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(
+        Reader).filter(Reader.private == False).all())
     if len(books) == 0:
         page_numbers = 1
         current_group = []
@@ -150,10 +155,11 @@ def community(page):
     return render_template("community.html", books=current_group, page_numbers=page_numbers)
 
 
-@app.route("/save_books/<genre_id>", methods=["GET","POST"])
+@app.route("/save_books/<genre_id>", methods=["GET", "POST"])
 def save_books(genre_id):
     books = Book.query.filter(Book.book_genre == genre_id).all()
-    misc = Genre.query.filter(Genre.genre_name == "misc", Genre.genre_owner == session["user"]).one()
+    misc = Genre.query.filter(
+        Genre.genre_name == "misc", Genre.genre_owner == session["user"]).one()
     for book in books:
         book.book_genre = misc.id
     db.session.commit()
@@ -199,7 +205,7 @@ def edit_book(book_id):
 def edit_genre(genre_id):
     genre = Genre.query.get_or_404(genre_id)
     if genre.genre_name != "Misc" and request.method == "POST" and genre.genre_owner == session["user"]:
-         # Check if genre already exists
+        # Check if genre already exists
         q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
                                               Genre.genre_name == request.form.get("genre_name").lower())
         if db.session.query(q.exists()).scalar():

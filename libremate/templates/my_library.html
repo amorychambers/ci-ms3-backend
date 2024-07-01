@@ -57,6 +57,35 @@
   </div>
   {% endfor %}
 </div>
+{% elif sort == "status" %}
+<div class="container">
+  {% for status in statuses %}
+  <div class="row g-0 center">
+    <h3>{{ status.capitalize() }}</h3>
+    {% for book in books %}
+      {% if book.status == status %}
+      <div class="card col-12 col-md-6 col-lg-4 my-3">
+        {% if book.isbn and book.isbn != '0' %}
+        <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
+        {% else %}
+        <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
+        <p class="cover-title center">{{book.book_title}}</p>
+        {% endif %}
+        <div class="card-body center">
+          <h5 class="card-title">{{ book.book_title }}
+            {% if book.favourite == True %}
+            <i class="fa-solid fa-star favourite"></i>
+            {% endif %}
+          </h5>
+          <h6 class="card-subtitle">{{ book.author_name }}</h6>
+          <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
 {% else %}
 <h2 class="center m-4">All Books</h2>
 

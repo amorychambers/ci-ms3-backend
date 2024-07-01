@@ -251,3 +251,8 @@ def delete_account():
     db.session.commit()
     session.clear()
     return redirect(url_for("community", page=1))
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html")

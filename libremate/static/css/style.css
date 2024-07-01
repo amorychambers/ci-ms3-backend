@@ -40,6 +40,12 @@ h1, input {
     padding-bottom: 0.5rem;
 }
 
+.icon {
+    width: 10vh;
+    height: 10vh;
+    margin: 5vh;
+}
+
 /* ------------ Sign In/Register  ------------ */
 
 .form-control {

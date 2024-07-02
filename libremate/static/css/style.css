@@ -1,12 +1,12 @@
-/* ------------ General Styles ------------ */
+/* ------------------------ General Styles ------------------------ */
 
 body {
     background: url("../images/background.jpg") center center/cover no-repeat;
-    font-family: 'Cactus Classical Serif', serif;
+    font-family: "Cactus Classical Serif", serif;
 }
 
 header, main, footer {
-    background-color: rgba(121, 154, 208, 85%);
+    background-color: rgba(124, 216, 226, 85%);
 }
 
 .container {
@@ -14,7 +14,7 @@ header, main, footer {
 }
 
 .accent {
-    background-color: #AF79D0;
+    background-color: #E27CD8;
 }
 
 .center {
@@ -24,17 +24,18 @@ header, main, footer {
 .navbar {
     padding: 0;
 }
+
 .navbar-brand {
-    font-family: 'Whisper', serif;
+    font-family: "Whisper", serif;
     font-size: 3em;
+}
+
+header {
+    border-bottom: solid 1px #E27CD8;
 }
 
 main {
     min-height: 100vh;
-}
-
-header {
-    border-bottom: solid 1px #AF79D0;
 }
 
 h1, input {
@@ -42,13 +43,9 @@ h1, input {
     padding-bottom: 0.5rem;
 }
 
-.icon {
-    width: 10vh;
-    height: 10vh;
-    margin: 5vh;
-}
 
-/* ------------ Sign In/Register  ------------ */
+
+/* ------------------------ Sign In/Register  ------------------------ */
 
 .form-control {
     margin-bottom: 1.5rem;
@@ -58,7 +55,7 @@ h1, input {
     padding-top: 0;;
 }
 
-/* ------------ My Library ------------ */
+/* ------------------------ My Library ------------------------ */
 
 .card {
     width: 18rem;
@@ -113,9 +110,17 @@ label.required::after {
     border: 1px solid #F7A6DA;
 }
 
-/* ------------ Community ------------ */
+/* ------------------------ Community ------------------------ */
 
 .outline {
     border: 1px solid #F7A6DA;
     padding: 10px;
+}
+
+/* ------------------------ 404 ------------------------ */
+
+.icon {
+    width: 10vh;
+    height: 10vh;
+    margin: 5vh;
 }

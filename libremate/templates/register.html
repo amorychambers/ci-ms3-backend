@@ -9,11 +9,11 @@
             <div class="col">
                 <label for="username" class="form-label required">Username</label>
                 <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
-                    data-bs-content="Please choose a username between 3 and 15 characters using only letters and numbers"></i>
+                    data-bs-content="Please choose a username between 3 and 15 characters long, using only letters and numbers"></i>
                 <input id="username" name="username" class="form-control" type="text" minlength="3" maxlength="15"
                     pattern="^[a-zA-Z0-9]{3,15}$" required>
                 <div class="valid-feedback">Valid!</div>
-                <div class="invalid-feedback">Please enter a username between 3 and 15 characters using no special
+                <div class="invalid-feedback">Please enter a username between 3 and 15 characters long, using no special
                     characters.</div>
             </div>
         </div>
@@ -21,11 +21,12 @@
             <div class="col">
                 <label for="new-password" class="form-label required">Password</label>
                 <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
-                    data-bs-content="Please choose a password between 8 and 20 characters using only letters and numbers"></i>
+                    data-bs-content="Please choose a password between 8 and 20 characters long, using only letters and numbers"></i>
                 <input id="new-password" name="new-password" class="form-control" type="password" minlength="8"
                     maxlength="20" pattern="^[a-zA-Z0-9]{3,15}$" required>
                 <div class="valid-feedback">Valid!</div>
-                <div class="invalid-feedback">Please enter a password between 8 and 20 characters using only letters and
+                <div class="invalid-feedback">Please enter a password between 8 and 20 characters long, using only
+                    letters and
                     numbers.</div>
             </div>
         </div>
@@ -42,21 +43,22 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="form-check">
-                <label for="private" class="form-check-label">Private</label>
-                <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
-                    data-bs-content="If you select a private account, your reviews will not appear in the Community tab"></i>
-                    <input id="private" name="private" class="form-check-input my-3" type="checkbox">
+                <div class="form-group form-inline">
+                    <label for="private" class="form-check-label">Private?</label>
+                    <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
+                        data-bs-content="If you select a private account, your books will not appear in the Community tab"></i>
+                    <input id="private" name="private" class="form-check-input mx-2" type="checkbox">
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col center">
+            <div class="col center mt-4">
                 <button type="submit" class="btn btn-large accent">Submit</button>
             </div>
         </div>
     </form>
-    <p class="mt-5 center">Already have a libre-mate bookshelf of your own?<br><a href="{{ url_for('signin') }}">Sign in here!</a></p>
+    <p class="mt-5 center">Already have a libre-mate bookshelf of your own?<br><a href="{{ url_for('signin') }}">Sign in
+            here!</a></p>
 </div>
 
 <script src="{{ url_for('static', filename='js/validate.js')}}"></script>

@@ -91,7 +91,11 @@ def my_library():
 def my_library_sort(sort):
     genres = Genre.query.order_by(Genre.genre_name).filter(
         Genre.genre_owner == session["user"]).all()
-    books = Book.query.order_by(sort).filter(
+    if sort == "created_on":
+        books = Book.query.order_by(Book.created_on.desc()).filter(
+            Book.book_owner == session["user"]).all()
+    else:
+        books = Book.query.order_by(sort).filter(
         Book.book_owner == session["user"]).all()
     status_options = ["complete", "plan-to-read", "dropped"]
     statuses = []

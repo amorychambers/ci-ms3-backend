@@ -6,7 +6,7 @@
 <div class="container">
   {% for book in books %}
     <div class="row outline mb-4">
-      <div class="col-sm-12 col-md-6 single-book p-1 my-md-5">
+      <div class="col-sm-12 col-md-6 single-book p-1 my-md-3">
         {% if book.isbn %}
           <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
         {% else %}
@@ -14,7 +14,7 @@
           <p class="cover-title center">{{book.book_title}}</p>
         {% endif %}
       </div>
-      <div class="col-sm-12 col-md-6 my-4">
+      <div class="col-sm-12 col-md-6 my-4 mt-md-5">
         <h2>{{ book.book_title }}
           {% if book.favourite == True %}
            <i class="fa-solid fa-star favourite"></i>

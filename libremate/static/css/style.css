@@ -62,6 +62,11 @@ h1, input {
 
 /* ------------------------ My Library ------------------------ */
 
+h1 > a {
+    color: #000;
+    text-decoration: none;
+}
+
 .card {
     width: 18rem;
     padding: 0;

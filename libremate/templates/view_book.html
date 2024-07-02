@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center mb-3">My Library</h1>
+<h1 class="center mb-3"><a href="{{ url_for('my_library') }}">My Library</a></h1>
 
 <!-- This conditional uses jinja templating to only display books from users whose account in the database is not set to 'Private' -->
 {% if book.reader.private == True and book.reader.username != session['user']%}

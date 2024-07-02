@@ -23,8 +23,8 @@ def about():
 def register():
     if request.method == "POST":
         # Check if username already exists
-        q = db.session.query(Reader.id).filter(
-            Reader.username == request.form.get("username").lower())
+        q = db.session.query(Reader).filter(
+            Reader.username == request.form.get("username"))
         if db.session.query(q.exists()).scalar():
             flash("Username already taken")
             redirect(url_for("register"))
@@ -58,7 +58,7 @@ def sign_in():
         if db.session.query(q.exists()).scalar():
             # Check password is correct
             if check_password_hash(q.first().password, request.form.get("password")):
-                session["user"] = q.username
+                session["user"] = q.first().username
                 flash(f"Hello, {session["user"]}!")
                 return redirect(url_for("my_library"))
             else:
@@ -159,6 +159,7 @@ def community(page):
     if len(books) == 0:
         page_numbers = 1
         current_group = []
+        session["page"] = 1
     else:
         page_numbers = (math.ceil(len(books)/3))
         groups = [books[i:i+3] for i in range(0, len(books), 3)]

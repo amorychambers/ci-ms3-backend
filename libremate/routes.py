@@ -11,8 +11,7 @@ def home():
     if "user" in session:
         return redirect(url_for("my_library"))
     else:
-        return redirect(url_for("signin"))
-    
+        return redirect(url_for("sign_in"))
 
 
 @app.route("/about")
@@ -50,8 +49,8 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/signin", methods=["GET", "POST"])
-def signin():
+@app.route("/sign_in", methods=["GET", "POST"])
+def sign_in():
     if request.method == "POST":
         # Check that username exists
         q = db.session.query(Reader).filter(
@@ -65,15 +64,15 @@ def signin():
             else:
                 # Password is not correct
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("signin"))
+                return redirect(url_for("sign_in"))
         else:
             flash("Username does not exist")
-            return redirect(url_for("signin"))
-    return render_template("signin.html")
+            return redirect(url_for("sign_in"))
+    return render_template("sign_in.html")
 
 
-@app.route("/signout")
-def signout():
+@app.route("/sign_out")
+def sign_out():
     session.clear()
     flash("You have been logged out")
     return render_template("base.html")

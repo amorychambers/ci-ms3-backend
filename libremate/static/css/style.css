@@ -1,7 +1,7 @@
 /* ------------ General Styles ------------ */
 
 body {
-    background-color: #DAF7A6;
+    background: url("../images/background.jpg") center center/cover no-repeat;
     font-family: 'Cactus Classical Serif', serif;
 }
 

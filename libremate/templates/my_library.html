@@ -11,6 +11,7 @@
   </div>
 </div>
 
+<!-- Here the user can search for titles or authors in their library. The dropdown allows users to sort their books by any of the main data points in the database table -->
 <div class="row">
   <div class="col-md-8 mb-2 center">
     <input type="text" id="search" placeholder=" Search books in your library...">
@@ -31,31 +32,32 @@
   </div>
 </div>
 
+<!-- This conditional changes the layout of the books depending on whether the user has grouped them by Genre or Status, with the appropriate headings -->
 {% if sort == "book_genre" %}
 <div class="container">
   {% for genre in genres %}
   <div class="row g-0 center">
     <h3>{{ genre.genre_name.title() }}</h3>
     {% for book in books %}
-      {% if book.book_genre == genre.id %}
-      <div class="card col-12 col-md-6 col-lg-4 my-3">
-        {% if book.isbn and book.isbn != '0' %}
-        <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
-        {% else %}
-        <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
-        <p class="cover-title center">{{book.book_title}}</p>
-        {% endif %}
-        <div class="card-body center">
-          <h5 class="card-title">{{ book.book_title }}
-            {% if book.favourite == True %}
-            <i class="fa-solid fa-star favourite"></i>
-            {% endif %}
-          </h5>
-          <h6 class="card-subtitle">{{ book.author_name }}</h6>
-          <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
-        </div>
-      </div>
+    {% if book.book_genre == genre.id %}
+    <div class="card col-12 col-md-6 col-lg-4 my-3">
+      {% if book.isbn and book.isbn != '0' %}
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
+      {% else %}
+      <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
+      <p class="cover-title center">{{book.book_title}}</p>
       {% endif %}
+      <div class="card-body center">
+        <h5 class="card-title">{{ book.book_title }}
+          {% if book.favourite == True %}
+          <i class="fa-solid fa-star favourite"></i>
+          {% endif %}
+        </h5>
+        <h6 class="card-subtitle">{{ book.author_name }}</h6>
+        <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
+      </div>
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
   {% endfor %}
@@ -67,25 +69,25 @@
   <div class="row g-0 center">
     <h3>{{ status.capitalize() }}</h3>
     {% for book in books %}
-      {% if book.status == status %}
-      <div class="card col-12 col-md-6 col-lg-4 my-3">
-        {% if book.isbn and book.isbn != '0' %}
-        <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
-        {% else %}
-        <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
-        <p class="cover-title center">{{book.book_title}}</p>
-        {% endif %}
-        <div class="card-body center">
-          <h5 class="card-title">{{ book.book_title }}
-            {% if book.favourite == True %}
-            <i class="fa-solid fa-star favourite"></i>
-            {% endif %}
-          </h5>
-          <h6 class="card-subtitle">{{ book.author_name }}</h6>
-          <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
-        </div>
-      </div>
+    {% if book.status == status %}
+    <div class="card col-12 col-md-6 col-lg-4 my-3">
+      {% if book.isbn and book.isbn != '0' %}
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
+      {% else %}
+      <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
+      <p class="cover-title center">{{book.book_title}}</p>
       {% endif %}
+      <div class="card-body center">
+        <h5 class="card-title">{{ book.book_title }}
+          {% if book.favourite == True %}
+          <i class="fa-solid fa-star favourite"></i>
+          {% endif %}
+        </h5>
+        <h6 class="card-subtitle">{{ book.author_name }}</h6>
+        <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
+      </div>
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
   {% endfor %}
@@ -95,27 +97,27 @@
 <h2 class="center m-4">All Books</h2>
 
 <div class="container">
-    <div class="row g-0">
-        {% for book in books %}
-        <div class="card col-12 col-md-6 col-lg-4 my-3">
-            {% if book.isbn and book.isbn != '0' %}
-            <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
-            {% else %}
-            <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
-            <p class="cover-title center">{{book.book_title}}</p>
-            {% endif %}
-            <div class="card-body center">
-              <h5 class="card-title">{{ book.book_title }}
-                {% if book.favourite == True %}
-                <i class="fa-solid fa-star favourite"></i>
-                {% endif %}
-              </h5>
-              <h6 class="card-subtitle">{{ book.author_name }}</h6>
-              <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
-            </div>
-          </div>
-        {% endfor %}
+  <div class="row g-0">
+    {% for book in books %}
+    <div class="card col-12 col-md-6 col-lg-4 my-3">
+      {% if book.isbn and book.isbn != '0' %}
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" class="card-img-top" alt="Book cover">
+      {% else %}
+      <img src="{{ url_for('static', filename='images/cover.jpg') }}" class="card-img-top" alt="Book cover">
+      <p class="cover-title center">{{book.book_title}}</p>
+      {% endif %}
+      <div class="card-body center">
+        <h5 class="card-title">{{ book.book_title }}
+          {% if book.favourite == True %}
+          <i class="fa-solid fa-star favourite"></i>
+          {% endif %}
+        </h5>
+        <h6 class="card-subtitle">{{ book.author_name }}</h6>
+        <a href="{{ url_for('view_book', id=book.id) }}" class="stretched-link"></a>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </div>
 {% endif %}
 

@@ -8,7 +8,11 @@ import math
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    if "user" in session:
+        return redirect(url_for("my_library"))
+    else:
+        return redirect(url_for("signin"))
+    
 
 
 @app.route("/about")

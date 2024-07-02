@@ -159,6 +159,10 @@ th {
     form {
         max-width: 80%;
     }
+
+    .special-margin {
+        margin-left: 5%;
+    }
 }
 
 /* ------------------------------------------------ Desktop Styles ------------------------------------------------ */
@@ -166,5 +170,13 @@ th {
 @media(min-width: 992px) {
     form {
         max-width: 60%;
+    }
+
+    .outline {
+        max-width: 80%;
+    }
+
+    .special-margin {
+        margin-left: 15%;
     }
 }

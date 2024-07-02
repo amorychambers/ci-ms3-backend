@@ -5,7 +5,7 @@
 
 <div class="container">
   {% for book in books %}
-    <div class="row outline mb-4">
+    <div class="row outline m-lg-auto mb-4">
       <div class="col-sm-12 col-md-6 single-book p-1 my-md-3">
         {% if book.isbn %}
           <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">

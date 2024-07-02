@@ -152,12 +152,12 @@ th {
 /* ------------------------------------------------ Tablet Styles ------------------------------------------------ */
 
 @media(min-width: 768px) {
-    .card {
-        width: 45%;
+    form, .genres-table {
+        max-width: 80%;
     }
 
-    form {
-        max-width: 80%;
+    .card {
+        width: 45%;
     }
 
     .special-margin {
@@ -170,6 +170,10 @@ th {
 @media(min-width: 992px) {
     form {
         max-width: 60%;
+    }
+
+    .card {
+        width: 30%;
     }
 
     .outline {

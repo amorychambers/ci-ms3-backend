@@ -2,31 +2,34 @@
 {% block content %}
 
 <h1 class="center mb-3">Account Settings</h1>
-<h2 class="center">{{ session["user"] }}'s Account</h2>
+<h2 class="center">{{ session["user"] }}'s account</h2>
 
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h3>My Genres</h3>
+    <div class="col py-4">
+      <h3 class="mb-3">My Genres</h3>
       <table class="table table-light table-striped">
         <thead>
           <tr>
             <th scope="col">Genre</th>
-            <th scope="col">Number of Books</th>
-            <th scope="col"></th>
+            <th scope="col">No. of Books</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
           {% for genre in genres %}
           <tr>
-            <th>{{ genre.genre_name.title() }}</th>
-            <th>{{ genre.books|length }}</th>
+            <td>{{ genre.genre_name.title() }}</td>
+            <td>{{ genre.books|length }}</td>
             {% if genre.genre_name == "misc" %}
-            <th></th>
+              <td></td>
             {% else %}
-            <th><button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-{{ genre.id }}">Delete
-                Genre</button><button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
-                data-bs-target="#edit-{{ genre.id }}">Edit Genre</button></th>
+              <td>
+                <button class="btn btn-sm btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-{{ genre.id }}">Delete
+                Genre</button>
+                <button type="button" class="btn btn-sm btn-success m-2" data-bs-toggle="modal"
+                data-bs-target="#edit-{{ genre.id }}">Edit Genre</button>
+              </td>
             {% endif %}
           </tr>
           {% endfor %}
@@ -34,18 +37,20 @@
       </table>
     </div>
   </div>
+
   <div class="row">
-    <div class="col mt-4">
-      <h3>Account Status</h3>
+    <div class="col center my-4">
+      <h3 class="mb-3">Account Status</h3>
       {% if reader.private == True %}
-      <h4>Private</h4>
-      <a href="{{ url_for('privacy', status='public') }}" class="btn accent">Switch to Public</a>
+        <h4>Private</h4>
+        <a href="{{ url_for('privacy', status='public') }}" class="btn btn-sm accent">Switch to Public</a>
       {% else %}
-      <h4>Public</h4>
-      <a href="{{ url_for('privacy', status='private') }}" class="btn accent">Switch to Private</a>
+        <h4>Public</h4>
+        <a href="{{ url_for('privacy', status='private') }}" class="btn btn-sm accent">Switch to Private</a>
       {% endif %}
     </div>
   </div>
+
   <div class="row">
     <div class="col center">
       <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-account">Delete Account</button>
@@ -57,6 +62,7 @@
 
 <!-- Modals  -->
 
+<!-- Confirmation modal to ensure user does not delete account by mistake. This also makes use of a checkbox with a custom JS function to be absolutely certain -->
 <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account-label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="container modal-content">
@@ -82,6 +88,7 @@
   </div>
 </div>
 
+<!-- This for loop creates two custom modals for each genre that allows the user to edit or delete the genre they have created -->
 {% for genre in genres %}
 {% if genre.genre_name != "misc" %}
 
@@ -91,7 +98,7 @@
   <div class="modal-dialog">
     <div class="container modal-content">
       <div class="modal-header">
-        <h5 class="modal-title fs-5" id="edit-{{ genre.id }}-label">Edit {{ genre.genre_name }}</h5>
+        <h5 class="modal-title fs-5" id="edit-{{ genre.id }}-label">Edit {{ genre.genre_name.title() }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -100,7 +107,7 @@
             <div class="col">
               <label for="genre_name" class="form-label required">Genre Name</label>
               <input id="genre_name" name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
-                pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required value="{{ genre.genre_name }}">
+                pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required value="{{ genre.genre_name.title() }}">
             </div>
           </div>
       </div>
@@ -120,7 +127,7 @@
   <div class="modal-dialog">
     <div class="container modal-content">
       <div class="modal-header">
-        <h5 class="modal-title fs-5" id="delete-{{ genre.id }}-label">Delete {{ genre.genre_name }}</h5>
+        <h5 class="modal-title fs-5" id="delete-{{ genre.id }}-label">Delete {{ genre.genre_name.title() }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

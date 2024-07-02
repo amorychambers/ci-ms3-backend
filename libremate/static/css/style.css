@@ -122,6 +122,10 @@ label.required::after {
     padding: 10px;
 }
 
+th {
+    text-decoration: underline #E27CD8;
+}
+
 /* ------------------------ 404 ------------------------ */
 
 .icon {

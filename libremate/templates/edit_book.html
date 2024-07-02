@@ -5,8 +5,8 @@
 
 {% if book.book_owner == session['user'] %}
 <div class="container">
-    <div class="row">
-        <div class="col my-5">
+    <div class="row mx-md-5">
+        <div class="col my-3">
             <h2>{{ book.book_title }}
                 {% if book.favourite == True %}
                 <i class="fa-solid fa-star favourite"></i>

@@ -5,18 +5,16 @@ body {
     font-family: 'Cactus Classical Serif', serif;
 }
 
-main {
-    min-height: 100vh;
+header, main, footer {
+    background-color: rgba(121, 154, 208, 85%);
 }
 
 .container {
     max-width: 90vw;
-    background-color: #A6DAF7;
-    box-shadow: 0 0 10px 0px #A6DAF7;
 }
 
 .accent {
-    background-color: #F7A6DA;
+    background-color: #AF79D0;
 }
 
 .center {
@@ -31,8 +29,12 @@ main {
     font-size: 3em;
 }
 
+main {
+    min-height: 100vh;
+}
+
 header {
-    border-bottom: solid 1px #F7A6DA;
+    border-bottom: solid 1px #AF79D0;
 }
 
 h1, input {

@@ -100,7 +100,7 @@ def my_library_sort(sort):
     status_options = ["complete", "plan-to-read", "dropped"]
     statuses = []
     for status in status_options:
-        if len(Book.query.filter(Book.status == status and Book.book_owner == session["user"]).all()) > 1:
+        if len(Book.query.filter(Book.status == status and Book.book_owner == session["user"]).all()) >= 1:
             statuses.append(status)
     return render_template("my_library.html", genres=genres, books=books, sort=sort, statuses=statuses)
 

@@ -107,7 +107,7 @@ def my_library_sort(sort):
 
 @app.route("/view_book/<id>", methods=["GET", "POST"])
 def view_book(id):
-    book = Book.query.filter(Book.id == id).one()
+    book = Book.query.get_or_404(id)
     return render_template("view_book.html", book=book)
 
 

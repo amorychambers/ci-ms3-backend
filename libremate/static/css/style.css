@@ -1,7 +1,7 @@
 /* ------------------------ General Styles ------------------------ */
 
 body {
-    background: url("../images/background.jpg") center center/cover no-repeat;
+    background: url("../images/background.jpg") center center/cover no-repeat fixed;
     font-family: "Cactus Classical Serif", serif;
 }
 
@@ -112,13 +112,13 @@ label.required::after {
     width: 90%;
     height: 100%;
     padding: 5px;
-    border: 1px solid #F7A6DA;
+    border: 1px solid #E27CD8;
 }
 
 /* ------------------------ Community ------------------------ */
 
 .outline {
-    border: 1px solid #F7A6DA;
+    border: 1px solid #E27CD8;
     padding: 10px;
 }
 

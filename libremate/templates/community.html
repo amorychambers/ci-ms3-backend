@@ -5,34 +5,32 @@
 
 <div class="container">
   {% for book in books %}
-  <div class="row outline mb-4">
-    <div class="col-sm-12 col-md-6 single-book my-md-5">
-      {% if book.isbn %}
-      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
-      {% else %}
-      <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
-      <p class="cover-title center">{{book.book_title}}</p>
-      {% endif %}
-    </div>
-    <div class="col-sm-12 col-md-6 my-4">
-      <h2>{{ book.book_title }}
-        {% if book.favourite == True %}
-        <i class="fa-solid fa-star favourite"></i>
+    <div class="row outline mb-4">
+      <div class="col-sm-12 col-md-6 single-book p-1 my-md-5">
+        {% if book.isbn %}
+          <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
+        {% else %}
+          <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
+          <p class="cover-title center">{{book.book_title}}</p>
         {% endif %}
-      </h2>
-      <h3>{{ book.author_name }}</h3>
-      <br>
-      <h4>Bookshelf: {{ book.book_owner }}</h4>
-      <br>
-      <h4>Status: {{ book.status.capitalize() }}</h4>
-      <br>
-      <h4>Review</h4>
-      <p>{{ book.review }}</p>
+      </div>
+      <div class="col-sm-12 col-md-6 my-4">
+        <h2>{{ book.book_title }}
+          {% if book.favourite == True %}
+           <i class="fa-solid fa-star favourite"></i>
+          {% endif %}
+        </h2>
+        <h3>{{ book.author_name }}</h3><br>
+        <h4>Bookshelf: {{ book.book_owner }}</h4><br>
+        <h4>Status: {{ book.status.capitalize() }}</h4><br>
+        <h4>Review</h4>
+        <p>{{ book.review }}</p>
+      </div>
     </div>
-  </div>
   {% endfor %}
 </div>
 
+<!-- This pagination uses a conditional and a for loop to generate the correct amount of additional pages needed for more community reviews -->
 <div class="container">
   <div class="row">
     <div class="col my-4 center">
@@ -48,13 +46,13 @@
             {% if session['page'] == (x+1) %}
               <li class="page-item"><a class="page-link disabled" href="#">{{ x + 1}}</a></li>
             {% else %}
-             <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(x + 1)) }}">{{ x + 1}}</a></li>
+              <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(x + 1)) }}">{{ x + 1}}</a></li>
             {% endif %}
           {% endfor %}
           {% if session['page'] == page_numbers %}
             <li class="page-item"><a class="page-link disabled" href="#">Next</a></li>
           {% else %}
-           <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(session['page'] + 1)) }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(session['page'] + 1)) }}">Next</a></li>
           {% endif %}
         </ul>
       </nav>

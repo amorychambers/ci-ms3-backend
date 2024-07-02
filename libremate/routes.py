@@ -75,7 +75,7 @@ def sign_in():
 def sign_out():
     session.clear()
     flash("You have been logged out")
-    return render_template("base.html")
+    return redirect(url_for("home"))
 
 
 @app.route("/my_library")

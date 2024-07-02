@@ -153,4 +153,8 @@ th {
     .card {
         width: 45%;
     }
+
+    form {
+        max-width: 80%;
+    }
 }

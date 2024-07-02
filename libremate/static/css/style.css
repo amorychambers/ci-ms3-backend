@@ -68,7 +68,7 @@ h1 > a {
 }
 
 .card {
-    width: 18rem;
+    width: 90%;
     padding: 0;
 }
 
@@ -145,4 +145,12 @@ th {
     width: 10vh;
     height: 10vh;
     margin: 5vh;
+}
+
+/* ------------------------------------------------ Tablet Styles ------------------------------------------------ */
+
+@media(min-width: 768px) {
+    .card {
+        width: 45%;
+    }
 }

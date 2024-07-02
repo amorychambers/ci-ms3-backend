@@ -3,6 +3,7 @@
 
 <h1 class="center mb-3">My Library</h1>
 
+<!-- This conditional uses jinja templating to only display books from users whose account in the database is not set to 'Private' -->
 {% if book.reader.private == True and book.reader.username != session['user']%}
 
 <div class="container">
@@ -10,7 +11,7 @@
     <div class="col center m-4">
       <h2 class="p-2">Private Access Only</h2>
       <p class="p-2">This user's bookshelf is private, for their eyes only. Turn back now, lest you wander forever, lost in the labyrinth of secret shelves...</p>
-      <a href="{{ url_for('community', page=1) }}" class="btn accent">Home</a>
+      <a href="{{ url_for('community', page=1) }}" class="btn accent">Community Books</a>
     </div>
   </div>
 </div>
@@ -19,29 +20,27 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-6 single-book my-md-5">
-      {% if book.isbn %}
-      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
+    <div class="col-sm-12 col-md-6 single-book">
+      {% if book.isbn and book.isbn != '0' %}
+        <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
       {% else %}
-      <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
-      <p class="cover-title center">{{book.book_title}}</p>
+        <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
+        <p class="cover-title center">{{book.book_title}}</p>
       {% endif %}
     </div>
     <div class="col-sm-12 col-md-6 my-5">
       <h2>{{ book.book_title }}
         {% if book.favourite == True %}
-        <i class="fa-solid fa-star favourite"></i>
+          <i class="fa-solid fa-star favourite"></i>
         {% endif %}
       </h2>
-      <h3>{{ book.author_name }}</h3>
-      <br>
+      <h3>{{ book.author_name }}</h3><br>
       <h4>Genre: {{ book.genre.genre_name.title() }}</h4>
-      <h4>Bookshelf: {{ book.book_owner }}</h4>
-      <br>
-      <h4>Status: {{ book.status.capitalize() }}</h4>
-      <br>
-      <h4>Review</h4>
-      <p>{{ book.review }}</p>
+      <h4>Bookshelf: {{ book.book_owner }}</h4><br>
+      <h4>Status: {{ book.status.capitalize() }}</h4><br>
+      <h4>Review:</h4>
+      <p>{{ book.review }}</p><br>
+      <h4>Added: {{ book.created_on.strftime("%x") }}</h4>
     </div>
   </div>
   {% if book.book_owner == session['user'] %}

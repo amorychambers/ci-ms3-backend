@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center mb-3"><a href="{{ url_for('my_library') }}">My Library</a></h1>
+<h1 class="center mb-3 mb-md-5"><a href="{{ url_for('my_library') }}">My Library</a></h1>
 
 <!-- This conditional uses jinja templating to only display books from users whose account in the database is not set to 'Private' -->
 {% if book.reader.private == True and book.reader.username != session['user']%}
@@ -44,10 +44,10 @@
     </div>
   </div>
   {% if book.book_owner == session['user'] %}
-  <div class="row">
+  <div class="row mt-md-5">
     <div class="col center">
-      <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-book">Delete Book</button>
       <a href="{{ url_for('edit_book', book_id=book.id) }}" class="btn btn-success m-2" role="button">Edit Book</a>
+      <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-book">Delete Book</button>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
 {% if book.book_owner == session['user'] %}
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-6 my-5">
+        <div class="col my-5">
             <h2>{{ book.book_title }}
                 {% if book.favourite == True %}
                 <i class="fa-solid fa-star favourite"></i>
@@ -17,7 +17,7 @@
     </div>
     <br>
     <form action="{{ url_for('edit_book', book_id=book.id) }}" method="POST" class="needs-validation" novalidate>
-        <div class="row">
+        <div class="form">
             <div class="row">
                 <div class="col">
                     <label for="status" class="form-label">Status</label>
@@ -34,7 +34,7 @@
             </div>
             <div class="row">
                 <div class="col my-3">
-                    <div class="form-check">
+                    <div class="form-check form-inline">
                         <label for="favourite" class="form-check-label">Favourite</label>
                         {% if book.favourite == True %}
                         <input id="favourite" name="favourite" class="form-check-input p-0" type="checkbox" checked>

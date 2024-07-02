@@ -29,9 +29,9 @@ def register():
             flash("Username already taken")
             redirect(url_for("register"))
         else:
-            session["user"] = request.form.get("username").lower()
+            session["user"] = request.form.get("username")
             reader = Reader(
-                username=request.form.get("username").lower(),
+                username=request.form.get("username"),
                 password=generate_password_hash(
                     request.form.get("new-password")),
                 private=bool(request.form.get("private"))
@@ -40,7 +40,7 @@ def register():
             db.session.commit()
             default_genre = Genre(
                 genre_name="misc",
-                genre_owner=request.form.get("username").lower())
+                genre_owner=request.form.get("username"))
             db.session.add(default_genre)
             db.session.commit()
             flash("Registration successful!")
@@ -54,11 +54,11 @@ def sign_in():
     if request.method == "POST":
         # Check that username exists
         q = db.session.query(Reader).filter(
-            Reader.username == request.form.get("username").lower())
+            Reader.username == request.form.get("username"))
         if db.session.query(q.exists()).scalar():
             # Check password is correct
             if check_password_hash(q.first().password, request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                session["user"] = q.username
                 flash(f"Hello, {session["user"]}!")
                 return redirect(url_for("my_library"))
             else:
@@ -216,7 +216,7 @@ def edit_book(book_id):
 @app.route("/edit_genre/<int:genre_id>", methods=["POST"])
 def edit_genre(genre_id):
     genre = Genre.query.get_or_404(genre_id)
-    if genre.genre_name != "Misc" and request.method == "POST" and genre.genre_owner == session["user"]:
+    if request.method == "POST" and genre.genre_name != "Misc" and genre.genre_owner == session["user"]:
         # Check if genre already exists
         q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
                                               Genre.genre_name == request.form.get("genre_name").lower())
@@ -235,14 +235,14 @@ def edit_genre(genre_id):
 @app.route("/account")
 def account():
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
-    reader = Reader.query.filter(Reader.username == session["user"]).one()
+    reader = Reader.query.first_or_404(Reader.username == session["user"])
     return render_template("account.html", genres=genres, reader=reader)
 
 
 @app.route("/account/privacy/<status>", methods=["GET", "POST"])
 def privacy(status):
-    reader = Reader.query.filter(Reader.username == session["user"]).one()
-    if status == 'public':
+    reader = Reader.query.first_or_404(Reader.username == session["user"])
+    if status == "public":
         reader.private = False
         db.session.commit()
     else:
@@ -253,7 +253,7 @@ def privacy(status):
 
 @app.route("/delete_account")
 def delete_account():
-    reader = Reader.query.filter(Reader.username == session["user"]).one()
+    reader = Reader.query.first_or_404(Reader.username == session["user"])
     db.session.delete(reader)
     db.session.commit()
     session.clear()

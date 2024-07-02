@@ -25,10 +25,10 @@
               <td></td>
             {% else %}
               <td>
-                <button class="btn btn-sm btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-{{ genre.id }}">Delete
-                Genre</button>
                 <button type="button" class="btn btn-sm btn-success m-2" data-bs-toggle="modal"
-                data-bs-target="#edit-{{ genre.id }}">Edit Genre</button>
+                data-bs-target="#edit-{{ genre.id }}">Edit Name</button>
+                <button class="btn btn-sm btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-{{ genre.id }}">Delete
+                  Genre</button>
               </td>
             {% endif %}
           </tr>
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mt-4">
     <div class="col center">
       <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-account">Delete Account</button>
     </div>

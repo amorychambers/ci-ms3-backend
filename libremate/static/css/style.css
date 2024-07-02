@@ -131,6 +131,10 @@ label.required::after {
     padding: 10px;
 }
 
+a.page-link {
+    color: #E27CD8;
+}
+
 th {
     text-decoration: underline #E27CD8;
 }

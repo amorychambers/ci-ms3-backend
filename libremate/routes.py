@@ -127,6 +127,7 @@ def add_genre():
             )
             db.session.add(genre)
             db.session.commit()
+            flash(f"'{genre.genre_name.capitalize()}' added to your genres")
             return redirect(url_for("my_library"))
     return render_template("add_genre.html")
 
@@ -148,6 +149,7 @@ def add_book():
         )
         db.session.add(book)
         db.session.commit()
+        flash(f"'{book.book_title}' added to your bookshelf!")
         return redirect(url_for("my_library"))
     return render_template("add_book.html", genres=genres)
 
@@ -176,6 +178,7 @@ def save_books(genre_id):
     for book in books:
         book.book_genre = misc.id
     db.session.commit()
+    flash("Books saved under Misc")
     return redirect(url_for("account"))
 
 
@@ -185,6 +188,7 @@ def delete_genre(genre_id):
     if genre.genre_name != "misc":
         db.session.delete(genre)
         db.session.commit()
+        flash(f"'{genre.genre_name.capitalize()}' genre deleted")
     return redirect(url_for("my_library"))
 
 
@@ -193,6 +197,7 @@ def delete_book(book_id):
     book = Book.query.get_or_404(book_id)
     db.session.delete(book)
     db.session.commit()
+    flash(f"'{book.book_title}' deleted")
     return redirect(url_for("my_library"))
 
 
@@ -244,9 +249,11 @@ def privacy(status):
     if status == "public":
         reader.private = False
         db.session.commit()
+        flash("Account set to Public")
     else:
         reader.private = True
         db.session.commit()
+        flash("Account set to Private")
     return redirect(url_for("account"))
 
 
@@ -256,6 +263,7 @@ def delete_account():
     db.session.delete(reader)
     db.session.commit()
     session.clear()
+    flash("Account deleted. Goodnight and good luck!")
     return redirect(url_for("community", page=1))
 
 

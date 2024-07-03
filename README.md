@@ -36,7 +36,7 @@ Developed by Benedict Amory Chambers
 
 ## Project Goals 
 
-This is a community-focused online bookshelf where users can create their own customised bookshelf of the books they own with full database CRUD functionality; a user can decide to make their content private, but there is a community tab for sharing books and thoughts with other readers that might encourage them to buy and read something new.
+This is a community-focused online library where users can create their own customised bookshelf with full database CRUD functionality; a user can decide to make their content private, but there is a community tab for sharing books and thoughts with other readers that may encourage them to buy and read something new.
 
 ### User Goals 
 
@@ -57,3 +57,33 @@ This is a community-focused online bookshelf where users can create their own cu
 - Design the site to make valuable and enjoyable use of the data collected from users
 - The site is accessible to a wide range of users, with a clear and easy-to-navigate structure for all information
 - Customise the experience to appeal to the target demographic and to foster a sense of community
+
+## User Experience
+
+### Target Audience
+
+- Readers and book enthusiasts
+- Bloggers and reviewers
+- Authors who may be interested in having their books reviewed on the site
+
+### User Stories
+
+## Design 
+
+### Design Choices
+
+I have opted for as simple and uncluttered a design as possible, drawing the attention more solely to the books on display. I have used a translucent overlay for all site content, on top of a background image that conveys the theme and tone of the site's design. By keeping the content within a relaxed, flat colour background, I intended to make both the content and the way that users can interact with the content clearer and more intuitive.
+
+### Colours
+
+I used [HTML Color Codes](https://htmlcolorcodes.com/color-picker/) to choose two analogous complementary colours for both the primary background and accent colours.
+
+![Colour Scheme](docs/colour.png)
+
+### Fonts
+
+I used two fonts on the website; one of which I used for the main brand image and link present in the header of every page, which is a display font conveying tone, and one clearer font for any body of text in the site, which is easier and clearer to read.
+
+[Whisper](https://fonts.google.com/specimen/Whisper) - Display font
+
+[Cactus Classical Serif](https://fonts.google.com/specimen/Cactus+Classical+Serif) - Main text font

@@ -25,6 +25,7 @@ Developed by Benedict Amory Chambers
     1. [HTML Validation](#HTML-validation)
     2. [CSS Validation](#CSS-validation)
     3. [JavaScript Validation](#javascript-validation)
+    4. [Python Validation](#python-validation)
     4. [Accessibility](#accessibility)
     5. [Performance](#performance)
     6. [Compatibility](#compatibility)
@@ -299,3 +300,37 @@ User Stories: 1, 20
 - Custom 404 page that redirects guest users to the Sign In/Register page and redirects logged in users back to their library
 
 User Stories: 2, 20
+
+
+## Testing
+
+### HTML Validation
+
+### CSS Validation
+
+### JavaScript Validation
+
+### Python Validation
+
+### Accessibility
+
+### Performance
+
+### Compatibility
+
+### Testing User Stories
+
+
+## Bugs
+
+
+## Credits
+
+### Media
+
+### External Code
+
+
+## Deployment
+
+## Acknowledgements

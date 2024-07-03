@@ -200,9 +200,7 @@ def delete_book(book_id):
 def edit_book(book_id):
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
     book = Book.query.get_or_404(book_id)
-    statuses = [{"value": "plan-to-read", "desc": "Plan-to-read"},
-                {"value": "complete", "desc": "Complete"},
-                {"value": "dropped", "desc": "Dropped"}]
+    statuses = ["complete", "plan-to-read", "dropped"]
     if request.method == "POST" and book.book_owner == session["user"]:
         book.status = request.form.get("status")
         book.favourite = bool(request.form.get("favourite"))

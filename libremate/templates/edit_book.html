@@ -23,10 +23,10 @@
                     <label for="status" class="form-label">Status</label>
                     <select id="status" name="status" class="form-select" required>
                         {% for status in statuses %}
-                            {% if status.value == book.status %}
-                                <option selected value="{{status.value}}">{{ status.desc }}</option>
+                            {% if status == book.status %}
+                                <option selected value="{{ status }}">{{ status.capitalize() }}</option>
                             {% else %}
-                                <option  value="{{status.value}}">{{ status.desc }}</option>
+                                <option  value="{{ status }}">{{ status.capitalize() }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>

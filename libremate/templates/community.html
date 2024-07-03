@@ -13,6 +13,9 @@
           <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
           <p class="cover-title center">{{book.book_title}}</p>
         {% endif %}
+        <br>
+        <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name }}&i=digital-text&tag=fakereferral" target="_blank" class="btn kindle" role="button">Search on Kindle</a>
+        <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title }}+{{ book.author_name }}&tag=fakereferral" target="_blank" class="btn kobo" role="button">Search on Kobo</a>
       </div>
       <div class="col-sm-12 col-md-6 my-4 mt-md-5">
         <h2>{{ book.book_title }}

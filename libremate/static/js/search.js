@@ -1,3 +1,6 @@
+/**
+ * This function is loaded on the my_library page only and allows users to filter the books that are displayed based on matching their search terms with the title and author name data.
+ */
 const search = document.getElementById("search");
 const books = document.getElementsByClassName("card");
 

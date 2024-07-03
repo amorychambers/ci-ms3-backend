@@ -96,7 +96,7 @@ def my_library_sort(sort):
             Book.book_owner == session["user"]).all()
     else:
         books = Book.query.order_by(sort).filter(
-        Book.book_owner == session["user"]).all()
+            Book.book_owner == session["user"]).all()
     status_options = ["complete", "plan-to-read", "dropped"]
     statuses = []
     for status in status_options:

@@ -17,7 +17,7 @@ rejectButton.addEventListener('click', rejectCover);
  * Takes the ISBN value input by the user and inserts it into the API link.
  * Displays the retrived cover image on the page and disables the button that calls the API until user confirms or rejects cover.
  */
-function checkCover(event){
+function checkCover(event) {
     event.preventDefault();
     event.stopPropagation();
     checkButton.classList.add("disabled");
@@ -33,7 +33,7 @@ function checkCover(event){
  * Adds a confirmation message to show cover has been accepted after selecting Confirm button.
  * Preserves the ISBN input to be saved in the database, but allows user to search and try again. 
  */
-function confirmCover(event){
+function confirmCover(event) {
     event.preventDefault();
     event.stopPropagation();
 
@@ -51,7 +51,7 @@ function confirmCover(event){
  * Resets the value of the ISBN input box to 0, which can be saved in the database to indicate no cover image retrieved and to use standardised site cover.
  * Re-enables button that calls API so user can search again.
  */
-function rejectCover(event){
+function rejectCover(event) {
     event.preventDefault();
     event.stopPropagation();
 

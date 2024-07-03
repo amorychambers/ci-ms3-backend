@@ -54,7 +54,7 @@ This is a community-focused online library where users can create their own cust
 ### Developer Goals
 
 - Create a site that allows users to easily and intuitively interact with a database
-- Design the site to make valuable and enjoyable use of the data collected from users
+- Design the site to make valuable and enjoyable use of the data provided by users
 - The site is accessible to a wide range of users, with a clear and easy-to-navigate structure for all information
 - Customise the experience to appeal to the target demographic and to foster a sense of community
 
@@ -87,3 +87,24 @@ I used two fonts on the website; one of which I used for the main brand image an
 [Whisper](https://fonts.google.com/specimen/Whisper) - Display font
 
 [Cactus Classical Serif](https://fonts.google.com/specimen/Cactus+Classical+Serif) - Main text font
+
+### Structure
+
+The site consists of eight main pages with several supplementary pages for clear functionality.
+
+1. My Library - This is the homepage for logged in users. It displays the user's books, which can be sorted by several different datapoints, and allows the user to add new books or genre tags to their library. This page links to two supplementary pages, with forms to submit new books and genre names to the database.
+
+2. View Book - Each book in the user's library can be viewed individually for visual clarity and to see further information. This page links to one supplementary page, which is a form the user can submit to edit the data associated with this book in the database.
+
+3. Community - This page focuses on the community building aspect of the site. It displays the most recent entries and reviews created by users, as long as the user has a public account. This is where users can see what other people are reading, and read the thoughts they have posted on the book, potentially leading to referral link sales.
+
+4. Register - A form for the creation of a new user in the database, with the option to choose a private or public account. This page links to the Sign In page for users who already have an account.
+
+5. Sign In - A form that allows users to log in to their account. This page links to the Register page for users that do not yet have their own account.
+
+6. Account - This page allows users to manage their account. Here, they can edit or delete their own custom genre tags, can switch between a public and private account, and can delete their account and all related data entirely if they wish.
+
+7. About - A short page explaining the site's ethos and goals to the user.
+
+8. 404 - A custom 404 page redirecting the user to either their own library or to the Sign In page when navigating to an unknown URL.
+

@@ -108,3 +108,61 @@ The site consists of eight main pages with several supplementary pages for clear
 
 8. 404 - A custom 404 page redirecting the user to either their own library or to the Sign In page when navigating to an unknown URL.
 
+
+## Technologies
+
+### Languages 
+
+HTML5
+
+CSS3
+
+JavaScript
+
+Python
+
+Jinja2
+
+### Frameworks and Tools
+
+[Flask](https://flask.palletsprojects.com/en/3.0.x/)
+
+I built this web application in Flask, in order to make use of templating and to use Python on the backend for accessing and manipulating the database.
+
+[SQLAlchemy](https://www.sqlalchemy.org/)
+
+I used the SQLAlchemy ORM to write efficient, clean Pythonic code for manipulating the database.
+
+[EDrawMax](https://www.edrawmax.com/online/en/)
+
+I used this tool to develop an Entity Relationship Diagram during the planning stages of my project.
+
+[Bootstrap](https://getbootstrap.com/)
+
+[Visual Studio Code](https://code.visualstudio.com/)
+
+[Git](github.com)
+
+[Heroku](heroku.com)
+
+[Google Fonts](https://fonts.google.com/)
+
+[Balsamiq](https://balsamiq.com/)
+
+[Obsidian](https://obsidian.md/)
+
+[Font Awesome](https://fontawesome.com/)
+
+[Favicon](https://favicon.io/)
+
+[W3C Markup Validation Service](https://validator.w3.org/)
+
+[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+[JSLint](https://www.jslint.com/)
+
+[CI Python Linter](https://pep8ci.herokuapp.com/)
+
+[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+
+[WAVE Web Accessibility Evaluation Tools](https://wave.webaim.org/)

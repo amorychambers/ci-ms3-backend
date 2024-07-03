@@ -68,6 +68,35 @@ This is a community-focused online library where users can create their own cust
 
 ### User Stories
 
+#### First Time User
+
+1. Find out what the site has to offer and who it is for
+2. Easily navigate around the site; access the Register, Community, and About pages
+3. Register for a new account
+4. Create their own genre tags to organise their books
+5. Create new books in their library
+6. Contribute to the community tab
+7. Buy a book through the community tab based on a user's recommendation
+8. Sign out of their account
+
+#### Returning User
+
+9. Log back into their account
+10. View their books and sort them by different categories
+11. Edit the details of a book entry
+12. Edit the name of a genre tag
+13. Delete a book from their library
+14. Easily save their associated books before deleting a custom genre tag
+15. Delete a custom genre tag from their database
+16. Switch from a public to a private account or vice versa
+17. Manage their account
+18. Delete their account and all associated data
+
+#### Site Owner:
+
+19. Highlight a variety of public user reviews that can direct users to referral purchase links
+20. Provide users with an accessible, convenient, secure database to store their thoughts about their book collections
+
 ## Design 
 
 ### Design Choices

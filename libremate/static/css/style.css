@@ -108,7 +108,6 @@ label.required::after {
 }
 
 .single-book {
-    max-height: 60vh;
     text-align: center;
     position: relative;
 }
@@ -119,7 +118,7 @@ label.required::after {
 }
 
 .single-book > .cover-title {
-    top: 50%;
+    top: 35%;
     left: 50%;
 }
 
@@ -135,6 +134,7 @@ label.required::after {
 .outline {
     border: 1px solid #E27CD8;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 a.page-link {
@@ -143,6 +143,16 @@ a.page-link {
 
 th {
     text-decoration: underline #E27CD8;
+}
+
+.kindle {
+    background-color: blue;
+    margin: 10px;
+}
+
+.kobo {
+    background-color: red;
+    margin: 10px;
 }
 
 /* ------------------------ 404 ------------------------ */
@@ -164,6 +174,15 @@ th {
         width: 45%;
     }
 
+    .outline {
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    .single-book {
+        max-height: 70vh;
+    }
+
     .special-margin {
         margin-left: 5%;
     }
@@ -182,6 +201,15 @@ th {
 
     .outline {
         max-width: 80%;
+        padding-bottom: 50px;
+        margin: 30px auto;
+    }
+
+    .single-book {
+        max-height: 50vh;
+    }
+    .single-book > .cover-title {
+        top: 45%;
     }
 
     .special-margin {

@@ -137,6 +137,10 @@ I used the SQLAlchemy ORM to write efficient, clean Pythonic code for manipulati
 
 I used this tool to develop an Entity Relationship Diagram during the planning stages of my project.
 
+[Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
+
+This API provides cover images of books from their database, using an ISBN provided by the user. 
+
 [Bootstrap](https://getbootstrap.com/)
 
 [Visual Studio Code](https://code.visualstudio.com/)

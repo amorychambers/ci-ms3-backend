@@ -111,7 +111,7 @@ I used [HTML Color Codes](https://htmlcolorcodes.com/color-picker/) to choose tw
 
 ### Fonts
 
-I used two fonts on the website; one of which I used for the main brand image and link present in the header of every page, which is a display font conveying tone, and one clearer font for any body of text in the site, which is easier and clearer to read.
+I used two fonts on the website; one of which I used for custom book titles and for the main brand imagelink present in the header of every page, which is a display font conveying a literary tone, and one clearer font for any body of text on the site, which is easier and clearer to read.
 
 [Whisper](https://fonts.google.com/specimen/Whisper) - Display font
 
@@ -137,6 +137,9 @@ The site consists of eight main pages with several supplementary pages for clear
 
 8. 404 - A custom 404 page redirecting the user to either their own library or to the Sign In page when navigating to an unknown URL.
 
+### Wireframes
+
+Wireframes created in Balsamiq
 
 ## Technologies
 
@@ -199,3 +202,100 @@ This API provides cover images of books from their database, using an ISBN provi
 [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 
 [WAVE Web Accessibility Evaluation Tools](https://wave.webaim.org/)
+
+
+## Features
+
+### Header and Navigation
+
+- The navigation bar is present at the top of every page to allow intuitive and easy navigation
+- The navbar collapses into a convenient hamburger menu on smaller screen sizes
+- The navbar displays different options for logged in users and guests, directing guests to site info and registration, and providing logged in users with access to their library and account
+
+User Stories: 1, 2, 8, 17
+
+
+### Sign In and Registration
+
+- Sign In and Registration pages use similar, simple forms to allow users to create a new account entry in the database and to access an account they have already created
+- Tooltips on each registration element to explain the requirements for each
+- Easy option to create private or public account with explanation for what this means
+- Form validation to ensure there are no duplicate usernames in the database
+- Custom validation messages to direct the user upon attempting to submit invalid input
+- Custom form validation to ensure appropriate data is entered into database
+
+User Stories: 3, 9
+
+
+### Sign Out
+
+- Logs a user out of their account and prevents further access to their data without first logging in again
+
+User Stories: 8, 20
+
+
+### My Library
+
+- Displays a users book collection responsively based on screen size for a visually clear, accessible, enjoyable experience
+- Allows users to search their library by title and author names
+- The user can add new books and new genres using the prominent buttons on this page
+
+User Stories: 4, 5, 6, 10, 20
+
+
+### Cover Image API
+
+- When adding a book, user can enter an ISBN that will attempt to fetch the book's cover art using the Open Library Covers API
+- User has option to confirm or reject the cover image found using the ISBN provided
+- Tooltip and custom form validation message instructs the user on correct input if the API does not return a successful result or if incorrect input is entered
+- If user does not enter an ISBN to search for a cover image, or if the cover image provided is not correct, the site generates a simple consistent custom book cover with the title in a display font
+
+User Stories: 5, 11
+
+
+### Sort
+
+- Users can sort their collection by book title, by author name, by genre, by status, and by the date the entries were added
+
+User Stories: 10
+
+
+### View Book
+
+- Individual book view displays further information about the entry and displays the user's review, if it exists
+- If the book being viewed belongs to the logged in user, allows them the option to edit the details of the entry or delete the entry entirely
+- If the book is not owned by the logged in user, or is viewed by a guest, removes the options to update the data
+- If the user is private, only displays the book and further info for the entry's owner when logged in
+
+User Stories: 2, 10, 11, 12, 13
+
+
+### Community
+
+- Displays public user reviews, staring with the most recent, broken down into shorter pages with a pagination tab for less cluttered and more easily digested reading for the user
+- Referral links for each book in the community tab 
+
+User Stories: 2, 6, 7, 19
+
+
+### Account 
+
+- User can view their account settings and easily switch from public to private or from private to public
+- See all genres owned by the user, with the option to edit the genre names
+- Option to delete a custom genre; additional option in the confirmation modal before deleting to easily switch over each book currently under that genre to the default 'Misc', so that the entries are preserved, or to simply delete the genre along with all associated books 
+- User can delete their account and all associated data here, with a confirmation modal and custom coded checkbox to ensure account is not deleted by mistake
+
+User Stories: 12, 14, 15, 16, 17, 18
+
+### About
+
+- Clear description of the site's goals and the ethos behind the design
+
+User Stories: 1, 20
+
+
+### 404
+
+- Custom 404 page that redirects guest users to the Sign In/Register page and redirects logged in users back to their library
+
+User Stories: 2, 20

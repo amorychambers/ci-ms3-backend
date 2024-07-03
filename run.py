@@ -1,5 +1,5 @@
 import os
-from libremate import app
+from libremate import create_app
 
 if __name__ == "__main__":
     app.run(

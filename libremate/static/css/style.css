@@ -146,12 +146,14 @@ th {
 }
 
 .kindle {
-    background-color: blue;
+    background-color: #fdaf17;
+    color: #000;
     margin: 10px;
 }
 
 .kobo {
-    background-color: red;
+    background-color: #ce1414;
+    color: #fff;
     margin: 10px;
 }
 

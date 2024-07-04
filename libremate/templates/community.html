@@ -10,17 +10,19 @@
         {% if book.isbn %}
           <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
         {% else %}
-          <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
-          <p class="cover-title center">{{book.book_title}}</p>
+        <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
+        <p class="cover-title center">{{book.book_title}}</p>
         {% endif %}
         <br>
-        <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name }}&i=digital-text&tag=fakereferral" target="_blank" class="btn kindle" role="button">Search on Kindle</a>
-        <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title }}+{{ book.author_name }}&tag=fakereferral" target="_blank" class="btn kobo" role="button">Search on Kobo</a>
+        <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name }}&i=digital-text&tag=fakereferral"
+          target="_blank" class="btn kindle" role="button">Search on Kindle</a>
+        <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title }}+{{ book.author_name }}&tag=fakereferral"
+          target="_blank" class="btn kobo" role="button">Search on Kobo</a>
       </div>
       <div class="col-sm-12 col-md-6 my-4 mt-md-5">
         <h2>{{ book.book_title }}
           {% if book.favourite == True %}
-           <i class="fa-solid fa-star favourite"></i>
+          <i class="fa-solid fa-star favourite"></i>
           {% endif %}
         </h2>
         <h3>{{ book.author_name }}</h3><br>
@@ -41,21 +43,23 @@
       <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
           {% if session['page'] == 1 %}
-            <li class="page-item"><a class="page-link disabled" href="#">Prev</a></li>
+          <li class="page-item"><a class="page-link disabled" href="#">Prev</a></li>
           {% else %}
-            <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(session['page'] - 1)) }}">Prev</a></li>
+          <li class="page-item"><a class="page-link"
+              href="{{ url_for('shared.community', page=(session['page'] - 1)) }}">Prev</a></li>
           {% endif %}
           {% for x in range(0, page_numbers) %}
-            {% if session['page'] == (x+1) %}
-              <li class="page-item"><a class="page-link disabled" href="#">{{ x + 1}}</a></li>
-            {% else %}
-              <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(x + 1)) }}">{{ x + 1}}</a></li>
-            {% endif %}
+          {% if session['page'] == (x+1) %}
+          <li class="page-item"><a class="page-link disabled" href="#">{{ x + 1}}</a></li>
+          {% else %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('shared.community', page=(x + 1)) }}">{{ x + 1}}</a></li>
+          {% endif %}
           {% endfor %}
           {% if session['page'] == page_numbers %}
-            <li class="page-item"><a class="page-link disabled" href="#">Next</a></li>
+          <li class="page-item"><a class="page-link disabled" href="#">Next</a></li>
           {% else %}
-            <li class="page-item"><a class="page-link" href="{{ url_for('community', page=(session['page'] + 1)) }}">Next</a></li>
+          <li class="page-item"><a class="page-link"
+              href="{{ url_for('shared.community', page=(session['page'] + 1)) }}">Next</a></li>
           {% endif %}
         </ul>
       </nav>

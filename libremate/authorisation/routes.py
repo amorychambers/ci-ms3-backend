@@ -21,10 +21,10 @@ def sign_in():
             else:
                 # Password is not correct
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("sign_in"))
+                return redirect(url_for("authorisation.sign_in"))
         else:
             flash("Username does not exist")
-            return redirect(url_for("sign_in"))
+            return redirect(url_for("authorisation.sign_in"))
     return render_template("sign_in.html")
 
 

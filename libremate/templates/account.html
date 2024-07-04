@@ -43,10 +43,10 @@
       <h3 class="mb-3">Account Status</h3>
       {% if reader.private == True %}
         <h4>Private</h4>
-        <a href="{{ url_for('privacy', status='public') }}" class="btn btn-sm accent">Switch to Public</a>
+        <a href="{{ url_for('settings.privacy', status='public') }}" class="btn btn-sm accent">Switch to Public</a>
       {% else %}
         <h4>Public</h4>
-        <a href="{{ url_for('privacy', status='private') }}" class="btn btn-sm accent">Switch to Private</a>
+        <a href="{{ url_for('settings.privacy', status='private') }}" class="btn btn-sm accent">Switch to Private</a>
       {% endif %}
     </div>
   </div>
@@ -81,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteButton" href="{{ url_for('delete_account') }}" class="btn btn-danger m-2 disabled"
+        <a id="deleteButton" href="{{ url_for('delete.delete_account') }}" class="btn btn-danger m-2 disabled"
           role="button">Delete My Account</a>
       </div>
     </div>
@@ -102,7 +102,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{ url_for('edit_genre', genre_id=genre.id) }}" method="POST" class="needs-validation">
+        <form action="{{ url_for('update.edit_genre', genre_id=genre.id) }}" method="POST" class="needs-validation">
           <div class="row">
             <div class="col">
               <label for="genre_name" class="form-label required">Genre Name</label>
@@ -137,8 +137,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="{{ url_for('save_books', genre_id=genre.id) }}" class="btn btn-success m-2" role="button">Save Books under Misc</a>
-        <a href="{{ url_for('delete_genre', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Delete
+        <a href="{{ url_for('update.save_books', genre_id=genre.id) }}" class="btn btn-success m-2" role="button">Save Books under Misc</a>
+        <a href="{{ url_for('delete.delete_genre', genre_id=genre.id) }}" class="btn btn-danger m-2" role="button">Delete
           Genre</a>
       </div>
     </div>

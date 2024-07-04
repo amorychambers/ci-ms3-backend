@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from libremate import db
 from libremate.models.models import Genre, Book
 
-update = Blueprint("edit", __name__)
+update = Blueprint("update", __name__)
 
 
 @update.route("/edit_book/<int:book_id>", methods=["GET", "POST"])

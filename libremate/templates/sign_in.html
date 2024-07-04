@@ -4,7 +4,7 @@
 <h1 class="center">Sign In</h1>
 
 <div class="container">
-    <form action="{{ url_for('sign_in') }}" method="POST" class="needs-validation m-auto">
+    <form action="{{ url_for('authorisation.sign_in') }}" method="POST" class="needs-validation m-auto">
         <div class="row">
             <div class="col">
                 <label for="username" class="form-label">Username</label>
@@ -26,7 +26,7 @@
         </div>
     </form>
     <div class="row">
-        <p class="mt-5 center">New to libre-mate?<br><a href="{{ url_for('register') }}">Register here!</a></p>
+        <p class="mt-5 center">New to libre-mate?<br><a href="{{ url_for('create.register') }}">Register here!</a></p>
     </div>
 </div>
 

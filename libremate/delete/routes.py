@@ -12,7 +12,7 @@ def delete_genre(genre_id):
         db.session.delete(genre)
         db.session.commit()
         flash(f"'{genre.genre_name.capitalize()}' genre deleted")
-    return redirect(url_for("my_library"))
+    return redirect(url_for("library.my_library"))
 
 
 @delete.route("/delete_book/<int:book_id>")
@@ -21,7 +21,7 @@ def delete_book(book_id):
     db.session.delete(book)
     db.session.commit()
     flash(f"'{book.book_title}' deleted")
-    return redirect(url_for("my_library"))
+    return redirect(url_for("library.my_library"))
 
 @delete.route("/delete_account")
 def delete_account():
@@ -30,4 +30,4 @@ def delete_account():
     db.session.commit()
     session.clear()
     flash("Account deleted. Goodnight and good luck!")
-    return redirect(url_for("community.community", page=1))
+    return redirect(url_for("shared.community", page=1))

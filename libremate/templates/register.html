@@ -4,7 +4,7 @@
 <h1 class="center">Register</h1>
 
 <div class="container">
-    <form action="{{ url_for('register') }}" method="POST" class="needs-validation m-auto" novalidate>
+    <form action="{{ url_for('create.register') }}" method="POST" class="needs-validation m-auto" novalidate>
         <div class="row">
             <div class="col">
                 <label for="username" class="form-label required">Username</label>
@@ -57,7 +57,7 @@
             </div>
         </div>
     </form>
-    <p class="mt-5 center">Already have a libre-mate bookshelf of your own?<br><a href="{{ url_for('sign_in') }}">Sign
+    <p class="mt-5 center">Already have a libre-mate bookshelf of your own?<br><a href="{{ url_for('authorisation.sign_in') }}">Sign
             in
             here!</a></p>
 </div>

@@ -6,9 +6,9 @@ start = Blueprint("start", __name__)
 @start.route("/")
 def home():
     if "user" in session:
-        return redirect(url_for("my_library"))
+        return redirect(url_for("library.my_library"))
     else:
-        return redirect(url_for("sign_in"))
+        return redirect(url_for("authorisation.sign_in"))
 
 
 @start.route("/about")

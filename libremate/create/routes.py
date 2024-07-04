@@ -14,7 +14,7 @@ def register():
             Reader.username == request.form.get("username"))
         if db.session.query(q.exists()).scalar():
             flash("Username already taken")
-            redirect(url_for("register"))
+            redirect(url_for("create.register"))
         else:
             session["user"] = request.form.get("username")
             reader = Reader(
@@ -43,7 +43,7 @@ def add_genre():
                                               Genre.genre_name == request.form.get("genre_name").lower())
         if db.session.query(q.exists()).scalar():
             flash("That genre already exists in your library!")
-            return redirect(url_for("add_genre"))
+            return redirect(url_for("create.add_genre"))
         else:
             genre = Genre(
                 genre_name=request.form.get("genre_name").lower(),

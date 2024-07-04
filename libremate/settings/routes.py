@@ -22,4 +22,4 @@ def privacy(status):
         reader.private = True
         db.session.commit()
         flash("Account set to Private")
-    return redirect(url_for("account"))
+    return redirect(url_for("settings.account"))

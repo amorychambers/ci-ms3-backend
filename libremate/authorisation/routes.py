@@ -1,14 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
-from libremate import app
-from libremate.models.models import Reader, Genre, Book
+from libremate import db
+from libremate.models.models import Reader, Genre
 from werkzeug.security import generate_password_hash, check_password_hash
-import datetime
-import math
 
 authorisation = Blueprint("authorisation", __name__)
 
 
-@app.route("/register", methods=["GET", "POST"])
+@authorisation.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # Check if username already exists
@@ -33,12 +31,12 @@ def register():
             db.session.add(default_genre)
             db.session.commit()
             flash("Registration successful!")
-            return redirect(url_for("my_library"))
+            return redirect(url_for("library.my_library"))
 
     return render_template("register.html")
 
 
-@app.route("/sign_in", methods=["GET", "POST"])
+@authorisation.route("/sign_in", methods=["GET", "POST"])
 def sign_in():
     if request.method == "POST":
         # Check that username exists
@@ -49,7 +47,7 @@ def sign_in():
             if check_password_hash(q.first().password, request.form.get("password")):
                 session["user"] = q.first().username
                 flash(f"Hello, {session["user"]}!")
-                return redirect(url_for("my_library"))
+                return redirect(url_for("library.my_library"))
             else:
                 # Password is not correct
                 flash("Incorrect Username and/or Password")
@@ -60,8 +58,8 @@ def sign_in():
     return render_template("sign_in.html")
 
 
-@app.route("/sign_out")
+@authorisation.route("/sign_out")
 def sign_out():
     session.clear()
     flash("You have been logged out")
-    return redirect(url_for("home"))
+    return redirect(url_for("start.home"))

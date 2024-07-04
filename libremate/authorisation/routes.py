@@ -1,39 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from libremate import db
-from libremate.models.models import Reader, Genre
-from werkzeug.security import generate_password_hash, check_password_hash
+from libremate.models.models import Reader
+from werkzeug.security import check_password_hash
 
 authorisation = Blueprint("authorisation", __name__)
-
-
-@authorisation.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "POST":
-        # Check if username already exists
-        q = db.session.query(Reader).filter(
-            Reader.username == request.form.get("username"))
-        if db.session.query(q.exists()).scalar():
-            flash("Username already taken")
-            redirect(url_for("register"))
-        else:
-            session["user"] = request.form.get("username")
-            reader = Reader(
-                username=request.form.get("username"),
-                password=generate_password_hash(
-                    request.form.get("new-password")),
-                private=bool(request.form.get("private"))
-            )
-            db.session.add(reader)
-            db.session.commit()
-            default_genre = Genre(
-                genre_name="misc",
-                genre_owner=request.form.get("username"))
-            db.session.add(default_genre)
-            db.session.commit()
-            flash("Registration successful!")
-            return redirect(url_for("library.my_library"))
-
-    return render_template("register.html")
 
 
 @authorisation.route("/sign_in", methods=["GET", "POST"])

@@ -23,13 +23,3 @@ def privacy(status):
         db.session.commit()
         flash("Account set to Private")
     return redirect(url_for("account"))
-
-
-@account.route("/delete_account")
-def delete_account():
-    reader = Reader.query.first_or_404(Reader.username == session["user"])
-    db.session.delete(reader)
-    db.session.commit()
-    session.clear()
-    flash("Account deleted. Goodnight and good luck!")
-    return redirect(url_for("community.community", page=1))

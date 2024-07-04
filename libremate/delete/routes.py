@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, redirect, url_for, flash, session
 from libremate import db
-from libremate.models.models import Genre, Book
+from libremate.models.models import Reader, Genre, Book
 
 delete = Blueprint("delete", __name__)
 

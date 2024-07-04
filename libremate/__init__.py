@@ -23,20 +23,20 @@ def not_found(e):
 
 def create_app():
     from libremate.start.routes import start
-    from libremate.account.routes import account
     from libremate.authorisation.routes import authorisation
     from libremate.community.routes import community
     from libremate.create.routes import create
     from libremate.delete.routes import delete
     from libremate.library.routes import library
+    from libremate.settings.routes import settings
     from libremate.update.routes import update
 
     app.register_blueprint(start)
-    app.register_blueprint(account)
     app.register_blueprint(authorisation)
     app.register_blueprint(community)
     app.register_blueprint(create)
     app.register_blueprint(delete)
     app.register_blueprint(library)
+    app.register_blueprint(settings)
     app.register_blueprint(update)
     return app

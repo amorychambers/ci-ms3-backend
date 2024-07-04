@@ -4,6 +4,7 @@ from libremate.models.models import Genre, Book
 
 update = Blueprint("edit", __name__)
 
+
 @update.route("/edit_book/<int:book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
@@ -29,15 +30,16 @@ def edit_genre(genre_id):
                                               Genre.genre_name == request.form.get("genre_name").lower())
         if db.session.query(q.exists()).scalar():
             flash("That genre already exists in your library!")
-            return redirect(url_for("account.account"))
+            return redirect(url_for("settings.account"))
         else:
             genre.genre_name = request.form.get("genre_name")
             db.session.commit()
-            return redirect(url_for("account.account"))
+            return redirect(url_for("settings.account"))
     else:
         flash("I'm sorry, but you cannot edit this genre name")
-        return redirect(url_for("account.account"))
-    
+        return redirect(url_for("settings.account"))
+
+
 @update.route("/save_books/<genre_id>", methods=["GET", "POST"])
 def save_books(genre_id):
     books = Book.query.filter(Book.book_genre == genre_id).all()
@@ -47,4 +49,4 @@ def save_books(genre_id):
         book.book_genre = misc.id
     db.session.commit()
     flash("Books saved under Misc")
-    return redirect(url_for("account.account"))
+    return redirect(url_for("settings.account"))

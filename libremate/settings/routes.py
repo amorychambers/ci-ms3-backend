@@ -1,17 +1,17 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, session
-from libremate import db
+from libremate import app, db
 from libremate.models.models import Reader, Genre
 
-account = Blueprint("account", __name__)
+settings = Blueprint("settings", __name__)
 
-@account.route("/account")
+@settings.route("/account")
 def account():
     genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
     reader = Reader.query.first_or_404(Reader.username == session["user"])
     return render_template("account.html", genres=genres, reader=reader)
 
 
-@account.route("/account/privacy/<status>", methods=["GET", "POST"])
+@settings.route("/account/privacy/<status>", methods=["GET", "POST"])
 def privacy(status):
     reader = Reader.query.first_or_404(Reader.username == session["user"])
     if status == "public":

@@ -1,22 +1,9 @@
-from flask import render_template, request, redirect, url_for, flash, session
-from libremate import app, db
-from libremate.models import Reader, Genre, Book
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from libremate import app
+from libremate.models.models import Reader, Genre, Book
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 import math
-
-
-@app.route("/")
-def home():
-    if "user" in session:
-        return redirect(url_for("my_library"))
-    else:
-        return redirect(url_for("sign_in"))
-
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
 
 @app.route("/register", methods=["GET", "POST"])

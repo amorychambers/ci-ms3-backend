@@ -28,7 +28,7 @@
             <!-- Code snippet for navbar taken from Bootstrap 5 documentation and customised -->
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="{{ url_for('home') }}">libre-mate</a>
+                    <a class="navbar-brand" href="{{ url_for('start.home') }}">libre-mate</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                                 <a class="nav-link" href="{{ url_for('account') }}">Account</a>
                             </li>
                             <li class="nav-item ms-auto">
-                                <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                                <a class="nav-link" href="{{ url_for('start.about') }}">About</a>
                             </li>
                             <li class="nav-item ms-auto">
                                 <a class="nav-link" href="{{ url_for('sign_out') }}">Sign Out</a>

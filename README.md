@@ -162,6 +162,8 @@ Jinja2
 
 I built this web application in Flask, in order to make use of templating and to use Python on the backend for accessing and manipulating the database.
 
+[Flask Blueprint](https://flask.palletsprojects.com/en/3.0.x/blueprints/)
+
 [SQLAlchemy](https://www.sqlalchemy.org/)
 
 I used the SQLAlchemy ORM to write efficient, clean Pythonic code for manipulating the database.

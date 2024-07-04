@@ -3,9 +3,9 @@ from libremate import db
 from libremate.models.models import Reader, Book
 import math
 
-community = Blueprint("community", __name__)
+shared = Blueprint("shared", __name__)
 
-@community.route("/community/<page>")
+@shared.route("/community/<page>")
 def community(page):
     books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(
         Reader).filter(Reader.private == False).all())

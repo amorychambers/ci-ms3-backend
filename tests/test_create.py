@@ -1,4 +1,4 @@
-import flask.globals, datetime
+import flask.globals
 from tests.conftest import TestCase
 from libremate import db
 from libremate.models.models import Reader, Genre, Book

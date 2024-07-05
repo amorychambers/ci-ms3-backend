@@ -1,7 +1,7 @@
-import flask.globals
+import flask.globals, datetime
 from tests.conftest import TestCase
 from libremate import db
-from libremate.models.models import Reader, Genre
+from libremate.models.models import Reader, Genre, Book
 from werkzeug.security import generate_password_hash
 
 
@@ -62,6 +62,35 @@ class TestNewGenre(TestCase):
         response = client.post(
             "/add_genre", data={"genre_name": "existing_genre", "genre_owner": flask.globals.session["user"]})
         self.assertLocationHeader(response, "/add_genre")
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        testuser = db.session.query(Reader).filter(
+            Reader.username == "testuser").one()
+        db.session.delete(testuser)
+        db.session.commit()
+        return super().tearDownClass()
+
+
+class TestNewBook(TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        testuser = Reader(username="testuser",
+                          password=generate_password_hash("testpass"), private=False)
+        genre = Genre(
+            genre_name="misc", genre_owner="testuser")
+        db.session.add(testuser)
+        db.session.add(genre)
+        db.session.commit()
+        return super().setUpClass()
+
+    def test_new_book(self, client):
+        client.post(
+            "/sign_in", data={"username": "testuser", "password": "testpass"})
+        response = client.post("/add_book", data={'book_title': 'testbook', 'author_name': 'testauthor', 'status': 'dropped', 'favourite': False, 'review': 'This book sucks ass. Who the hell does this testauthor guy think he is?', 'isbn': None, 'created_on': '07/05/24 22:57:21', 'book_genre': 5, 'book_owner': 'testuser'})
+        self.assertLocationHeader(response, "/my_library")
+        self.assertTrue(db.session.query(Book).filter(Book.book_owner == "testuser", Book.book_title == "testbook").one_or_none())
 
     @classmethod
     def tearDownClass(cls) -> None:

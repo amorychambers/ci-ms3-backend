@@ -14,7 +14,7 @@ def register():
             Reader.username == request.form.get("username"))
         if db.session.query(q.exists()).scalar():
             flash("Username already taken")
-            redirect(url_for("create.register"))
+            return redirect(url_for("create.register"))
         else:
             session["user"] = request.form.get("username")
             reader = Reader(

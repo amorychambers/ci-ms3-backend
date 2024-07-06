@@ -125,7 +125,7 @@ class TestNewBook(TestCase):
         client.post(
             "/sign_in", data={"username": "testuser", "password": "testpass"})
         response = client.post("/add_book", data={'book_title': 'testbook', 'author_name': 'testauthor', 'status': 'dropped', 'favourite': False,
-                               'review': 'This book sucks ass. Who the hell does this testauthor guy think he is?', 'isbn': None, 'created_on': '07/05/24 22:57:21', 'book_genre': 198, 'book_owner': 'testuser'})
+                               'review': 'This book sucks ass. Who the hell does this testauthor guy think he is?', 'isbn': None, 'created_on': '07/05/24 22:57:21', 'book_genre': 261, 'book_owner': 'testuser'})
         self.assertLocationHeader(response, "/my_library")
         self.assertTrue(db.session.query(Book).filter(
             Book.book_owner == "testuser", Book.book_title == "testbook").one_or_none())

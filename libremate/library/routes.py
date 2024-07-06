@@ -1,7 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, render_template, session
 from libremate import db
 from libremate.models.models import Genre, Book
-import datetime
 
 library = Blueprint("library", __name__)
 
@@ -31,7 +30,7 @@ def my_library_sort(sort):
             statuses.append(status)
     return render_template("my_library.html", genres=genres, books=books, sort=sort, statuses=statuses)
 
-@library.route("/view_book/<id>", methods=["GET", "POST"])
+@library.route("/view_book/<id>")
 def view_book(id):
     book = Book.query.get_or_404(id)
     return render_template("view_book.html", book=book)

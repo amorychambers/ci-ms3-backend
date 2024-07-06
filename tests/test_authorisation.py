@@ -1,3 +1,6 @@
+"""
+Test suite for all routes in the authorisation blueprint
+"""
 import flask.globals
 from tests.conftest import TestCase
 from libremate import db
@@ -6,9 +9,15 @@ from werkzeug.security import generate_password_hash
 
 
 class TestSignIn(TestCase):
+    """
+    Testing methods for the route to sign in
+    """
 
     @classmethod
     def setUpClass(cls) -> None:
+        """
+        Create new testuser in database to run tests on
+        """
         testuser = Reader(username="testuser", password=generate_password_hash(
             "swordfish"), private=False)
         db.session.add(testuser)
@@ -16,32 +25,50 @@ class TestSignIn(TestCase):
         return super().setUpClass()
     
     def test_sign_in(self, client):
+        """
+        Confirm /sign_in authorises user access to their database, logs user into session, redirects to their library
+        """
         response = client.post("/sign_in", data={"username": "testuser", "password": "swordfish"})
         self.assertIn("user", flask.globals.session)
         self.assertLocationHeader(response, "/my_library")
 
     def test_case_sensitive(self, client):
+        """
+        Confirm /sign_in is case sensitive and does not log user into session upon incorrect password input
+        """
         response = client.post("/sign_in", data={"username": "testuser", "password": "sWoRdFiSh"})
         self.assertNotIn("user", flask.globals.session)
         self.assertLocationHeader(response, "/sign_in")
 
     def test_wrong_password(self, client):
+        """
+        Confirm /sign_in does not log user into session upon incorrect password input
+        """
         response = client.post("/sign_in", data={"username": "testuser", "password": "horses?"})
         self.assertNotIn("user", flask.globals.session)
         self.assertLocationHeader(response, "/sign_in")
     
     def test_wrong_username(self, client):
+        """
+        Confirm /sign_in does not log user into session upon incorrect username input
+        """
         response = client.post("/sign_in", data={"username": "unknownuser", "password": "swordfish"})
         self.assertNotIn("user", flask.globals.session)
         self.assertLocationHeader(response, "/sign_in")
 
     def test_no_input(self, client):
+        """
+        Confirm /sign_in does not log user into session upon null input
+        """
         response = client.post("/sign_in", data={"username": "", "password": ""})
         self.assertNotIn("user", flask.globals.session)
         self.assertLocationHeader(response, "/sign_in")
     
     @classmethod
     def tearDownClass(cls) -> None:
+        """
+        Delete testuser from database
+        """
         testuser = db.session.query(Reader).filter(
             Reader.username == "testuser").one()
         db.session.delete(testuser)
@@ -50,9 +77,15 @@ class TestSignIn(TestCase):
 
 
 class TestSignOut(TestCase):
+    """
+    Testing methods for the route to sign out
+    """
     
     @classmethod
     def setUpClass(cls) -> None:
+        """
+        Create new testuser in database to run tests on
+        """
         testuser = Reader(username="testuser", password=generate_password_hash(
             "swordfish"), private=False)
         db.session.add(testuser)
@@ -60,6 +93,9 @@ class TestSignOut(TestCase):
         return super().setUpClass()
     
     def test_sign_out(self, client):
+        """
+        Confirm /sign_out logs a user out of session
+        """
         client.post("/sign_in", data={"username": "testuser", "password": "swordfish"})
         response = client.get("/sign_out")
         self.assertNotIn("user", flask.globals.session)
@@ -67,6 +103,9 @@ class TestSignOut(TestCase):
     
     @classmethod
     def tearDownClass(cls) -> None:
+        """
+        Delete testuser from database
+        """
         testuser = db.session.query(Reader).filter(
             Reader.username == "testuser").one()
         db.session.delete(testuser)

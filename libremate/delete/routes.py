@@ -23,9 +23,9 @@ def delete_book(book_id):
     flash(f"'{book.book_title}' deleted")
     return redirect(url_for("library.my_library"))
 
-@delete.route("/delete_account")
-def delete_account():
-    reader = Reader.query.first_or_404(Reader.username == session["user"])
+@delete.route("/delete_account/<int:reader_id>")
+def delete_account(reader_id):
+    reader = Reader.query.filter(Reader.id == reader_id).one_or_none()
     db.session.delete(reader)
     db.session.commit()
     session.clear()

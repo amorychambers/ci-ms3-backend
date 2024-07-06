@@ -81,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteButton" href="{{ url_for('delete.delete_account') }}" class="btn btn-danger m-2 disabled"
+        <a id="deleteButton" href="{{ url_for('delete.delete_account', reader_id=reader.id) }}" class="btn btn-danger m-2 disabled"
           role="button">Delete My Account</a>
       </div>
     </div>

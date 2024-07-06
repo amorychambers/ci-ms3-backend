@@ -1,8 +1,8 @@
 import flask.globals
 from tests.conftest import TestCase
 from libremate import db
-from libremate.models.models import Reader, Genre, Book
-from werkzeug.security import generate_password_hash, check_password_hash
+from libremate.models.models import Reader
+from werkzeug.security import generate_password_hash
 
 
 class TestSignIn(TestCase):

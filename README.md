@@ -322,6 +322,52 @@ User Stories: 2, 20
 
 ### Testing User Stories
 
+#### First-Time User
+
+As a first-time user, I want to:
+
+1. Find out what the site has to offer and who it is for
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| About | Navigate to About Page | Presented with information about the site | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-one.gif">
+</details>
+
+2. Easily navigate around the site; access the Register, Community, and About pages
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Header and Navigation | Select pages from navbar | All links direct to the correct page | Works as expected |
+
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-two.gif">
+</details>
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| 404 | Navigate to unknown page | Custom 404 page redirects to homepage | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-two(b).gif">
+</details>
+
+3. Register for a new account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Sign In and Registration | Submit registration form | Site signs in newly created user from database | Works as expected |
+| Tooltips | Hover over tooltip icon | Popup provides further information about requirements | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-three.gif">
+<img src="docs/user-stories/testing-story-three(b).gif">
+</details>
+
 ### Testing User Input
 
 

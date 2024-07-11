@@ -368,6 +368,34 @@ As a first-time user, I want to:
 <img src="docs/user-stories/testing-story-three(b).gif">
 </details>
 
+4. Create their own genre tags to organise their books
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| My Library | Submit 'Add Genre' form | New custom genre added to database | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-four.gif">
+</details>
+
+5. Create new books in their library
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| My Library | Submit 'Add Book' form | New book added to user's library | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-five.gif">
+</details>
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Cover Image API | Search for a cover using ISBN | Suggested cover image presented for user approval | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-five(b).gif">
+</details>
+
 ### Testing User Input
 
 

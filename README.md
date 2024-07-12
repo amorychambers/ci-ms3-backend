@@ -324,7 +324,7 @@ User Stories: 2, 20
 
 #### First-Time User
 
-##### As a first-time user, I want to:
+As a first-time user, I want to:
 
 1. Find out what the site has to offer and who it is for
 
@@ -426,7 +426,9 @@ User Stories: 2, 20
 <img src="docs/user-stories/testing-story-eight.gif">
 </details>
 
-##### As a returning user, I want to:
+#### Returning User
+
+As a returning user, I want to:
 
 9. Log back into my account
 
@@ -492,10 +494,29 @@ User Stories: 2, 20
 | ---- | ---- | ---- | ---- |
 | Save Books | Click the button to save books under misc | All related books are swapped to misc genre | Works as expected |
 
-<details><summary>Screen Capture</summary>
+<detail><summary>Screen Capture</summary>
 <img src="docs/user-stories/testing-story-fourteen.gif">
+</detail
+
+15. Delete a custom genre tag from my database
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Account | Click the button to delete a genre and confirm | Custom genre tag is deleted from database with all associated books | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-fifteen.gif">
 </details>
 
+16. Switch from a public account to a private account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Account | Click the button to switch from public to private or vice versa | Books are now hidden from community view | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-sixteen.gif">
+</details>
 
 ### Testing User Input
 

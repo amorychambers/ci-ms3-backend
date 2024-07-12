@@ -1,16 +1,19 @@
 from flask import Blueprint, render_template, session
 from libremate import db
-from libremate.models.models import Genre, Book
+from libremate.models.models import Reader, Genre, Book
 
 library = Blueprint("library", __name__)
 
 @library.route("/my_library")
 def my_library():
-    genres = Genre.query.order_by(Genre.genre_name).filter(
-        Genre.genre_owner == session["user"]).all()
-    books = Book.query.order_by(Book.book_title).filter(
-        Book.book_owner == session["user"]).all()
-    return render_template("my_library.html", genres=genres, books=books)
+    if "user" in session:
+        genres = Genre.query.order_by(Genre.genre_name).filter(
+            Genre.genre_owner == session["user"]).all()
+        books = Book.query.order_by(Book.book_title).filter(
+            Book.book_owner == session["user"]).all()
+        return render_template("my_library.html", genres=genres, books=books)
+    else:
+        return render_template("404.html")
 
 
 @library.route("/my_library/sort_by/<sort>")

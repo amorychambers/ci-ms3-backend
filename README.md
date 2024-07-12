@@ -396,6 +396,36 @@ As a first-time user, I want to:
 <img src="docs/user-stories/testing-story-five(b).gif">
 </details>
 
+6. Contribute to the community tab
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Community | Add a new book from a public account | Book and review are listed first in the community tab | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-four.gif">
+</details>
+
+7. Buy a book through the community tab based on a user's recommendation
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Community | Click on the Kindle or Kobo referral buttons | New tab opens with appropriate search | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-four.gif">
+</details>
+
+8. Sign out of their account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Header and Navigation | Click on the Sign Out button| User is logged out and their records are closed | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-four.gif">
+</details>
+
 ### Testing User Input
 
 

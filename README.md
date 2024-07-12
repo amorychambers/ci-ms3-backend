@@ -324,7 +324,7 @@ User Stories: 2, 20
 
 #### First-Time User
 
-As a first-time user, I want to:
+##### As a first-time user, I want to:
 
 1. Find out what the site has to offer and who it is for
 
@@ -368,7 +368,7 @@ As a first-time user, I want to:
 <img src="docs/user-stories/testing-story-three(b).gif">
 </details>
 
-4. Create their own genre tags to organise their books
+4. Create my own genre tags to organise my books
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 | ---- | ---- | ---- | ---- |
@@ -378,7 +378,7 @@ As a first-time user, I want to:
 <img src="docs/user-stories/testing-story-four.gif">
 </details>
 
-5. Create new books in their library
+5. Create new books in my library
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 | ---- | ---- | ---- | ---- |
@@ -403,7 +403,7 @@ As a first-time user, I want to:
 | Community | Add a new book from a public account | Book and review are listed first in the community tab | Works as expected |
 
 <details><summary>Screen Capture</summary>
-<img src="docs/user-stories/testing-story-four.gif">
+<img src="docs/user-stories/testing-story-six.gif">
 </details>
 
 7. Buy a book through the community tab based on a user's recommendation
@@ -413,17 +413,46 @@ As a first-time user, I want to:
 | Community | Click on the Kindle or Kobo referral buttons | New tab opens with appropriate search | Works as expected |
 
 <details><summary>Screen Capture</summary>
-<img src="docs/user-stories/testing-story-four.gif">
+<img src="docs/user-stories/testing-story-seven.gif">
 </details>
 
-8. Sign out of their account
+8. Sign out of my account
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 | ---- | ---- | ---- | ---- |
 | Header and Navigation | Click on the Sign Out button| User is logged out and their records are closed | Works as expected |
 
 <details><summary>Screen Capture</summary>
-<img src="docs/user-stories/testing-story-four.gif">
+<img src="docs/user-stories/testing-story-eight.gif">
+</details>
+
+##### As a returning user, I want to:
+
+9. Log back into my account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Sign In and Registration | Enter the correct username and password | User is logged back in and can view their records | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-nine.gif">
+</details>
+
+10. View my books and sort them by different categories
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| My Library | Navigate to My Library using navbar | Site displays all the books the user has created | Works as expected |
+| Sort | Select an option from the Sort dropdown | Site sorts books as requested | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-ten.gif">
+</details>
+
+| Search | Enter a search term for a title or author name | Site only displays books with matching content | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-ten(b).gif">
 </details>
 
 ### Testing User Input

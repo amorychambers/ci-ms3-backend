@@ -50,9 +50,9 @@
                     <select id="book_genre" name="book_genre" class="form-select">
                         {% for genre in genres %}
                             {% if book.book_genre == genre.id %}
-                            <option selected value="{{genre.id}}">{{ genre.genre_name }}</option>
+                            <option selected value="{{genre.id}}">{{ genre.genre_name.capitalize() }}</option>
                             {% else %}
-                            <option value="{{genre.id}}">{{ genre.genre_name }}</option>
+                            <option value="{{genre.id}}">{{ genre.genre_name.capitalize() }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>

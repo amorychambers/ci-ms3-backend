@@ -449,11 +449,53 @@ User Stories: 2, 20
 <img src="docs/user-stories/testing-story-ten.gif">
 </details>
 
+
 | Search | Enter a search term for a title or author name | Site only displays books with matching content | Works as expected |
 
 <details><summary>Screen Capture</summary>
 <img src="docs/user-stories/testing-story-ten(b).gif">
 </details>
+
+11. Edit the details of a book entry
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| View Book | Submit the form to edit book details | Book entry is updated in database | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-eleven.gif">
+</details>
+
+12. Edit the name of a genre tag
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Account | Click the edit genre button in Account, submit new name | Genre name is updated in database and for all related books | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-twelve.gif">
+</details>
+
+13. Delete a book from my library
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| View Book | Click the delete book button and confirm | Book entry is deleted from database | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-thirteen.gif">
+</details>
+
+14. Easily save their associated books before deleting a custom genre tag
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Save Books | Click the button to save books under misc | All related books are swapped to misc genre | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-fourteen.gif">
+</details>
+
 
 ### Testing User Input
 

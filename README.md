@@ -633,6 +633,53 @@ All tests passing.
 
 To deploy on Heroku:
 
+1. Log into Heroku and click on 'Create New App'
+![Log in](docs/deployment/deploy-1.png)
+
+2. Select the correct region and create a unique name for the app
+![Name app](docs/deployment/deploy-2.png)
+
+3. Navigate to the settings tab in Heroku for your new app and click 'Reveal Config Vars'
+![Reveal config vars](docs/deployment/deploy-3.png)
+
+4. Add a DATABASE_URL config var and enter the URL for your postgres database
+![Add database link](docs/deployment/deploy-4.png)
+
+5. Add standard config vars for IP, PORT, DEBUG, and your own SECRET_KEY variable
+![Add config vars](docs/deployment/deploy-5.png)
+
+6. Fork the repository in Github 
+![Fork repository](docs/deployment/deploy-6.png)
+
+7. Navigate to the Deploy tab of your Heroku app and select the Connect to Github option
+![Connect to Github](docs/deployment/deploy-7.png)
+
+8. Search for your forked repo and click Connect
+[!Search for repo](docs/deployment/deploy-8.png)
+
+9. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
+[!Select deploy](docs/deployment/deploy-9.png)
+
+10. Once the app has finished building, navigate to the More option and select Run Console
+[!Run console](docs/deployment/deploy-10.png)
+
+11. Type python3 into the console and click Run to open a python3 shell
+[!python3](docs/deployment/deploy-11.png)
+
+12. To properly set up the database, enter the following two commands separately into the terminal
+```
+from libremate import db
+```
+
+```
+db.create_all()
+```
+
+[!Create tables](docs/deployment/deploy-12.png)
+
+13. The app is now fully deployed and can be opened and used from Heroku, or by accessing it via the URL!
+[!Open app](docs/deployment/deploy-13.png)
+
 To deploy locally:
 
 ## Acknowledgements

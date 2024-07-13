@@ -163,6 +163,9 @@ I built this web application in Flask, in order to make use of templating and to
 
 [Flask Blueprint](https://flask.palletsprojects.com/en/3.0.x/blueprints/)
 
+[flask-unittest](https://github.com/TotallyNotChase/flask-unittest)
+I used flask-unittest to write a test suite for all database interactions
+
 [SQLAlchemy](https://www.sqlalchemy.org/)
 
 I used the SQLAlchemy ORM to write efficient, clean Pythonic code for manipulating the database.
@@ -604,6 +607,15 @@ Below I have manually tested some of the user feedback function of the sign in a
 <details><summary>Incorrect ISBN format</summary>
 <img src="docs/input-tests/invalid-isbn-input.gif">
 </details>
+
+### Automated Tests
+
+I wrote a suite of tests in flask-unittest in order to more fully test and *robustify* all the database interactions performed on the site. The tests folder is located in the root folder of the repository. 
+To run the automated tests from the command line, the format to execute a test module from the command line within the root folder is:
+
+```
+python3 -m unittest tests/[module_name]
+```
 
 ## Bugs
 

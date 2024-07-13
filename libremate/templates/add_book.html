@@ -9,14 +9,14 @@
             <div class="col">
                 <label for="book_title" class="form-label required">Book Title</label>
                 <input id="book_title" name="book_title" class="form-control" type="text" minlength="1" maxlength="50"
-                    pattern="^[a-zA-Z0-9]\&\'\.\,\-\s{1,100}$" required>
+                    pattern="^[a-zA-Z0-9&'.,-][^\<\>]$" required>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="author_name" class="form-label required">Author Name</label>
                 <input id="author_name" name="author_name" class="form-control" type="text" minlength="1"
-                    maxlength="50" pattern="^[a-zA-Z0-9]\&\'\.\,\-\s{1,100}$" required>
+                    maxlength="50" pattern="^[a-zA-Z0-9&'.,-]$" required>
             </div>
         </div>
         <div class="row">

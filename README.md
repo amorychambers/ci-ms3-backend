@@ -575,11 +575,15 @@ I have manually tested and compared the privacy function of the View Book route.
 
 Below I have manually tested some of the user feedback function of the sign in and registration tabs; I have used a combination of custom browser validation messages and flash messages to inform the user of incorrect input and guide them on the correct format for all inputs. 
 
+<details><summary>Attempting to register with invalid input not matching regex</summary>
+<img src="docs/input-tests/invalid-registration.gif">
+</details>
+
 <details><summary>Attempting to register with a username that already exists in the database:</summary>
 <img src="docs/input-tests/existing-user.gif">
 </details>
 
-<details><summary>Custom JS file validate.js preventing registration if passwords do not match in registration</summary>
+<details><summary>Custom JS file validate.js preventing registration if passwords do not match</summary>
 <img src="docs/input-tests/no-matching-password.gif">
 </details>
 
@@ -591,10 +595,14 @@ Below I have manually tested some of the user feedback function of the sign in a
 <img src="docs/input-tests/incorrect-user-details.gif">
 </details>
 
-#### Add Book/Add Genre
+#### Add Book
 
-<details><summary>Invalid text input for Add Book form</summary>
-<img src="docs/input-tests/invalid-username.gif">
+<details><summary>Null text input for Add Book form</summary>
+<img src="docs/input-tests/invalid-book-input.gif">
+</details>
+
+<details><summary>Incorrect ISBN format</summary>
+<img src="docs/input-tests/invalid-isbn-input.gif">
 </details>
 
 ## Bugs

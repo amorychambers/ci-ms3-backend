@@ -90,13 +90,12 @@ This is a community-focused online library where users can create their own cust
 14. Easily save their associated books before deleting a custom genre tag
 15. Delete a custom genre tag from their database
 16. Switch from a public to a private account or vice versa
-17. Manage their account
-18. Delete their account and all associated data
+17. Delete their account and all associated data
 
 #### Site Owner:
 
-19. Highlight a variety of public user reviews that can direct users to referral purchase links
-20. Provide users with an accessible, convenient, secure database to store their thoughts about their book collections
+18. Highlight a variety of public user reviews that can direct users to referral purchase links
+19. Provide users with an accessible, convenient, secure database to store their thoughts about their book collections
 
 ## Design 
 
@@ -516,6 +515,40 @@ As a returning user, I want to:
 
 <details><summary>Screen Capture</summary>
 <img src="docs/user-stories/testing-story-sixteen.gif">
+</details>
+
+17. Delete their account and all associated data
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Account | Open the delete account modal, check the confirmation box, and click the delete button | User account and all data is deleted | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-seventeen.gif">
+</details>
+
+#### Site Owner
+
+As the site owner, I want to: 
+
+18. Highlight a variety of public user reviews that can direct users to referral purchase links
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| Community | Browse public books and reviews in community tab; click referral link buttons | Community books displayed and linked to store pages | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-eighteen.gif">
+</details>
+
+19. Provide users with an accessible, convenient, secure database to store their thoughts about their book collections
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
+| My Library | Access site and site content on different devices and screen sizes | Site responsively adapts to different user experiences | Works as expected |
+
+<details><summary>Screen Capture</summary>
+<img src="docs/user-stories/testing-story-nineteen.gif">
 </details>
 
 ### Testing User Input

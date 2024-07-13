@@ -15,6 +15,11 @@ footer {
 
 .container {
     max-width: 90vw;
+    hyphens: auto;
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
 .accent {
@@ -61,6 +66,14 @@ input {
     text-decoration: underline #E27CD8;
 }
 
+.col {
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+ }
+
 
 /* ------------------------ Sign In/Register  ------------------------ */
 
@@ -99,6 +112,7 @@ h1>a {
     font-family: "Whisper", serif;
     color: #FFF;
     font-size: 2.5rem;
+    max-width: 90%;
 }
 
 .favourite {

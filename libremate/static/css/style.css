@@ -17,9 +17,6 @@ footer {
     max-width: 90vw;
     hyphens: auto;
     word-wrap: break-word;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
 }
 
 .accent {
@@ -112,7 +109,7 @@ h1>a {
     font-family: "Whisper", serif;
     color: #FFF;
     font-size: 2.5rem;
-    max-width: 90%;
+    max-width: -webkit-fill-available;
 }
 
 .favourite {

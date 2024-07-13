@@ -450,7 +450,8 @@ As a returning user, I want to:
 <img src="docs/user-stories/testing-story-ten.gif">
 </details>
 
-
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+| ---- | ---- | ---- | ---- |
 | Search | Enter a search term for a title or author name | Site only displays books with matching content | Works as expected |
 
 <details><summary>Screen Capture</summary>
@@ -495,7 +496,7 @@ As a returning user, I want to:
 
 <detail><summary>Screen Capture</summary>
 <img src="docs/user-stories/testing-story-fourteen.gif">
-</detail
+</detail>
 
 15. Delete a custom genre tag from my database
 
@@ -517,7 +518,7 @@ As a returning user, I want to:
 <img src="docs/user-stories/testing-story-sixteen.gif">
 </details>
 
-17. Delete their account and all associated data
+17. Delete my account and all associated data
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 | ---- | ---- | ---- | ---- |

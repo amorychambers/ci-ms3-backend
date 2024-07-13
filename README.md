@@ -164,6 +164,7 @@ I built this web application in Flask, in order to make use of templating and to
 [Flask Blueprint](https://flask.palletsprojects.com/en/3.0.x/blueprints/)
 
 [flask-unittest](https://github.com/TotallyNotChase/flask-unittest)
+
 I used flask-unittest to write a test suite for all database interactions
 
 [SQLAlchemy](https://www.sqlalchemy.org/)
@@ -497,9 +498,9 @@ As a returning user, I want to:
 | ---- | ---- | ---- | ---- |
 | Save Books | Click the button to save books under misc | All related books are swapped to misc genre | Works as expected |
 
-<detail><summary>Screen Capture</summary>
+<details><summary>Screen Capture</summary>
 <img src="docs/user-stories/testing-story-fourteen.gif">
-</detail>
+</details>
 
 15. Delete a custom genre tag from my database
 
@@ -616,6 +617,8 @@ To run the automated tests from the command line, the format to execute a test m
 ```
 python3 -m unittest tests/[module_name]
 ```
+
+All tests passing. 
 
 ## Bugs
 

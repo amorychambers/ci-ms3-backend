@@ -631,7 +631,7 @@ All tests passing.
 
 ## Deployment
 
-To deploy on Heroku:
+### Deploy on Heroku:
 
 1. Log into Heroku and click on 'Create New App'
 ![Log in](docs/deployment/deploy-1.png)
@@ -648,7 +648,7 @@ To deploy on Heroku:
 5. Add standard config vars for IP, PORT, DEBUG, and your own SECRET_KEY variable
 ![Add config vars](docs/deployment/deploy-5.png)
 
-6. Fork the repository in Github 
+6. Fork or clone the repository in Github 
 ![Fork repository](docs/deployment/deploy-6.png)
 
 7. Navigate to the Deploy tab of your Heroku app and select the Connect to Github option
@@ -660,13 +660,13 @@ To deploy on Heroku:
 9. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
 ![Select deploy](docs/deployment/deploy-9.png)
 
-10. Once the app has finished building, navigate to the More option and select Run Console
+10. Once the app has finished building, navigate to the More dropdown and select Run Console
 ![Run console](docs/deployment/deploy-10.png)
 
 11. Type python3 into the console and click Run to open a python3 shell
 ![python3](docs/deployment/deploy-11.png)
 
-12. To properly set up the database, we will initialise an instance of the app and with app context, create the appropriate tables in the database. Enter the following four commands separately into the terminal
+12. To properly set up the database we will initialise an instance of the app and with app context, create the appropriate tables in the database. You will only need to do this once, unless you make any changes to the database tables in models.py, in which case you will have to repeat this process as soon as your amendments have been pushed to git and deployed in a new build. Enter the following four commands separately into the terminal
 ```
 from libremate import create_app, db
 ```
@@ -694,6 +694,69 @@ quit()
 13. The app is now fully deployed and can be opened and used from Heroku, or by accessing it via the URL!
 ![Open app](docs/deployment/deploy-13.png)
 
-To deploy locally:
+
+### Deploy Locally
+
+1. Create or log in to your Github account. Within this repository, click the Code button; you can either download the repo or use one of the provided URL methods with the git clone command in your terminal to clone into the repo
+![Clone repo](docs/deployment/local-1.png)
+
+2. In your new repo, use the pip3 tool to install all the necessary Python packages from the requirements.txt file. If you do not have pip3 installed, install this tool first. Open a new terminal and navigate to the root folder of your new repo. Here, the command to install all the necessary packages using pip3 is as follows:
+
+```
+pip3 install -r requirements.txt
+```
+
+![Install requirements](docs/deployment/local-2.png)
+
+3. Create a new file called env.py in the root folder of your directory. Within this file, paste the following code, and enter your own values where necessary. I have left the standard values for some of the variables, but the SECRET_KEY and DB_URL values must be entered. The DB_URL variable should point to your postgres database, either locally or hosted online.
+
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "your_secret_key")
+os.environ.setdefault("DEBUG", "True")
+os.environ.setdefault("DEVELOPMENT", "True")
+os.environ.setdefault("DB_URL", "your_postgres_database_url")
+```
+
+4. Open a new python shell by typing python3 into the terminal 
+
+![Python shell](docs/deployment/local-4.png)
+
+5. To properly set up the database we will initialise an instance of the app and with app context, create the appropriate tables in the database. You will only need to do this once, unless you make any changes to the database tables in models.py, in which case you will have to repeat this process as soon as your amendments have been pushed to git and deployed in a new build. Enter the following four commands separately into the terminal
+```
+from libremate import create_app, db
+```
+
+```
+app = create_app()
+```
+
+```
+app.app_context().push()
+```
+
+```
+db.create_all()
+```
+
+You can now exit the shell by typing 
+
+```
+quit()
+```
+
+![Create database](docs/deployment/local-5.png)
+
+6. After exiting the python shell, you can now run the application by entering into the terminal:
+
+```
+python3 run.py
+```
+
+![Run application](docs/deployment/local-6.png)
+![View application](docs/deployment/local-6(b).png)
 
 ## Acknowledgements

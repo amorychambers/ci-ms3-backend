@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, redirect, url_for, session
-from libremate import app
 
 start = Blueprint("start", __name__)
 

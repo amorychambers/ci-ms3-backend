@@ -655,16 +655,16 @@ To deploy on Heroku:
 ![Connect to Github](docs/deployment/deploy-7.png)
 
 8. Search for your forked repo and click Connect
-[!Search for repo](docs/deployment/deploy-8.png)
+![Search for repo](docs/deployment/deploy-8.png)
 
 9. Ensure that the main branch is selected, and then either select Deploy Branch for manual deployment or Enable Automatic Deploys to re-deploy site with any push to the main branch
-[!Select deploy](docs/deployment/deploy-9.png)
+![Select deploy](docs/deployment/deploy-9.png)
 
 10. Once the app has finished building, navigate to the More option and select Run Console
-[!Run console](docs/deployment/deploy-10.png)
+![Run console](docs/deployment/deploy-10.png)
 
 11. Type python3 into the console and click Run to open a python3 shell
-[!python3](docs/deployment/deploy-11.png)
+![python3](docs/deployment/deploy-11.png)
 
 12. To properly set up the database, enter the following two commands separately into the terminal
 ```
@@ -675,10 +675,10 @@ from libremate import db
 db.create_all()
 ```
 
-[!Create tables](docs/deployment/deploy-12.png)
+![Create tables](docs/deployment/deploy-12.png)
 
 13. The app is now fully deployed and can be opened and used from Heroku, or by accessing it via the URL!
-[!Open app](docs/deployment/deploy-13.png)
+![Open app](docs/deployment/deploy-13.png)
 
 To deploy locally:
 

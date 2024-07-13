@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, session
-from libremate import app, db
+from libremate import db
 from libremate.models.models import Reader, Genre
 
 settings = Blueprint("settings", __name__)

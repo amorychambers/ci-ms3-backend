@@ -666,13 +666,27 @@ To deploy on Heroku:
 11. Type python3 into the console and click Run to open a python3 shell
 ![python3](docs/deployment/deploy-11.png)
 
-12. To properly set up the database, enter the following two commands separately into the terminal
+12. To properly set up the database, we will initialise an instance of the app and with app context, create the appropriate tables in the database. Enter the following four commands separately into the terminal
 ```
-from libremate import db
+from libremate import create_app, db
+```
+
+```
+app = create_app()
+```
+
+```
+app.app_context().push()
 ```
 
 ```
 db.create_all()
+```
+
+You can now exit the shell by typing 
+
+```
+quit()
 ```
 
 ![Create tables](docs/deployment/deploy-12.png)

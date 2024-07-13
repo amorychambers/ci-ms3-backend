@@ -177,7 +177,7 @@ I used this tool to develop an Entity Relationship Diagram during the planning s
 
 [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
 
-This API provides cover images of books from their database, using an ISBN provided by the user. 
+This API provides cover images of books from their database, using an ISBN provided by the user. I decided to use this API instead of allowing the users to submit image urls to the database, for the sake of a consistent visual theme, and of ensuring that the images displayed were actual book covers and thus appropriate to the site. Additionally, I respect the work of Open Library tremendously and wanted to use their database of book covers. 
 
 [Bootstrap](https://getbootstrap.com/)
 
@@ -629,7 +629,10 @@ All tests passing.
 
 ### External Code
 
+## Deployment
 
-## Deployment
+To deploy on Heroku:
+
+To deploy locally:
 
 ## Acknowledgements

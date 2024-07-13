@@ -40,10 +40,13 @@
         <div class="row">
             <div class="col">
                 <label for="book_genre" class="form-label required">Genre</label>
-                <select id="book_genre" name="book_genre" class="form-select">
-                    <option selected>Select genre</option>
+                <select id="book_genre" name="book_genre" class="form-select" required>
                     {% for genre in genres %}
-                    <option value="{{genre.id}}">{{ genre.genre_name.title() }}</option>
+                        {% if genre.genre_name == "misc" %}
+                            <option selected value="{{genre.id}}">{{ genre.genre_name.title() }}</option>
+                        {% else %}
+                            <option value="{{genre.id}}">{{ genre.genre_name.title() }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>

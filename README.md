@@ -558,14 +558,44 @@ As the site owner, I want to:
 
 I have manually tested and compared the privacy function of the View Book route. Below are two screenshots for a book entry on a public user's account, firstly when logged in to the user's account, and secondly when viewing as a guest user. The options to edit or delete the book are only visible when logged in. If a guest user attempts to view a book entry for a private user's account when not logged in to that account, the site will display a custom page that informs them they cannot view a private user's books and redirects them to the public books in the community tab. Additionally, in the routes for the edit_book and delete_book functions, the site checks again to ensure that the request is coming from the logged in user who owns that entry.
 
-Public user's book when signed into their account:
-![Public user's book when signed into their account](docs/input-tests/view-book-1.png)
+<details><summary>Public user's book when signed into their account:</summary>
+<img src="docs/input-tests/view-book-1.png">
+</details>
 
-Public user's book when viewing as a guest user:
-![Public user's book when viewing as a guest user](docs/input-tests/view-book-2.png)
+<details><summary>Public user's book when viewing as a guest user:</summary>
+<img src="docs/input-tests/view-book-2.png">
+</details>
 
-Private user's book when viewing as a guest user:
-![Private user's book when viewing as a guest user](docs/input-tests//view-book-3.png)
+<details><summary>Private user's book when viewing as a guest user:</summary>
+<img src="docs/input-tests/view-book-3.png">
+</details>
+
+
+#### Sign In/Registration
+
+Below I have manually tested some of the user feedback function of the sign in and registration tabs; I have used a combination of custom browser validation messages and flash messages to inform the user of incorrect input and guide them on the correct format for all inputs. 
+
+<details><summary>Attempting to register with a username that already exists in the database:</summary>
+<img src="docs/input-tests/existing-user.gif">
+</details>
+
+<details><summary>Custom JS file validate.js preventing registration if passwords do not match in registration</summary>
+<img src="docs/input-tests/no-matching-password.gif">
+</details>
+
+<details><summary>Username or password does not match requirements</summary>
+<img src="docs/input-tests/invalid-username.gif">
+</details>
+
+<details><summary>Username or password does not match database entry for existing user</summary>
+<img src="docs/input-tests/incorrect-user-details.gif">
+</details>
+
+#### Add Book/Add Genre
+
+<details><summary>Invalid text input for Add Book form</summary>
+<img src="docs/input-tests/invalid-username.gif">
+</details>
 
 ## Bugs
 

@@ -554,6 +554,18 @@ As the site owner, I want to:
 
 ### Testing User Input
 
+#### View Book
+
+I have manually tested and compared the privacy function of the View Book route. Below are two screenshots for a book entry on a public user's account, firstly when logged in to the user's account, and secondly when viewing as a guest user. The options to edit or delete the book are only visible when logged in. If a guest user attempts to view a book entry for a private user's account when not logged in to that account, the site will display a custom page that informs them they cannot view a private user's books and redirects them to the public books in the community tab. Additionally, in the routes for the edit_book and delete_book functions, the site checks again to ensure that the request is coming from the logged in user who owns that entry.
+
+Public user's book when signed into their account:
+![Public user's book when signed into their account](docs/input-tests/view-book-1.png)
+
+Public user's book when viewing as a guest user:
+![Public user's book when viewing as a guest user](docs/input-tests/view-book-2.png)
+
+Private user's book when viewing as a guest user:
+![Private user's book when viewing as a guest user](docs/input-tests//view-book-3.png)
 
 ## Bugs
 

@@ -357,23 +357,33 @@ validate.js - No errors listed
 
 Validated with Code Institute's CI Python Linter
 
-authorisation/routes.py - No errors listed
+run.py - No errors listed
 
-create/routes.py - No errors listed
+libremate/init.py - No errors listed
 
-delete/routes.py - No errors listed
+libremate/authorisation/routes.py - No errors listed
 
-library/routes.py - No errors listed
+libremate/create/routes.py - No errors listed
 
-models/models.py - No errors listed
+libremate/delete/routes.py - No errors listed
 
-settings/routes.py - No errors listed
+libremate/library/routes.py - No errors listed
 
-shared/routes.py - No errors listed
+libremate/models/models.py - No errors listed
 
-start/routes.py - No errors listed
+libremate/settings/routes.py - No errors listed
 
-update/routes.py - No errors listed
+libremate/shared/routes.py - No errors listed
+
+libremate/start/routes.py - No errors listed
+
+libremate/update/routes.py - No errors listed
+
+tests/conftest.py - No errors listed
+
+tests/test_authorisation.py - No errors listed
+
+tests/test_create.py - No errors listed
 
 
 

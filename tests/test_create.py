@@ -19,10 +19,12 @@ class TestNewUser(TestCase):
 
     def test_create_user(self, client):
         """
-        Confirm that the /register route creates a new user in the database, logs the user into session, and redirects to their library
+        Confirm that the /register route creates a new user in the database,
+        logs the user into session, and redirects to their library
         """
         response = client.post(
-            "/register", data={"username": "testuser", "new-password": "testpass", "private": False})
+            "/register", data={"username": "testuser",
+                               "new-password": "testpass", "private": False})
         self.assertTrue(db.session.query(Reader).filter(
             Reader.username == "testuser").one_or_none())
         self.assertIn("user", flask.globals.session)
@@ -30,10 +32,12 @@ class TestNewUser(TestCase):
 
     def test_existing_username(self, client):
         """
-        Confirm that /register route will not create a duplicate username for one that already exists in database
+        Confirm that /register route will not create a duplicate
+        username for one that already exists in database
         """
         response = client.post(
-            "/register", data={"username": "amory", "new-password": "testpass", "private": False})
+            "/register", data={"username": "amory",
+                               "new-password": "testpass", "private": False})
         self.assertNotIn("user", flask.globals.session)
         self.assertLocationHeader(response, "/register")
 
@@ -57,7 +61,8 @@ class TestNewGenre(TestCase):
         Create new testuser and new testgenre in database to run tests on
         """
         testuser = Reader(username="testuser",
-                          password=generate_password_hash("testpass"), private=False)
+                          password=generate_password_hash("testpass"),
+                          private=False)
         existing_genre = Genre(
             genre_name="existing_genre", genre_owner="testuser")
         db.session.add(testuser)
@@ -67,24 +72,31 @@ class TestNewGenre(TestCase):
 
     def test_new_genre(self, client):
         """
-        Confirm /add_genre route creates a new genre in database for a logged in user and redirects to their library
+        Confirm /add_genre route creates a new genre in database
+        for a logged in user and redirects to their library
         """
         client.post(
-            "/sign_in", data={"username": "testuser", "password": "testpass"})
+            "/sign_in", data={"username": "testuser",
+                              "password": "testpass"})
         response = client.post(
-            "/add_genre", data={"genre_name": "testgenre", "genre_owner": flask.globals.session["user"]})
+            "/add_genre", data={"genre_name": "testgenre",
+                                "genre_owner": flask.globals.session["user"]})
         self.assertLocationHeader(response, "/my_library")
         self.assertTrue(db.session.query(Genre).filter(
-            Genre.genre_owner == "testuser", Genre.genre_name == "testgenre").one_or_none())
+            Genre.genre_owner == "testuser",
+            Genre.genre_name == "testgenre").one_or_none())
 
     def test_existing_genre(self, client):
         """
-        Confirm /add_genre route will not create duplicate genres for the same user in the database
+        Confirm /add_genre route will not create duplicate
+        genres for the same user in the database
         """
         client.post(
-            "/sign_in", data={"username": "testuser", "password": "testpass"})
+            "/sign_in", data={"username": "testuser",
+                              "password": "testpass"})
         response = client.post(
-            "/add_genre", data={"genre_name": "existing_genre", "genre_owner": flask.globals.session["user"]})
+            "/add_genre", data={"genre_name": "existing_genre",
+                                "genre_owner": flask.globals.session["user"]})
         self.assertLocationHeader(response, "/add_genre")
 
     @classmethod
@@ -110,7 +122,8 @@ class TestNewBook(TestCase):
         Create new testuser and new testgenre in database to run tests on
         """
         testuser = Reader(username="testuser",
-                          password=generate_password_hash("testpass"), private=False)
+                          password=generate_password_hash("testpass"),
+                          private=False)
         genre = Genre(
             genre_name="misc", genre_owner="testuser")
         db.session.add(testuser)
@@ -120,15 +133,26 @@ class TestNewBook(TestCase):
 
     def test_new_book(self, client):
         """
-        Confirm /add_book creates a new book entry in database and redirects to user's library
+        Confirm /add_book creates a new book entry
+        in database and redirects to user's library
         """
         client.post(
             "/sign_in", data={"username": "testuser", "password": "testpass"})
-        response = client.post("/add_book", data={'book_title': 'testbook', 'author_name': 'testauthor', 'status': 'dropped', 'favourite': False,
-                               'review': 'This book sucks ass. Who the hell does this testauthor guy think he is?', 'isbn': None, 'created_on': '07/05/24 22:57:21', 'book_genre': 1, 'book_owner': 'testuser'})
+        response = client.post("/add_book", data={'book_title': 'testbook',
+                                                  'author_name': 'testauthor',
+                                                  'status': 'dropped',
+                                                  'favourite': False,
+                                                  'review':
+                                                  'testauthor tests patience',
+                                                  'isbn': None,
+                                                  'created_on':
+                                                  '07/05/24 22:57:21',
+                                                  'book_genre': 1,
+                                                  'book_owner': 'testuser'})
         self.assertLocationHeader(response, "/my_library")
         self.assertTrue(db.session.query(Book).filter(
-            Book.book_owner == "testuser", Book.book_title == "testbook").one_or_none())
+            Book.book_owner == "testuser",
+            Book.book_title == "testbook").one_or_none())
 
     @classmethod
     def tearDownClass(cls) -> None:

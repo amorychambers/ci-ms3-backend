@@ -4,6 +4,7 @@ from libremate.models.models import db
 if os.path.exists("env.py"):
     import env
 
+
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
@@ -14,7 +15,7 @@ def create_app():
         if uri.startswith("postgres://"):
             uri = uri.replace("postgres://", "postgresql://", 1)
         app.config["SQLALCHEMY_DATABASE_URI"] = uri
-    
+
     db.init_app(app)
 
     from libremate.start.routes import start

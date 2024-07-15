@@ -16,18 +16,18 @@
         </div>
     </div>
     <br>
-    <form action="{{ url_for('update.edit_book', book_id=book.id) }}" method="POST" class="needs-validation m-auto" novalidate>
-        <div class="form">
+    <form action="{{ url_for('update.edit_book', book_id=book.id) }}" method="POST" class="needs-validation m-auto"
+        novalidate>
             <div class="row">
                 <div class="col">
                     <label for="status" class="form-label">Status</label>
-                    <select id="status" name="status" class="form-select" required>
+                    <select id="status" name="status" class="form-select">
                         {% for status in statuses %}
-                            {% if status == book.status %}
-                                <option selected value="{{ status }}">{{ status.capitalize() }}</option>
-                            {% else %}
-                                <option  value="{{ status }}">{{ status.capitalize() }}</option>
-                            {% endif %}
+                        {% if status == book.status %}
+                        <option selected value="{{ status }}">{{ status.capitalize() }}</option>
+                        {% else %}
+                        <option value="{{ status }}">{{ status.capitalize() }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -50,9 +50,9 @@
                     <select id="book_genre" name="book_genre" class="form-select">
                         {% for genre in genres %}
                             {% if book.book_genre == genre.id %}
-                            <option selected value="{{genre.id}}">{{ genre.genre_name.capitalize() }}</option>
+                                <option selected value="{{genre.id}}">{{ genre.genre_name.capitalize() }}</option>
                             {% else %}
-                            <option value="{{genre.id}}">{{ genre.genre_name.capitalize() }}</option>
+                                <option value="{{genre.id}}">{{ genre.genre_name.capitalize() }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
@@ -63,9 +63,7 @@
                     <label for="isbn" class="form-label">ISBN</label>
                     <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
                         data-bs-content="Enter the 10-13 digit ISBN number without hyphens to check if the cover image is available!"></i>
-                    <input id="isbn" name="isbn" class="form-control" type="number" pattern="^[0-9^-]*$" minlength="10"
-                        maxlength="13" value="{{ book.isbn }}">
-                    <div class="valid-feedback">Valid!</div>
+                    <input id="isbn" name="isbn" class="form-control" type="number" value="{{ book.isbn }}">
                     <div class="invalid-feedback">Please enter the 10-13 digit ISBN number without spaces or hyphens.
                     </div>
                     <button id="cover-check" class="btn btn-large accent">Check Cover</button>
@@ -75,14 +73,15 @@
                         <button class='btn btn-danger' id='reject'>No</button>
                         <button class='btn btn-success' id='confirm'>Yes</button>
                     </div>
-                    <sub class="center">Cover image provided by the <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library Covers API</a></sub>
+                    <sub class="center">Cover image provided by the <a
+                            href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library Covers
+                            API</a></sub>
                 </div>
             </div>
             <div class="row">
                 <div class="col mt-4">
                     <label for="review" class="form-label">Review</label>
-                    <textarea id="review" name="review" class="form-control" type="text"
-                        pattern="^[a-zA-Z0-9\&\'\.\,\-]\s$">{{ book.review }}</textarea>
+                    <textarea id="review" name="review" class="form-control">{{ book.review }}</textarea>
                 </div>
             </div>
             <!-- Book owner will be added using the session username -->
@@ -93,18 +92,18 @@
             </div>
     </form>
 </div>
-    {% else %}
-    <div class="container">
-        <div class="row">
-            <div class="col center m-4">
-                <h2 class="p-2">Oops!</h2>
-                <p class="p-2">This book does not belong to your account. Check the inner cover; you will not find your
-                    name scribbled there. I admire the dashing spirit of a book thief though.</p>
-                <a href="{{ url_for('shared.community', page=1) }}" class="btn accent">Home</a>
-            </div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col center m-4">
+            <h2 class="p-2">Oops!</h2>
+            <p class="p-2">This book does not belong to your account. Check the inner cover; you will not find your
+                name scribbled there. I admire the dashing spirit of a book thief though.</p>
+            <a href="{{ url_for('shared.community', page=1) }}" class="btn accent">Home</a>
         </div>
     </div>
-    {% endif %}
-    <script src="{{ url_for('static', filename='js/validate.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/cover.js')}}"></script>
+</div>
+{% endif %}
+<script src="{{ url_for('static', filename='js/validate.js')}}"></script>
+<script src="{{ url_for('static', filename='js/cover.js')}}"></script>
 {% endblock %}

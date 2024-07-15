@@ -64,13 +64,15 @@ input {
 }
 
 .col {
-    -moz-hyphens:auto;
-    -ms-hyphens:auto;
-    -webkit-hyphens:auto;
-    hyphens:auto;
-    word-wrap:break-word;
- }
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+}
 
+label.required::after {
+    content: " *";
+    color: red;
+}
 
 /* ------------------------ Sign In/Register  ------------------------ */
 
@@ -114,11 +116,6 @@ h1>a {
 
 .favourite {
     color: #FFD43B;
-}
-
-label.required::after {
-    content: " *";
-    color: red;
 }
 
 .single-book {

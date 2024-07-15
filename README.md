@@ -317,8 +317,17 @@ Validated with the W3C Markup Validation Service
 
 No errors listed
 
-[account.html]
+[community.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2Fcommunity%2F1)
 
+No errors listed
+
+[sign_in.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2Fsign_in)
+
+No errors listed
+
+[register.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2Fregister)
+
+No errors listed
 
 
 ### CSS Validation

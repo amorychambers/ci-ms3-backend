@@ -385,6 +385,14 @@ tests/test_authorisation.py - No errors listed
 
 tests/test_create.py - No errors listed
 
+tests/test_delete.py - No errors listed
+
+tests/test_settings.py - No errors listed
+
+tests/test_start.py - No errors listed
+
+tests/test_update.py - No errors listed
+
 
 
 ### Accessibility

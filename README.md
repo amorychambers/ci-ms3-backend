@@ -335,7 +335,14 @@ No errors listed
 
 The following pages can only be accessed by a logged in user. As I have used templating and jinja2 code in the file, it was not possible to validate them by file upload. In order to validate these pages, I have opened the page whilst logged in to the site, copied the fully loaded page source content, and pasted it into the HTML validator.
 
+[account.html](docs/validation/account-validation.png)
 
+account.html - No errors listed
+
+
+[add_book.html](docs/validation/add-book-validation.png)
+
+add_book.html - One error listed for the empty src attribute of the hidden img element within the cover image API section. This is blank until it is populated with the appropriate value provided by the validate.js script, which gives it a value based on the user's search query. 
 
 ### CSS Validation
 

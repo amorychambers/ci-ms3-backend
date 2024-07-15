@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col">
                 <label for="book_genre" class="form-label required">Genre</label>
-                <select id="book_genre" name="book_genre" class="form-select" required>
+                <select id="book_genre" name="book_genre" class="form-select">
                     {% for genre in genres %}
                         {% if genre.genre_name == "misc" %}
                             <option selected value="{{genre.id}}">{{ genre.genre_name.title() }}</option>
@@ -56,7 +56,7 @@
                 <label for="isbn" class="form-label">ISBN</label>
                 <i class="fa-regular fa-circle-question" data-bs-toggle="popover"
                 data-bs-content="Enter the 10-13 digit ISBN number without hyphens to check if the cover image is available!"></i>
-                <input id="isbn" name="isbn" class="form-control" type="number" pattern="^[0-9^-]*$" minlength="10" maxlength="13">
+                <input id="isbn" name="isbn" class="form-control" type="number">
                 <div class="valid-feedback">Valid!</div>
                 <div class="invalid-feedback">Please enter the 10-13 digit ISBN number without spaces or hyphens.</div>
                 <button id="cover-check" class="btn btn-large accent">Check Cover</button>
@@ -72,7 +72,7 @@
         <div class="row">
             <div class="col mt-4">
                 <label for="review" class="form-label">Review</label>
-                <textarea id="review" name="review" class="form-control" type="text" pattern="^[a-zA-Z0-9\&\'\.\,\-]\s$"
+                <textarea id="review" name="review" class="form-control"
                     placeholder="This can be added or edited later!"></textarea>
             </div>
         </div>

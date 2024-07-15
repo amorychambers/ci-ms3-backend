@@ -23,7 +23,7 @@ class TestUpdateEntries(TestCase):
         genre = Genre(
             genre_name="testgenre", genre_owner="testuser")
         book = Book(
-            book_title="testbook", author_name="testauthor", status="plan-to-read", favourite=False, review="", isbn=None, created_on="07/05/24 22:57:21", book_genre=203, book_owner="testuser"
+            book_title="testbook", author_name="testauthor", status="plan-to-read", favourite=False, review="", isbn=None, created_on="07/05/24 22:57:21", book_genre=1, book_owner="testuser"
         )
         db.session.add(testuser)
         db.session.add(genre)
@@ -39,7 +39,7 @@ class TestUpdateEntries(TestCase):
             "/sign_in", data={"username": "testuser", "password": "testpass"})
         testbook = db.session.query(Book).filter(
             Book.book_title == "testbook").one()
-        client.post("/edit_book/{}".format(testbook.id), data={'status': 'complete', 'favourite': True, 'book_genre': 203,
+        client.post("/edit_book/{}".format(testbook.id), data={'status': 'complete', 'favourite': True, 'book_genre': 1,
                     'isbn': None, 'review': 'You know, now that I think about it, testauthor is not so bad'})
         updated_testbook = db.session.query(Book).filter(
             Book.id == testbook.id).one()
@@ -110,7 +110,7 @@ class TestSaveBooks(TestCase):
             genre_name="misc", genre_owner="testuser"
         )
         book = Book(
-            book_title="testbook", author_name="testauthor", status="plan-to-read", favourite=False, review="", isbn=None, created_on="07/05/24 22:57:21", book_genre=261, book_owner="testuser"
+            book_title="testbook", author_name="testauthor", status="plan-to-read", favourite=False, review="", isbn=None, created_on="07/05/24 22:57:21", book_genre=1, book_owner="testuser"
         )
         db.session.add(testuser)
         db.session.add(misc)

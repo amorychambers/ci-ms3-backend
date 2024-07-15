@@ -73,7 +73,7 @@ class TestDeleteBook(TestCase):
         client.post(
             "/sign_in", data={"username": "testuser", "password": "testpass"})
         client.post("/add_book", data={'book_title': 'testbook', 'author_name': 'testauthor', 'status': 'dropped', 'favourite': False,
-                    'review': 'This book sucks ass. Who the hell does this testauthor guy think he is?', 'isbn': None, 'created_on': '07/05/24 22:57:21', 'book_genre': 261, 'book_owner': 'testuser'})
+                    'review': 'This book sucks ass. Who the hell does this testauthor guy think he is?', 'isbn': None, 'created_on': '07/05/24 22:57:21', 'book_genre': 1, 'book_owner': 'testuser'})
         book = db.session.query(Book).filter(
             Book.book_title == "testbook", Book.book_owner == "testuser").one()
         client.get("/delete_book/{}".format(book.id))

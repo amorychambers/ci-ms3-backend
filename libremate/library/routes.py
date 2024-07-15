@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, session
 from libremate import db
-from libremate.models.models import Reader, Genre, Book
+from libremate.models.models import Genre, Book
 
 library = Blueprint("library", __name__)
 

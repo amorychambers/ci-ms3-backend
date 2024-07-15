@@ -666,7 +666,7 @@ All tests passing.
 11. Type python3 into the console and click Run to open a python3 shell
 ![python3](docs/deployment/deploy-11.png)
 
-12. To properly set up the database we will initialise an instance of the app and with app context, create the appropriate tables in the database. You will only need to do this once, unless you make any changes to the database tables in models.py, in which case you will have to repeat this process as soon as your amendments have been pushed to git and deployed in a new build. Enter the following four commands separately into the terminal
+12. To properly set up the database we will initialise an instance of the app, and with app context, create the appropriate tables in the database. You will only need to do this once, unless you make any changes to the database tables in models.py, in which case you will have to repeat this process as soon as your amendments have been pushed to git and deployed in a new build. Enter the following four commands separately into the terminal
 ```
 from libremate import create_app, db
 ```
@@ -725,7 +725,7 @@ os.environ.setdefault("DB_URL", "your_postgres_database_url")
 
 ![Python shell](docs/deployment/local-4.png)
 
-5. To properly set up the database we will initialise an instance of the app and with app context, create the appropriate tables in the database. You will only need to do this once, unless you make any changes to the database tables in models.py, in which case you will have to repeat this process as soon as your amendments have been pushed to git and deployed in a new build. Enter the following four commands separately into the terminal
+5. To properly set up the database we will initialise an instance of the app, and with app context, create the appropriate tables in the database. You will only need to do this once, unless you make any changes to the database tables in models.py, in which case you will have to repeat this process. Enter the following four commands separately into the terminal
 ```
 from libremate import create_app, db
 ```

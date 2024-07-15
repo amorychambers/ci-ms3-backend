@@ -5,21 +5,21 @@
  * These are account.html, add_book.html, add_genre.html, edit_book.html, register.html and sign_in.html.
  */
 (() => {
-    'use strict'
+    'use strict';
 
-    const forms = document.querySelectorAll('.needs-validation')
+    const forms = document.querySelectorAll('.needs-validation');
 
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
             if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
+                event.preventDefault();
+                event.stopPropagation();
             }
 
-            form.classList.add('was-validated')
-        }, false)
-    })
-})()
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
 
 // Code to confirm password matches custom password, customised from Diego Leme snippet linked in readme
 const password = document.getElementById("new-password");

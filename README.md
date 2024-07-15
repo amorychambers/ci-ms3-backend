@@ -201,7 +201,7 @@ This API provides cover images of books from their database, using an ISBN provi
 
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
-[JSLint](https://www.jslint.com/)
+[JSHint](https://jshint.com/)
 
 [CI Python Linter](https://pep8ci.herokuapp.com/)
 
@@ -332,7 +332,26 @@ No errors listed
 
 ### CSS Validation
 
+Validated with the W3C CSS Validation Service
+
+![style.css](docs/validation/css-validation.png)
+
+No errors listed
+
+
 ### JavaScript Validation
+
+Validated with JSHint
+
+cover.js - No errors listed
+
+delete.js - No errors listed
+
+popover.js - No errors listed
+
+search.js - No errors listed
+
+validate.js - No errors listed
 
 ### Python Validation
 

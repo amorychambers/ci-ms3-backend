@@ -9,6 +9,6 @@ confirmDelete.addEventListener("click", function () {
     if (deleteButton.classList.contains("disabled")) {
         deleteButton.classList.remove("disabled");
     } else {
-        deleteButton.classList.add("disabled")
+        deleteButton.classList.add("disabled");
     }
 });

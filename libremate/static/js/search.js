@@ -10,9 +10,9 @@ search.addEventListener("input", function (e) {
         let title = book.getElementsByClassName("card-title")[0];
         let author = book.getElementsByClassName("card-subtitle")[0];
         if (!title.innerText.toLowerCase().includes(searchTerm) && !author.innerText.toLowerCase().includes(searchTerm)) {
-            book.classList.add("d-none")
+            book.classList.add("d-none");
         } else {
-            book.classList.remove("d-none")
+            book.classList.remove("d-none");
         }
     }
 });

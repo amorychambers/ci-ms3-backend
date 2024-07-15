@@ -4,16 +4,20 @@ from libremate.models.models import Reader, Genre
 
 settings = Blueprint("settings", __name__)
 
+
 @settings.route("/account")
 def account():
-    genres = db.session.query(Genre).filter(Genre.genre_owner == session["user"]).all()
-    reader = db.session.query(Reader).first_or_404(Reader.username == session["user"])
+    genres = db.session.query(Genre).filter(
+        Genre.genre_owner == session["user"]).all()
+    reader = db.session.query(Reader).first_or_404(
+        Reader.username == session["user"])
     return render_template("account.html", genres=genres, reader=reader)
 
 
 @settings.route("/account/privacy/<status>", methods=["GET", "POST"])
 def privacy(status):
-    reader = db.session.query(Reader).first_or_404(Reader.username == session["user"])
+    reader = db.session.query(Reader).first_or_404(
+        Reader.username == session["user"])
     if status == "public":
         reader.private = False
         db.session.commit()

@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, session
 
 start = Blueprint("start", __name__)
 
+
 @start.route("/")
 def home():
     if "user" in session:

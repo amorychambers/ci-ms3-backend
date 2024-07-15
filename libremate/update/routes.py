@@ -7,7 +7,8 @@ update = Blueprint("update", __name__)
 
 @update.route("/edit_book/<int:book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    genres = db.session.query(Genre).filter(Genre.genre_owner == session["user"]).all()
+    genres = db.session.query(Genre).filter(
+        Genre.genre_owner == session["user"]).all()
     book = db.session.query(Book).get_or_404(book_id)
     statuses = ["complete", "plan-to-read", "dropped"]
     if request.method == "POST":
@@ -18,26 +19,29 @@ def edit_book(book_id):
         book.review = request.form.get("review")
         db.session.commit()
         return redirect(url_for("library.view_book", id=book.id))
-    return render_template("edit_book.html", book=book, genres=genres, statuses=statuses)
+    return render_template("edit_book.html",
+                           book=book, genres=genres, statuses=statuses)
 
 
 @update.route("/edit_genre/<int:genre_id>", methods=["POST"])
 def edit_genre(genre_id):
     genre = db.session.query(Genre).get_or_404(genre_id)
-    if request.method == "POST" and genre.genre_name != "Misc" and genre.genre_owner == session["user"]:
-        # Check if genre already exists
-        q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
-                                              Genre.genre_name == request.form.get("genre_name").lower())
-        if db.session.query(q.exists()).scalar():
-            flash("That genre already exists in your library!")
-            return redirect(url_for("settings.account"))
+    if request.method == "POST":
+        if genre.genre_name != "Misc" and genre.genre_owner == session["user"]:
+            # Check if genre already exists
+            q = db.session.query(Genre.id).filter(
+                Genre.genre_owner == session["user"],
+                Genre.genre_name == request.form.get("genre_name").lower())
+            if db.session.query(q.exists()).scalar():
+                flash("That genre already exists in your library!")
+                return redirect(url_for("settings.account"))
+            else:
+                genre.genre_name = request.form.get("genre_name")
+                db.session.commit()
+                return redirect(url_for("settings.account"))
         else:
-            genre.genre_name = request.form.get("genre_name")
-            db.session.commit()
+            flash("I'm sorry, but you cannot edit this genre name")
             return redirect(url_for("settings.account"))
-    else:
-        flash("I'm sorry, but you cannot edit this genre name")
-        return redirect(url_for("settings.account"))
 
 
 @update.route("/save_books/<genre_id>", methods=["GET", "POST"])

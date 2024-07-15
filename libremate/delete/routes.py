@@ -7,7 +7,7 @@ delete = Blueprint("delete", __name__)
 
 @delete.route("/delete_genre/<int:genre_id>")
 def delete_genre(genre_id):
-    genre = Genre.query.get_or_404(genre_id)
+    genre = db.session.query(Genre).get_or_404(genre_id)
     if genre.genre_name != "misc":
         db.session.delete(genre)
         db.session.commit()
@@ -17,7 +17,7 @@ def delete_genre(genre_id):
 
 @delete.route("/delete_book/<int:book_id>")
 def delete_book(book_id):
-    book = Book.query.get_or_404(book_id)
+    book = db.session.query(Book).get_or_404(book_id)
     db.session.delete(book)
     db.session.commit()
     flash(f"'{book.book_title}' deleted")
@@ -25,7 +25,7 @@ def delete_book(book_id):
 
 @delete.route("/delete_account/<int:reader_id>")
 def delete_account(reader_id):
-    reader = Reader.query.filter(Reader.id == reader_id).one_or_none()
+    reader = db.session.query(Reader).filter(Reader.id == reader_id).one_or_none()
     db.session.delete(reader)
     db.session.commit()
     session.clear()

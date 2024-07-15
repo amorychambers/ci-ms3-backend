@@ -7,8 +7,8 @@ update = Blueprint("update", __name__)
 
 @update.route("/edit_book/<int:book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
-    book = Book.query.get_or_404(book_id)
+    genres = db.session.query(Genre).filter(Genre.genre_owner == session["user"]).all()
+    book = db.session.query(Book).get_or_404(book_id)
     statuses = ["complete", "plan-to-read", "dropped"]
     if request.method == "POST":
         book.status = request.form.get("status")
@@ -23,7 +23,7 @@ def edit_book(book_id):
 
 @update.route("/edit_genre/<int:genre_id>", methods=["POST"])
 def edit_genre(genre_id):
-    genre = Genre.query.get_or_404(genre_id)
+    genre = db.session.query(Genre).get_or_404(genre_id)
     if request.method == "POST" and genre.genre_name != "Misc" and genre.genre_owner == session["user"]:
         # Check if genre already exists
         q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
@@ -42,8 +42,8 @@ def edit_genre(genre_id):
 
 @update.route("/save_books/<genre_id>", methods=["GET", "POST"])
 def save_books(genre_id):
-    books = Book.query.filter(Book.book_genre == genre_id).all()
-    misc = Genre.query.filter(
+    books = db.session.query(Book).filter(Book.book_genre == genre_id).all()
+    misc = db.session.query(Genre).filter(
         Genre.genre_name == "misc", Genre.genre_owner == session["user"]).one()
     for book in books:
         book.book_genre = misc.id

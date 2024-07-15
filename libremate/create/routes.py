@@ -58,7 +58,7 @@ def add_genre():
 
 @create.route("/add_book", methods=["GET", "POST"])
 def add_book():
-    genres = Genre.query.filter(Genre.genre_owner == session["user"]).all()
+    genres = db.session.query(Genre).filter(Genre.genre_owner == session["user"]).all()
     if request.method == "POST":
         book = Book(
             book_title=request.form.get("book_title"),

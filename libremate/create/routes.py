@@ -6,6 +6,7 @@ import datetime
 
 create = Blueprint("create", __name__)
 
+
 @create.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -35,12 +36,14 @@ def register():
 
     return render_template("register.html")
 
+
 @create.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
     if request.method == "POST":
         # Check if genre already exists
-        q = db.session.query(Genre.id).filter(Genre.genre_owner == session["user"],
-                                              Genre.genre_name == request.form.get("genre_name").lower())
+        q = db.session.query(Genre.id).filter(
+            Genre.genre_owner == session["user"],
+            Genre.genre_name == request.form.get("genre_name").lower())
         if db.session.query(q.exists()).scalar():
             flash("That genre already exists in your library!")
             return redirect(url_for("create.add_genre"))
@@ -58,7 +61,8 @@ def add_genre():
 
 @create.route("/add_book", methods=["GET", "POST"])
 def add_book():
-    genres = db.session.query(Genre).filter(Genre.genre_owner == session["user"]).all()
+    genres = db.session.query(Genre).filter(
+        Genre.genre_owner == session["user"]).all()
     if request.method == "POST":
         book = Book(
             book_title=request.form.get("book_title"),

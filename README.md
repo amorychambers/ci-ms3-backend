@@ -355,6 +355,18 @@ validate.js - No errors listed
 
 ### Python Validation
 
+Validated with Code Institute's CI Python Linter
+
+authorisation/routes.py - No errors listed
+
+create/routes.py - No errors listed
+
+delete/routes.py - No errors listed
+
+library/routes.py - No errors listed
+
+
+
 ### Accessibility
 
 ### Performance

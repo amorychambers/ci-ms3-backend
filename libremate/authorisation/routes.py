@@ -14,7 +14,8 @@ def sign_in():
             Reader.username == request.form.get("username"))
         if db.session.query(q.exists()).scalar():
             # Check password is correct
-            if check_password_hash(q.first().password, request.form.get("password")):
+            if check_password_hash(q.first().password,
+                                   request.form.get("password")):
                 session["user"] = q.first().username
                 flash(f"Hello, {session["user"]}!")
                 return redirect(url_for("library.my_library"))

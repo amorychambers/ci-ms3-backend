@@ -4,6 +4,7 @@ from libremate.models.models import Genre, Book
 
 library = Blueprint("library", __name__)
 
+
 @library.route("/my_library")
 def my_library():
     if "user" in session:
@@ -29,9 +30,16 @@ def my_library_sort(sort):
     status_options = ["complete", "plan-to-read", "dropped"]
     statuses = []
     for status in status_options:
-        if len(db.session.query(Book).filter(Book.status == status and Book.book_owner == session["user"]).all()) >= 1:
+        if len(db.session.query(Book).filter(
+            Book.status == status and Book.book_owner == session["user"]
+                ).all()) >= 1:
             statuses.append(status)
-    return render_template("my_library.html", genres=genres, books=books, sort=sort, statuses=statuses)
+    return render_template("my_library.html",
+                           genres=genres,
+                           books=books,
+                           sort=sort,
+                           statuses=statuses)
+
 
 @library.route("/view_book/<id>")
 def view_book(id):

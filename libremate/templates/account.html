@@ -105,8 +105,8 @@
       <div class="modal-body">
           <div class="row">
             <div class="col">
-              <label for="genre_name" class="form-label required">Genre Name</label>
-              <input name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
+              <label for="edit-{{ genre.genre_name }}" class="form-label required">Genre Name</label>
+              <input id="edit-{{genre.genre_name }}" name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
                 pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required value="{{ genre.genre_name.title() }}">
             </div>
           </div>

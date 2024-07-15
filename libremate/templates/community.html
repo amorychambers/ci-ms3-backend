@@ -14,9 +14,9 @@
         <p class="cover-title center">{{book.book_title}}</p>
         {% endif %}
         <br>
-        <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name }}&i=digital-text&tag=fakereferral"
+        <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name.replace(' ', '+') }}&i=digital-text&tag=fakereferral"
           target="_blank" class="btn kindle" role="button">Search on Kindle</a>
-        <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title }}+{{ book.author_name }}&tag=fakereferral"
+        <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title.replace(' ', '+') }}+{{ book.author_name }}&tag=fakereferral"
           target="_blank" class="btn kobo" role="button">Search on Kobo</a>
       </div>
       <div class="col-sm-12 col-md-6 my-4 mt-md-5">

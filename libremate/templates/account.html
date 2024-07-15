@@ -101,12 +101,12 @@
         <h5 class="modal-title fs-5" id="edit-{{ genre.id }}-label">Edit {{ genre.genre_name.title() }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form action="{{ url_for('update.edit_genre', genre_id=genre.id) }}" method="POST" class="needs-validation">
       <div class="modal-body">
-        <form action="{{ url_for('update.edit_genre', genre_id=genre.id) }}" method="POST" class="needs-validation">
           <div class="row">
             <div class="col">
               <label for="genre_name" class="form-label required">Genre Name</label>
-              <input id="genre_name" name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
+              <input name="genre_name" class="form-control" type="text" minlength="1" maxlength="20"
                 pattern="^[a-zA-Z0-9\&\'\.\,\-]\s{1,20}$" required value="{{ genre.genre_name.title() }}">
             </div>
           </div>

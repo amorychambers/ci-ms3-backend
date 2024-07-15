@@ -313,6 +313,10 @@ User Stories: 2, 20
 
 Validated with the W3C Markup Validation Service
 
+[404.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2F404)
+
+No errors listed
+
 [about.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2Fabout)
 
 No errors listed
@@ -328,6 +332,9 @@ No errors listed
 [register.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2Fregister)
 
 No errors listed
+
+The following pages can only be accessed by a logged in user. As I have used templating and jinja2 code in the file, it was not possible to validate them by file upload. In order to validate these pages, I have opened the page whilst logged in to the site, copied the fully loaded page source content, and pasted it into the HTML validator.
+
 
 
 ### CSS Validation
@@ -392,8 +399,6 @@ tests/test_settings.py - No errors listed
 tests/test_start.py - No errors listed
 
 tests/test_update.py - No errors listed
-
-
 
 ### Accessibility
 

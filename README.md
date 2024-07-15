@@ -311,6 +311,14 @@ User Stories: 2, 20
 
 ### HTML Validation
 
+Validated with the W3C Markup Validation Service
+
+[about.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Flibremate-online-bookshelf-3f7da7ed4e26.herokuapp.com%2Fabout)
+
+No errors listed
+
+
+
 ### CSS Validation
 
 ### JavaScript Validation

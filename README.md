@@ -432,7 +432,49 @@ tests/test_update.py - No errors listed
 
 Validated with the WAVE Web Accessibility Evaluation Tools
 
+![about.html](docs/accessibility/about-accessibility.png)
+
 about.html - No errors listed
+
+
+![account.html](docs/accessibility/account-accessibility.png)
+
+account.html - No errors listed
+
+
+![add_book.html](docs/accessibility/add-book-accessibility.png)
+
+add_book.html - No errors listed
+
+
+![community.html](docs/accessibility/community-accessibility.png)
+
+community.html - No errors listed
+
+
+![edit_book.html](docs/accessibility/edit-book-accessibility.png)
+
+edit_book.html - No errors listed
+
+
+![my_library.html](docs/accessibility/my-library-accessibility.png)
+
+my_library.html - One error listed for the search box input element not having a form label. As this is not part of an input form, and uses placeholder text instead to instruct the user of its purpose, I have instead used an aria-label attribute for better accessibility
+
+
+![register.html](docs/accessibility/register-accessibility.png)
+
+register.html - No errors listed
+
+
+![sign_in.html](docs/accessibility/sign-in-accessibility.png)
+
+sign_in.html - No errors listed
+
+
+![view_book.html](docs/accessibility/view-book-accessibility.png)
+
+view_book.html - No errors listed
 
 
 ### Performance

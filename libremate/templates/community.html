@@ -8,7 +8,7 @@
   <div class="row outline">
     <div class="col-sm-12 col-md-6 single-book p-1 my-md-3">
       {% if book.isbn and book.isbn != '0'%}
-      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" fetchpriority="high" alt="Book cover">
       {% else %}
       <img src="{{ url_for('static', filename='images/cover.webp') }}" alt="Book cover">
       <p class="cover-title center">{{book.book_title}}</p>

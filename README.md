@@ -459,7 +459,7 @@ edit_book.html - No errors listed
 
 ![my_library.html](docs/accessibility/my-library-accessibility.png)
 
-my_library.html - One error listed for the search box input element not having a form label. As this is not part of an input form, and uses placeholder text instead to instruct the user of its purpose, I have instead used an aria-label attribute for better accessibility
+my_library.html - No errors listed
 
 
 ![register.html](docs/accessibility/register-accessibility.png)
@@ -477,7 +477,19 @@ sign_in.html - No errors listed
 view_book.html - No errors listed
 
 
+[!404.html](docs/accessibility/404-accessibility.png)
+
+404.html - No errors listed
+
+
+
 ### Performance
+
+Performance testing by Google Lighthouse in Google Chrome Developer Tools
+
+about.html
+
+[!about.html]
 
 ### Compatibility
 

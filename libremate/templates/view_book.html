@@ -12,7 +12,8 @@
   <div class="row">
     <div class="col center m-4">
       <h2 class="p-2">Private Access Only</h2>
-      <p class="p-2">This user's bookshelf is private, for their eyes only. Turn back now, lest you wander forever, lost in the labyrinth of secret shelves...</p>
+      <p class="p-2">This user's bookshelf is private, for their eyes only. Turn back now, lest you wander forever, lost
+        in the labyrinth of secret shelves...</p>
       <a href="{{ url_for('shared.community', page=1) }}" class="btn accent">Community Books</a>
     </div>
   </div>
@@ -24,16 +25,16 @@
   <div class="row mt-3 mt-md-5">
     <div class="col-sm-12 col-md-6 my-md-5 single-book">
       {% if book.isbn and book.isbn != '0' %}
-        <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
       {% else %}
-        <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
-        <p class="cover-title center">{{book.book_title}}</p>
+      <img src="{{ url_for('static', filename='images/cover.webp') }}" alt="Book cover">
+      <p class="cover-title center">{{book.book_title}}</p>
       {% endif %}
     </div>
     <div class="col-sm-12 col-md-6 my-5">
       <h2>{{ book.book_title }}
         {% if book.favourite == True %}
-          <i class="fa-solid fa-star favourite"></i>
+        <i class="fa-solid fa-star favourite"></i>
         {% endif %}
       </h2>
       <h3>{{ book.author_name }}</h3><br>
@@ -48,7 +49,8 @@
   {% if book.book_owner == session['user'] %}
   <div class="row mt-md-5">
     <div class="col center">
-      <a href="{{ url_for('update.edit_book', book_id=book.id) }}" class="btn btn-success m-2" role="button">Edit Book</a>
+      <a href="{{ url_for('update.edit_book', book_id=book.id) }}" class="btn btn-success m-2" role="button">Edit
+        Book</a>
       <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#delete-book">Delete Book</button>
     </div>
   </div>
@@ -66,11 +68,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>This action is irreversible. If you delete the entry for this book, you will not be able to recover the data.</p>
+        <p>This action is irreversible. If you delete the entry for this book, you will not be able to recover the data.
+        </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="{{ url_for('delete.delete_book', book_id=book.id) }}" class="btn btn-danger m-2" role="button">Delete Book</a>
+        <a href="{{ url_for('delete.delete_book', book_id=book.id) }}" class="btn btn-danger m-2" role="button">Delete
+          Book</a>
       </div>
     </div>
   </div>

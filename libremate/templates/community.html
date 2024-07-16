@@ -5,33 +5,33 @@
 
 <div class="container">
   {% for book in books %}
-    <div class="row outline">
-      <div class="col-sm-12 col-md-6 single-book p-1 my-md-3">
-        {% if book.isbn and book.isbn != '0'%}
-          <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
-        {% else %}
-        <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="Book cover">
-        <p class="cover-title center">{{book.book_title}}</p>
-        {% endif %}
-        <br>
-        <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name.replace(' ', '+') }}&i=digital-text&tag=fakereferral"
-          target="_blank" class="btn kindle" role="button">Search on Kindle</a>
-        <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title.replace(' ', '+') }}+{{ book.author_name }}&tag=fakereferral"
-          target="_blank" class="btn kobo" role="button">Search on Kobo</a>
-      </div>
-      <div class="col-sm-12 col-md-6 my-4 mt-md-5">
-        <h2>{{ book.book_title }}
-          {% if book.favourite == True %}
-          <i class="fa-solid fa-star favourite"></i>
-          {% endif %}
-        </h2>
-        <h3>{{ book.author_name }}</h3><br>
-        <h4>Bookshelf: {{ book.book_owner }}</h4><br>
-        <h4>Status: {{ book.status.capitalize() }}</h4><br>
-        <h4>Review</h4>
-        <p>{{ book.review }}</p>
-      </div>
+  <div class="row outline">
+    <div class="col-sm-12 col-md-6 single-book p-1 my-md-3">
+      {% if book.isbn and book.isbn != '0'%}
+      <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg" alt="Book cover">
+      {% else %}
+      <img src="{{ url_for('static', filename='images/cover.webp') }}" alt="Book cover">
+      <p class="cover-title center">{{book.book_title}}</p>
+      {% endif %}
+      <br>
+      <a href="https://www.amazon.co.uk/s?k={{ book.book_title }}+{{ book.author_name.replace(' ', '+') }}&i=digital-text&tag=fakereferral"
+        target="_blank" class="btn kindle" role="button">Search on Kindle</a>
+      <a href="https://www.kobo.com/gb/en/search?query={{ book.book_title.replace(' ', '+') }}+{{ book.author_name }}&tag=fakereferral"
+        target="_blank" class="btn kobo" role="button">Search on Kobo</a>
     </div>
+    <div class="col-sm-12 col-md-6 my-4 mt-md-5">
+      <h2>{{ book.book_title }}
+        {% if book.favourite == True %}
+        <i class="fa-solid fa-star favourite"></i>
+        {% endif %}
+      </h2>
+      <h3>{{ book.author_name }}</h3><br>
+      <h4>Bookshelf: {{ book.book_owner }}</h4><br>
+      <h4>Status: {{ book.status.capitalize() }}</h4><br>
+      <h4>Review</h4>
+      <p>{{ book.review }}</p>
+    </div>
+  </div>
   {% endfor %}
 </div>
 
@@ -52,7 +52,8 @@
           {% if session['page'] == (x+1) %}
           <li class="page-item"><a class="page-link disabled" href="#">{{ x + 1}}</a></li>
           {% else %}
-          <li class="page-item"><a class="page-link" href="{{ url_for('shared.community', page=(x + 1)) }}">{{ x + 1}}</a></li>
+          <li class="page-item"><a class="page-link" href="{{ url_for('shared.community', page=(x + 1)) }}">{{ x +
+              1}}</a></li>
           {% endif %}
           {% endfor %}
           {% if session['page'] == page_numbers %}

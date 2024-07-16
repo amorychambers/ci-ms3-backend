@@ -9,7 +9,7 @@ shared = Blueprint("shared", __name__)
 @shared.route("/community/<page>")
 def community(page):
     books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(
-        Reader).filter(Reader.private is False).all())
+        Reader).filter(Reader.private == False).all())
     if len(books) == 0:
         page_numbers = 1
         current_group = []

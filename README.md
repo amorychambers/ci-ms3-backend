@@ -430,6 +430,11 @@ tests/test_update.py - No errors listed
 
 ### Accessibility
 
+Validated with the WAVE Web Accessibility Evaluation Tools
+
+about.html - No errors listed
+
+
 ### Performance
 
 ### Compatibility

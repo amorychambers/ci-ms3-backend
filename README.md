@@ -477,7 +477,7 @@ sign_in.html - No errors listed
 view_book.html - No errors listed
 
 
-[!404.html](docs/accessibility/404-accessibility.png)
+![404.html](docs/accessibility/404-accessibility.png)
 
 404.html - No errors listed
 
@@ -489,7 +489,51 @@ Performance testing by Google Lighthouse in Google Chrome Developer Tools
 
 about.html
 
-[!about.html]
+![about.html](docs/performance/about-performance.png)
+
+
+account.html 
+
+![account.html](docs/performance/account-performance.png)
+
+
+add_book.html
+
+![add_book.html](docs/performance/add-book-performance.png)
+
+
+community.html
+
+![community.html](docs/performance/community-performance.png)
+
+
+edit_book.html
+
+![edit_book.html](docs/performance/edit-book-performance.png)
+
+
+my_library.html
+
+![my_library.html](docs/performance/my-library-perfomance.png)
+
+This is the only performance rating I am truly unsatisfied with. The performance dip noted here is largely being caused by each book cover image being provided by the Open Library Covers API loading on the page from an API request, and this was always the LCP. The issue with this page in particular is that it loads all of the users books at once, and so it creates a more notable delay. After experimenting with a few different suggestions to optimise the Resource Load Delay and the Resource Load Duration, I have found there was no reasonable option to improve the performance whilst still using the API for the My Library page. I considered separating the user's library into paginated pages, as is the case with the Community page, but logically this could not be done whilst providing the user different sorting options for their library. In future, when considering external resources, I will be more mindful of the performance cost when considering the value of the API. As this is the only page with notable lower performance, I have decided to accept this score for the project despite thinking it is unfortunately low, and accepting that this page in particular has a slightly longer loading time. This will be worth considering at the structural element of the UX Design process in future.
+
+
+register.html 
+
+![register.html](docs/performance/register-performance.png)
+
+
+sign_in.html 
+
+![sign_in.html](docs/performance/sign-in-performance.png)
+
+
+view_book.html 
+
+![view_book.html](docs/performance/view-book-performance.png)
+
+
 
 ### Compatibility
 

@@ -141,6 +141,15 @@ The site consists of eight main pages with several supplementary pages for clear
 
 Wireframes created in Balsamiq
 
+###
+
+Entity Relationship Diagram created in EDrawMax
+
+![ERD](docs/database-model-diagram.png)
+
+I have chosen to use a relational database. Each new user is created within the database using the Reader table. Each Reader entity creates and owns custom Genre entities and custom Book entities.
+This allows each users data to be meaningfully related, and allows for clearer separation between different users' data. 
+
 ## Technologies
 
 ### Languages 
@@ -1021,3 +1030,9 @@ python3 run.py
 ![View application](docs/deployment/local-6(b).png)
 
 ## Acknowledgements
+
+For their support and advice, I would like to thank a few people who contributed to the completion of this project.
+
+- My classmates from Coleg Y Cymoedd and Cardiff and Vale College, for their input and optimism
+- My mentor, Mo Shami, whose advice and support encouraged me to be more ambitious and more rigorous in completing this project
+- My class facilitator at Code Institute, Amy Richardson, who answers when I call for aid

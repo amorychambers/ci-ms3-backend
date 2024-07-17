@@ -537,6 +537,21 @@ view_book.html
 
 ### Compatibility
 
+The website was tested and proved fully functional on the following devices:
+
+Macbook Pro
+Windows 10 PC
+iPhone 13
+
+The website was tested and proved fully functional on the following browsers:
+
+Google Chrome
+Safari
+Firefox
+Microsoft Edge
+
+Additionally, it has been tested on all device options using Google Chrome Developer Tools and proved responsive on all device sizes.
+
 ### Testing User Stories
 
 #### First-Time User

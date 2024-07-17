@@ -851,12 +851,44 @@ All tests passing.
 
 ## Bugs
 
+As the development process for this site was fairly modular, I did not run into many notable bugs that were not corrected by minor fixes in the code I had written, or were not issues relating to layout and spacing for the Bootstrap grid. 
+
+The only notable bug that required more testing and experimentation was in the shared/routes.py file, and related to the condtional check for privacy. The following code was written with the intention of querying the database and only returning books from public users for display in the public community tab; this would ensure that users with a private account would not show up in the community tab.
+
+```
+    books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(
+        Reader).filter(Reader.private is False).all())
+```
+
+The bug this created lead to no books being displayed in the community tab, regardless of public or private status. I manually tested which part of the code was causing the bug by removing individual parts of the query one at a time to determine which was resulting in no results being returned. The issue here was caused by the use of the is operator; as I have since learned, the is operator checks whether two objects are the same object in memory, and as such, is not really fitting here for a conditional logic check. I fixed this bug by simply switching to the equality operator.
+
+```
+    books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(
+        Reader).filter(Reader.private == False).all())
+```
+
 
 ## Credits
 
 ### Media
 
+[Background image for website 'Books', Emily, Pexels](https://www.pexels.com/photo/books-768125/)
+
+[Background image for custom default book cover images 'a close up of a red book cover', Annie Spratt, Unsplash](https://unsplash.com/photos/a-close-up-of-a-red-book-cover-im8y4BO2hso)
+
 ### External Code
+
+Code snippet for confirming that the user input of 'password' and 'confirm password' matched with a custom validation message taken from Diego Leme
+[Codepen Snippet](https://codepen.io/diegoleme/pen/qBpyvr)
+
+Suggestion to use list expressions as the simplest way to split a list of books into small groups taken from Quora user Brecht Corbeel
+[Quora Response](https://qr.ae/psfqJI)
+
+Suggestion to test flash messages in automated testing by testing the returned response from a route's GET request taken from Stack Overflow user Leo Skhrnkv
+[Stack Overflow Response](https://stackoverflow.com/a/48855551)
+
+Code snippet for CSS styling to use hyphens and word breaks when user input contains no spaces and overflows taken from Stack Overflow user Philip Feldman
+[Stack Overflow Response](https://stackoverflow.com/a/34251171)
 
 ## Deployment
 

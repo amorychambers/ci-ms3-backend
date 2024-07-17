@@ -31,6 +31,7 @@ def sign_in():
 
 @authorisation.route("/sign_out")
 def sign_out():
+    session["user"] = None
     session.clear()
     flash("You have been logged out")
     return redirect(url_for("start.home"))

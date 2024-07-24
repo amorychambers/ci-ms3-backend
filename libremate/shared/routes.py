@@ -11,12 +11,16 @@ shared = Blueprint("shared", __name__)
 def community(page):
     if request.method == "POST":
         search = request.form.get("search_term").lower()
-        books = list(db.session.query(Book).order_by(Book.created_on.desc()).filter(
-            func.lower(Book.book_title).contains(search) | func.lower(Book.author_name).contains(search)).join(
+        books = list(db.session.query(Book).order_by(
+            Book.created_on.desc()).filter(
+            func.lower(
+                Book.book_title).contains(search) | func.lower(
+                Book.author_name).contains(search)).join(
             Reader).filter(Reader.private == False).all())
     else:
         search = None
-        books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(
+        books = list(db.session.query(Book).order_by(
+            Book.created_on.desc()).join(
             Reader).filter(Reader.private == False).all())
     if len(books) == 0:
         page_numbers = 1
@@ -28,4 +32,6 @@ def community(page):
         current_group = groups[(int(page)-1)]
         session['page'] = int(page)
     return render_template("community.html",
-                           books=current_group, page_numbers=page_numbers, search=search)
+                           books=current_group,
+                           page_numbers=page_numbers,
+                           search=search)

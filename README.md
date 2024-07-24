@@ -288,6 +288,7 @@ User Stories: 2, 10, 11, 12, 13
 ### Community
 
 - Displays public user reviews, staring with the most recent, broken down into shorter pages with a pagination tab for less cluttered and more easily digested reading for the user
+- Search box for users to search books or authors and find out what community members thought of them
 - Referral links for each book in the community tab 
 
 User Stories: 2, 6, 7, 19

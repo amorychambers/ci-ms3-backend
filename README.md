@@ -176,6 +176,8 @@ I built this web application in Flask, in order to make use of templating and to
 
 I used flask-unittest to write a test suite for all database interactions
 
+[coverage.py](https://coverage.readthedocs.io/en/7.6.0/)
+
 [SQLAlchemy](https://www.sqlalchemy.org/)
 
 I used the SQLAlchemy ORM to write efficient, clean Pythonic code for manipulating the database.
@@ -862,7 +864,23 @@ To run the automated tests from the command line, the format to execute a test m
 python3 -m unittest tests/[module_name]
 ```
 
-All tests passing. 
+All tests are passing. 
+
+Additionally, I have used the coverage.py tool to run my automated test suite and generate a report on the percentage of my code that is tested. Below the report shows an overall score of 92%, with lower scores for the library and shared blueprints which represent the My Library and Community pages. These pages were instead the focus of my manual testing; the function of these page is less focused on database manipulation and more on both accessing and displaying data in the GUI to the user, and as such, I chose to test them from a user experience perspective rather than using automated unittest tests.
+
+![Coverage Report](docs/coverage.png)
+
+To generate a coverage report, first install coverage.py - I did so using the pip3 installer - and run the following command from the terminal to test the entire suite:
+
+```
+coverage run -m unittest discover tests
+```
+
+And to generate a more user friendly report as shown in the above screenshot, this data can be displayed in an index.html file by using: 
+
+```
+coverage html
+```
 
 ## Bugs
 

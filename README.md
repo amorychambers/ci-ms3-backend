@@ -111,7 +111,7 @@ I used [HTML Color Codes](https://htmlcolorcodes.com/color-picker/) to choose tw
 
 ### Fonts
 
-I used two fonts on the website; one of which I used for custom book titles and for the main brand imagelink present in the header of every page, which is a display font conveying a literary tone, and one clearer font for any body of text on the site, which is easier and clearer to read.
+I used two fonts on the website; one of which I used for custom book titles and for the main brand link present in the header of every page, which is a display font conveying a literary tone, and one clearer font for any body of text on the site, which is easier and clearer to read.
 
 [Whisper](https://fonts.google.com/specimen/Whisper) - Display font
 
@@ -121,7 +121,7 @@ I used two fonts on the website; one of which I used for custom book titles and 
 
 The site consists of eight main pages with several supplementary pages for clear functionality.
 
-1. My Library - This is the homepage for logged in users. It displays the user's books, which can be sorted by several different datapoints, and allows the user to add new books or genre tags to their library. This page links to two supplementary pages, with forms to submit new books and genre names to the database.
+1. My Library - This is the homepage for logged in users. It displays the user's books, which can be sorted by several different datapoints, and allows the user to add new books or genre tags to their library. This page links to two supplementary pages, with forms to submit new books and new genre names to the database.
 
 2. View Book - Each book in the user's library can be viewed individually for visual clarity and to see further information. This page links to one supplementary page, which is a form the user can submit to edit the data associated with this book in the database.
 
@@ -214,7 +214,7 @@ Entity Relationship Diagram created in EDrawMax
 ![ERD](docs/database-model-diagram.png)
 
 I have chosen to use a relational database. Each new user is created within the database using the Reader table. Each Reader entity creates and owns custom Genre entities and custom Book entities.
-This allows each users data to be meaningfully related, and allows for clear separation between different users' data. 
+This allows each user's data to be meaningfully related, and allows for clear separation between different users' data. 
 
 ## Technologies
 
@@ -254,7 +254,7 @@ I used this tool to develop an Entity Relationship Diagram during the planning s
 
 [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
 
-This API provides cover images of books from their database, using an ISBN provided by the user. I decided to use this API instead of allowing the users to submit image urls to the database, for the sake of a consistent visual theme, and of ensuring that the images displayed were actual book covers and thus appropriate to the site. Additionally, I respect the work of Open Library tremendously and wanted to use their database of book covers. 
+This API provides cover images of books from their database, using an ISBN provided by the user. I decided to use this API instead of allowing the users to submit image urls to the database, for the sake of a consistent visual theme, and of ensuring that the images displayed were actual book covers and thus appropriate to the site. I respect the work of Open Library and am grateful to use their database of book covers for this project. 
 
 [Bootstrap](https://getbootstrap.com/)
 
@@ -355,7 +355,7 @@ User Stories: 2, 10, 11, 12, 13
 
 ### Community
 
-- Displays public user reviews, staring with the most recent, broken down into shorter pages with a pagination tab for less cluttered and more easily digested reading for the user
+- Displays public user reviews, starting with the most recent, broken down into shorter pages with a pagination tab for less cluttered and more easily digested reading for the user
 - Search box for users to search books or authors and find out what community members thought of them
 - Referral links for each book in the community tab 
 
@@ -367,7 +367,7 @@ User Stories: 2, 6, 7, 19
 - User can view their account settings and easily switch from public to private or from private to public
 - See all genres owned by the user, with the option to edit the genre names
 - Option to delete a custom genre; additional option in the confirmation modal before deleting to easily switch over each book currently under that genre to the default 'Misc', so that the entries are preserved, or to simply delete the genre along with all associated books 
-- User can delete their account and all associated data here, with a confirmation modal and custom coded checkbox to ensure account is not deleted by mistake
+- User can delete their account and all associated data here, with a confirmation modal and custom checkbox to ensure account is not deleted by mistake
 
 User Stories: 12, 14, 15, 16, 17, 18
 
@@ -539,7 +539,7 @@ edit_book.html - No errors listed
 
 ![my_library.html](docs/accessibility/my-library-accessibility.png)
 
-my_library.html - No errors listed
+my_library.html - One contrast error listed on the title text for the default book cover. This does not create a contrast error on any other page, and is not flagging an error consistently, so I have decided against changing the format for the default cover.
 
 
 ![register.html](docs/accessibility/register-accessibility.png)
@@ -596,7 +596,7 @@ my_library.html
 
 ![my_library.html](docs/performance/my-library-perfomance.png)
 
-This is the only performance rating I am truly unsatisfied with. The performance dip noted here is largely being caused by each book cover image being provided by the Open Library Covers API loading on the page from an API request, and this was always the LCP. The issue with this page in particular is that it loads all of the users books at once, and so it creates a more notable delay. After experimenting with a few different suggestions to optimise the Resource Load Delay and the Resource Load Duration, I have found there was no reasonable option to improve the performance whilst still using the API for the My Library page. I considered separating the user's library into paginated pages, as is the case with the Community page, but logically this could not be done whilst providing the user different sorting options for their library. In future, when considering external resources, I will be more mindful of the performance cost when considering the value of the API. As this is the only page with notable lower performance, I have decided to accept this score for the project despite thinking it is unfortunately low, and accepting that this page in particular has a slightly longer loading time. This will be worth considering at the structural element of the UX Design process in future.
+This is the only performance rating I am truly unsatisfied with. The performance dip noted here is largely being caused by each book cover image being provided by the Open Library Covers API loading on the page from an API request, and this was always the LCP. The issue with this page in particular is that it loads all of the users books at once, and so it creates a more notable delay. After experimenting with a few different suggestions to optimise the Resource Load Delay and the Resource Load Duration, I have found there was no reasonable option to improve the performance whilst still using the API for the My Library page. I considered separating the user's library into paginated tabs, as is the case with the Community page, but logically this could not be done whilst providing the user different sorting options for their library. In future, when considering external resources, I will be more mindful of the performance cost when considering the value of the API. As this is the only page with notable lower performance, I have decided to accept this score for the project despite thinking it is unfortunately low, and accepting that this page in particular has a slightly longer loading time. This will be worth considering at the structural element of the UX Design process in future.
 
 
 register.html 
@@ -1074,7 +1074,7 @@ pip3 install -r requirements.txt
 
 ![Install requirements](docs/deployment/local-2.png)
 
-3. Create a new file called env.py in the root folder of your directory. Within this file, paste the following code, and enter your own values where necessary. I have left the standard values for some of the variables, but the SECRET_KEY and DB_URL values must be entered. The DB_URL variable should point to your postgres database, either locally or hosted online.
+3. Create a new file called env.py in the root folder of your directory. Within this file, paste the following code, and enter your own values where necessary. I have left the standard values for some of the variables, but the SECRET_KEY and DB_URL values must be entered by the developer. The DB_URL variable should point to your postgres database.
 
 ```
 import os

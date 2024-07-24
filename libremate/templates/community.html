@@ -4,6 +4,19 @@
 <h1 class="center mb-3">Community Reviews</h1>
 
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="{{ url_for('shared.community', page=1) }}" method="POST" class="m-auto">
+        <label for="search_term" class="form-label">Search Books</label>
+        <input id="search_term" name="search_term" class="form-control" type="text" minlength="1" maxlength="50"
+            pattern="^[a-zA-Z0-9&'.,-][^\<\>]$">
+          <button type="submit" class="btn btn-large accent">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   {% for book in books %}
   <div class="row outline">
     <div class="col-sm-12 col-md-6 single-book p-1 my-md-3">

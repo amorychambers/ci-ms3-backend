@@ -148,7 +148,7 @@ Entity Relationship Diagram created in EDrawMax
 ![ERD](docs/database-model-diagram.png)
 
 I have chosen to use a relational database. Each new user is created within the database using the Reader table. Each Reader entity creates and owns custom Genre entities and custom Book entities.
-This allows each users data to be meaningfully related, and allows for clearer separation between different users' data. 
+This allows each users data to be meaningfully related, and allows for clear separation between different users' data. 
 
 ## Technologies
 
@@ -893,7 +893,7 @@ The only notable bug that required more testing and experimentation was in the s
         Reader).filter(Reader.private is False).all())
 ```
 
-The bug this created lead to no books being displayed in the community tab, regardless of public or private status. I manually tested which part of the code was causing the bug by removing individual parts of the query one at a time to determine which was resulting in no results being returned. The issue here was caused by the use of the Python is operator; as I have since learned, the is operator checks whether two objects are the same object in memory, and as such, is not really fitting here for a conditional logic check. I fixed this bug by simply switching to the equality operator.
+The bug this created lead to no books being displayed in the community tab, regardless of public or private status. I manually tested which part of the code was causing the bug by removing individual parts of the query one at a time to determine which was resulting in no results being returned. The issue here was caused by the use of the Python 'is' operator; as I have since learned, the is operator checks whether two objects are the same object in memory, and as such, is not really fitting here for a conditional logic check. I fixed this bug by simply switching to the equality operator.
 
 ```
     books = list(db.session.query(Book).order_by(Book.created_on.desc()).join(

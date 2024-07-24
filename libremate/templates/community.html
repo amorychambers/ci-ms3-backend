@@ -4,20 +4,21 @@
 <h1 class="center mb-3">Community Reviews</h1>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <form action="{{ url_for('shared.community', page=1) }}" method="POST" class="m-auto">
-        <label for="search_term" class="form-label">Search Books</label>
-        <input id="search_term" name="search_term" class="form-control" type="text" minlength="1" maxlength="50"
-            pattern="^[a-zA-Z0-9&'.,-][^\<\>]$">
-          <button type="submit" class="btn btn-large accent">Submit</button>
-      </form>
+  <form action="{{ url_for('shared.community', page=1) }}" method="POST" class="m-auto my-2">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <input id="search_term" name="search_term" class="form-control d-inline" placeholder="Search community books..." type="text" minlength="1"
+          maxlength="50" pattern="^[a-zA-Z0-9&'.,-][^\<\>]$" aria-label="Search for books posted by community members">
+      </div>
+      <div class="col-12 col-md-2">
+        <button type="submit" class="btn btn-large accent d-inline">Submit</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
 
 {% if search != None %}
-  <h2 class="center">Search results for "{{ search }}"</h2>
+<h2 class="center">Search results for "{{ search }}"</h2>
 {% endif %}
 
 <div class="container">

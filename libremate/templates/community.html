@@ -16,6 +16,10 @@
   </div>
 </div>
 
+{% if search != None %}
+  <h2 class="center">Search results for "{{ search }}"</h2>
+{% endif %}
+
 <div class="container">
   {% for book in books %}
   <div class="row outline">

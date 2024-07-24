@@ -141,6 +141,72 @@ The site consists of eight main pages with several supplementary pages for clear
 
 Wireframes created in Balsamiq
 
+<details><summary>About</summary>
+<img src="docs/wireframes/mobile-about.png">
+<img src="docs/wireframes/tablet-about.png">
+<img src="docs/wireframes/desktop-about.png">
+</details>
+
+<details><summary>Account</summary>
+<img src="docs/wireframes/mobile-account.png">
+<img src="docs/wireframes/tablet-account.png">
+<img src="docs/wireframes/desktop-account.png">
+</details>
+
+<details><summary>Add Book</summary>
+<img src="docs/wireframes/mobile-addbook.png">
+<img src="docs/wireframes/tablet-addbook.png">
+<img src="docs/wireframes/desktop-addbook.png">
+</details>
+
+<details><summary>Add Genre</summary>
+<img src="docs/wireframes/mobile-addgenre.png">
+<img src="docs/wireframes/tablet-addgenre.png">
+<img src="docs/wireframes/desktop-addgenre.png">
+</details>
+
+<details><summary>Community</summary>
+<img src="docs/wireframes/mobile-community.png">
+<img src="docs/wireframes/tablet-community.png">
+<img src="docs/wireframes/desktop-community.png">
+</details>
+
+<details><summary>Edit Book</summary>
+<img src="docs/wireframes/mobile-editbook.png">
+<img src="docs/wireframes/tablet-editbook.png">
+<img src="docs/wireframes/desktop-editbook.png">
+</details>
+
+<details><summary>My Library</summary>
+<img src="docs/wireframes/mobile-mylibrary.png">
+<img src="docs/wireframes/tablet-mylibrary.png">
+<img src="docs/wireframes/desktop-mylibrary.png">
+</details>
+
+<details><summary>Register</summary>
+<img src="docs/wireframes/mobile-register.png">
+<img src="docs/wireframes/tablet-register.png">
+<img src="docs/wireframes/desktop-register.png">
+</details>
+
+<details><summary>Sign In</summary>
+<img src="docs/wireframes/mobile-signin.png">
+<img src="docs/wireframes/tablet-signin.png">
+<img src="docs/wireframes/desktop-signin.png">
+</details>
+
+<details><summary>View Book</summary>
+<img src="docs/wireframes/mobile-viewbook.png">
+<img src="docs/wireframes/tablet-viewbook.png">
+<img src="docs/wireframes/desktop-viewbook.png">
+</details>
+
+<details><summary>404</summary>
+<img src="docs/wireframes/mobile-404.png">
+<img src="docs/wireframes/tablet-404.png">
+<img src="docs/wireframes/desktop-404.png">
+</details>
+
 ###
 
 Entity Relationship Diagram created in EDrawMax
@@ -399,6 +465,8 @@ popover.js - No errors listed
 search.js - No errors listed
 
 validate.js - No errors listed
+
+password.js - No errors listed
 
 ### Python Validation
 

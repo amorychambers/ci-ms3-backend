@@ -30,6 +30,8 @@ Developed by Benedict Amory Chambers
     5. [Performance](#performance)
     6. [Compatibility](#compatibility)
     7. [Testing user stories](#testing-user-stories)
+    8. [Testing user input](#testing-user-input)
+    9. [Automated test](#automated-tests)
 7. [Bugs](#bugs)
 8. [Credits](#credits)
 9. [Deployment](#deployment)
